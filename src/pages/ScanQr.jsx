@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import CardGrid from '../components/scan-qr/CardGrid';
 import ScanHero from '../components/scan-qr/ScanHero';
 import ScanTabs from '../components/scan-qr/ScanTab';
+import Banner from '../components/common/Banner';
 
 const ScanQr = () => {
   return (
@@ -37,7 +38,7 @@ const ScanQr = () => {
 
         <meta name="author" content="Somashekhar Chalavadi" />
       </Helmet>
-
+    <Banner title={'Scan Qr'} text={'Scan your Sheet and Get Updated'} />
       <ScanHero />
       <ScanTabs />
       <CardGrid />

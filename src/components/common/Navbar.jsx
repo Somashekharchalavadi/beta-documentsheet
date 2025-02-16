@@ -72,10 +72,10 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`py-2 px-3 rounded-md ${
+                  className={`py-2 px-3 hover:border-b  hover:border-green-400 ${
                     pathname === link.href
-                      ? 'bg-green-300 text-black shadow-md'
-                      : 'text-black hover:bg-green-200'
+                      ? ' border-b border-green-500 text-black'
+                      : ' text-black '
                   }`}
                 >
                   {link.label}
@@ -88,7 +88,7 @@ const Navbar = () => {
               <Link to="/create-new-sheet">
                 <button
                   type="button"
-                  className="text-white bg-[#219B9D] hover:bg-[#1A776F] font-regular rounded-2xl text-sm px-4 py-2 text-center"
+                  className="text-white bg-[#219B9D] hover:bg-[#1A776F] font-regular rounded-2xl text-sm px-4 py-2 text-center hidden md:block"
                 >
                   Get Your Sheet
                 </button>
