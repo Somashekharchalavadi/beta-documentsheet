@@ -1,7 +1,7 @@
 const HeroAbout = () => {
   return (
     <>
-      <section className="md:my-36 my-24 p-1">
+      <section className="my-12 p-1">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Image Section */}
           <div className="relative">
@@ -11,7 +11,7 @@ const HeroAbout = () => {
                 <img
                   src="https://res.cloudinary.com/dlgyf2xzu/image/upload/v1732434259/1a__4_-removebg-preview_gmm7s1.png"
                   alt="Lady in Car 1"
-                  className="w-2/3 rounded-lg shadow-lg "
+                  className="w-2/3 rounded-lg"
                   width={1000}
                   height={1000}
                   loading="lazy"
@@ -30,9 +30,6 @@ const HeroAbout = () => {
 
           {/* Right: Content Section */}
           <div>
-            <h4 className="text-orange-500 font-semibold uppercase text-sm tracking-wide p-1">
-              About Us
-            </h4>
             <h2 className="md:text-4xl text-xl font-bold text-gray-800 mt-2 p-1">
               Simplifying Document Management for You
             </h2>

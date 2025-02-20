@@ -8,42 +8,87 @@ const TermsCondition = () => {
           text={'Read our terms and conditions for more details.'}
         />
 
-        <div className="md:mx-36 md:py-12 md:pb-0 md:pt-0 pb-20 pt-6 leading-relaxed px-4 md:text-lg text-sm text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nobis itaque ratione
-          sit tempora repudiandae quisquam accusamus, dolorem molestiae consectetur beatae iusto ut
-          quis amet expedita corrupti repellendus inventore magnam vitae nesciunt, saepe at vel
-          velit eaque? Odio quibusdam, totam suscipit reiciendis praesentium officia ullam nulla,
-          aliquam nesciunt magni maxime rem inventore autem numquam fuga at, culpa voluptatum.
-          Aliquid quos vero sed autem praesentium quaerat consequuntur qui dicta suscipit eius
-          exercitationem facilis nisi libero perferendis commodi quia nesciunt magnam voluptatum,
-          adipisci eos excepturi? Aut quibusdam delectus soluta a reiciendis. Eum aut voluptatem
-          quibusdam dolor tempore dolores saepe. Earum vitae sed, dolores unde esse labore amet iure
-          corporis quisquam? Dignissimos sequi beatae, nemo possimus animi laudantium rem quaerat,
-          accusantium, id tempora voluptatibus. Porro nostrum pariatur iste amet? Officiis minus
-          commodi cum natus consectetur reprehenderit necessitatibus facilis magnam error temporibus
-          sunt, modi qui provident animi nihil doloremque adipisci voluptate et ullam! Incidunt
-          veniam eius aliquam sunt sapiente explicabo iste illum quos minus cum. Vero cum labore,
-          rerum deserunt libero nobis eveniet adipisci, optio ad, temporibus aut inventore eaque sed
-          quia similique illo unde magni a minima aliquam facere reprehenderit voluptatibus debitis?
-          Blanditiis, earum velit. Possimus, doloribus quo ipsa repellat numquam eum atque ad magni
-          eligendi a vel neque tenetur molestias quibusdam dolores? Dolor tempore, labore quia et
-          aut magnam optio porro voluptatem corrupti tempora corporis dicta dolore consectetur
-          consequuntur. Minima unde deleniti aliquid consequuntur? Labore fugit dicta, consectetur
-          similique, doloremque voluptas praesentium distinctio amet esse optio et. Cum non quam
-          facilis eius quis quod corporis maxime odio mollitia iusto amet voluptates quidem
-          pariatur, accusantium fugiat. Rerum vero commodi praesentium accusantium modi consectetur
-          eum cum nobis fugiat doloribus porro aspernatur laudantium maiores corporis, nemo hic,
-          nihil voluptate necessitatibus? Numquam, vero, molestias iure quis veritatis a suscipit
-          illum optio sapiente quaerat ab quo excepturi, iusto eaque et repellendus sit totam
-          quisquam! Tempora, aliquam voluptatibus alias error quaerat officiis, placeat adipisci
-          distinctio dicta dignissimos nulla quia ex aspernatur at aliquid minus exercitationem
-          ullam dolorem magni ipsam officia doloribus! Neque, eos commodi earum delectus, doloribus
-          modi voluptatem iste sunt quos laboriosam officia repudiandae magnam officiis iusto
-          tempore inventore, similique dicta distinctio nihil iure expedita atque. Dolor quasi neque
-          voluptates ex incidunt eius a animi sapiente quisquam autem esse quas officia tenetur
-          repellendus nam, laudantium, libero, voluptatibus sit. Ipsum id deserunt nisi corporis
-          officiis dolores, illum molestias expedita ducimus et, soluta enim totam quidem quaerat
-          similique? Fuga!
+        <div className="md:mx-36 md:py-12  pb-20 pt-6 leading-relaxed px-4 md:text-lg text-sm text-justify">
+          <h1 className='font-bold text-2xl mb-2'>Policy & Guidelines</h1>
+
+          <h2 className='font-semibold text-xl mb-2'>Introduction</h2>
+          <p className='text-base'>Welcome to Document Sheet. We are committed to ensuring a secure and transparent process for the issuance and use of our digital and physical document sheets. This Policy & Guidelines page outlines the terms, conditions, and ethical use of our services.</p>
+          <p className='text-base'>By accessing and utilizing our website and services, you agree to abide by these policies, ensuring compliance with all applicable laws and regulations.</p>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Legal Compliance</h2>
+          <p className='text-base'>Document Sheet operates in strict adherence to legal guidelines. Our document sheets are not stamp papers but serve as supplementary pages in bond agreements and other legal documentation.</p>
+          <p className='text-base'>We comply with all government regulations, including <strong>GST Registration</strong> and <strong>MSME Registration</strong>, ensuring legitimacy and reliability.</p>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Authorized Use</h2>
+          <p className='text-base'>Our document sheets are intended for various formal purposes, such as:</p>
+          <ul>
+            <li>👉🏻 Private company records</li>
+            <li>👉🏻 Biodata</li>
+            <li>👉🏻 Applications</li>
+            <li>👉🏻 Agreements</li>
+            <li>👉🏻 Stories and novels</li>
+          </ul>
+          <p className='text-base mt-3'>The information entered on our website, including Name, Date, Place, Purpose, State, and District, is securely stored and becomes a permanent part of the document’s history. Users are responsible for providing accurate information, as any errors cannot be rectified once recorded.</p>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Key Policies</h2>
+
+          <h3 className='font-semibold text-xl mb-2 mt-4'>1. Document Sheet Usage</h3>
+          <ul>
+            <li>👉🏻 Each document sheet is issued with a unique serial number and QR code, ensuring authenticity and preventing duplication.</li>
+            <li>👉🏻 Once used, the document sheet’s details remain securely stored in our database and cannot be modified.</li>
+            <li>👉🏻 Misuse, forgery, or unauthorized replication of document sheets violates our policies and may lead to legal consequences.</li>
+          </ul>
+
+          <h3 className='font-semibold text-xl mb-2 mt-4'>2. Data Security & Confidentiality</h3>
+          <ul>
+            <li>👉🏻 We prioritize the security of user data and do not use cookies for storage.</li>
+            <li>👉🏻 User information is encrypted and protected from unauthorized access.</li>
+            <li>👉🏻 Retrieval of document sheet details is available through QR code scanning or serial number search, with a minimal service fee for downloading a Validation Certificate.</li>
+          </ul>
+
+          <h3 className='font-semibold text-xl mb-2 mt-4'>3. Return & Refund Policy</h3>
+          <ul>
+            <li>👉🏻 Users who do not utilize a purchased document sheet can return it within <strong>7 days</strong> and receive a <strong>90% refund</strong>, provided that complete and valid information is submitted.</li>
+            <li>👉🏻 Refund requests made after the stipulated time will not be entertained.</li>
+            <li>👉🏻 Refunds will be processed as per our internal policies and applicable legal frameworks.</li>
+          </ul>
+
+          <h3 className='font-semibold text-xl mb-2 mt-4'>4. Purchase & Delivery</h3>
+          <ul>
+            <li>👉🏻 Customers can purchase a <strong>Document Sheet Package</strong> for <strong>INR 100</strong>, which includes five high-quality document sheets and a fireproof and waterproof storage file.</li>
+            <li>👉🏻 Orders can be placed via our website, and products will be shipped to the provided address.</li>
+            <li>👉🏻 Our services are available across India, ensuring accessibility to all users.</li>
+          </ul>
+
+          <h3 className='font-semibold text-xl mb-2 mt-4'>5. Liability & Disclaimers</h3>
+          <ul>
+            <li>👉🏻 We do not guarantee the accuracy, completeness, or suitability of the information provided on the website.</li>
+            <li>👉🏻 Users must independently assess whether the document sheet meets their specific legal or personal requirements.</li>
+            <li>👉🏻 Unauthorized use, fraudulent activities, or tampering with the document sheet will result in permanent revocation of services.</li>
+            <li>👉🏻 Force majeure events, including natural disasters or technical failures, absolve us of any liability.</li>
+          </ul>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Terms of Service Agreement</h2>
+          <p className='text-base'>By using our website and availing of our services, users enter into a legally binding agreement with Document Sheet. This agreement ensures that users:</p>
+          <ul>
+            <li>👉🏻 Acknowledge and accept all policies and guidelines outlined herein.</li>
+            <li>👉🏻 Take full responsibility for the accuracy of the information they provide.</li>
+            <li>👉🏻 Understand that unauthorized use of document sheets may result in legal consequences.</li>
+            <li>👉🏻 Agree to periodic updates of policies without prior notification.</li>
+            <li>👉🏻 Adhere to all applicable laws in India governing the usage of document sheets.</li>
+          </ul>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Customer Support & Contact Information</h2>
+          <p className='text-base'>For any queries, concerns, or refund requests, users can contact us via:</p>
+          <ul>
+            <li><strong>Phone:</strong> <a href="tel:+919916566269">+919916566269</a></li>
+            <li><strong>Email:</strong> <a href="mailto:contact@documentsheet.com">contact@documentsheet.com</a></li>
+          </ul>
+
+          <p className='text-base'>We are committed to providing a secure and user-friendly experience for all our customers. By following these policies and guidelines, we aim to maintain the integrity and authenticity of our document sheets, ensuring a reliable service for all users.</p>
+
+          <p><strong>Thank you for choosing Document Sheet. This association has contributed to develop this product in this business</strong></p>
+
         </div>
       </div>
     </>

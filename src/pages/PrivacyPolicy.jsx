@@ -8,51 +8,57 @@ const PrivacyPolicy = () => {
           text={'We protect your data. Read our privacy policy to learn more.'}
         />
 
-        <div className="md:mx-36 md:py-12 md:pb-0 md:pt-0 pb-20 pt-6 leading-relaxed px-4 md:text-lg text-sm text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, commodi, voluptate
-          autem accusamus omnis adipisci enim fugiat cupiditate aspernatur alias voluptatum. Maxime
-          suscipit placeat dignissimos. Totam officiis, praesentium tenetur doloremque impedit et ut
-          libero fuga ea autem maxime facilis doloribus recusandae eum dignissimos placeat? Iure
-          nisi, et ipsam, nostrum dolores libero hic quod incidunt placeat fugit blanditiis optio
-          quaerat beatae eveniet aliquam repellat deserunt corporis. Veritatis, laudantium
-          accusamus. Consequatur sit cupiditate odio eos ducimus, excepturi ullam aliquid similique
-          amet corporis enim. Inventore odio itaque fuga ad, ducimus animi similique in ipsum
-          asperiores delectus tempore sunt quo non labore cupiditate, iure, exercitationem tempora
-          hic nobis ratione minima sapiente numquam nostrum? Dolore reprehenderit aliquam sapiente
-          fuga. Obcaecati, consequatur maxime sit vero eligendi eius illum cumque nemo repudiandae,
-          perferendis maiores! Excepturi aliquid quod voluptatum, maiores esse minima quae facere
-          natus fugit nesciunt! Fuga voluptas earum laborum sit, consequatur architecto non
-          voluptates quaerat possimus repudiandae asperiores quis impedit ut tenetur voluptatem,
-          placeat assumenda nam distinctio iste quia ad? Facere rerum iste sint quasi, inventore
-          voluptatibus soluta numquam dolores ipsa vitae, quaerat ipsum mollitia cupiditate.
-          Pariatur optio rerum dolorem quo libero iusto fugit? Inventore quam facilis maiores
-          incidunt nobis dignissimos placeat enim officia alias aspernatur nihil optio corrupti odio
-          veritatis molestias fugiat, eius ea earum rem nostrum, deleniti iste neque, cupiditate
-          nesciunt. Voluptates consectetur alias corrupti saepe, ipsam corporis nihil rerum autem
-          quaerat quae. Fuga fugit, dolores omnis aperiam itaque praesentium vel. Quidem,
-          accusantium. Culpa veniam tenetur neque alias obcaecati necessitatibus, praesentium eaque
-          corporis soluta fuga quis maxime dicta similique aliquid eligendi debitis excepturi
-          suscipit vitae placeat enim. Autem aliquam quo et quos eos ratione, fugit dolores
-          quibusdam eveniet cupiditate repellat, recusandae in dolore unde pariatur incidunt magni
-          quae iusto? Autem, dolore minima adipisci atque tenetur officia consequuntur. Natus
-          dolores, a molestias minima nulla, enim reiciendis vero impedit officiis numquam, fugit
-          ipsa pariatur error temporibus esse laudantium sit voluptatum quasi. Quidem animi eum vero
-          dolorum a dolorem eaque adipisci alias voluptatem! Soluta est fugit expedita ab fuga
-          perferendis facere quae voluptatum voluptate laudantium optio, ratione hic cupiditate
-          nobis nihil magni ipsum quisquam quis eveniet. Cumque fugit laborum ipsam unde tempore
-          aperiam facere corporis consectetur, minima aspernatur eius eligendi illum cupiditate
-          iusto possimus error voluptatum porro dolor ad quis aliquid. Optio cumque ex enim maxime?
-          Ex, delectus! Perspiciatis excepturi, recusandae sint, optio minus consequatur culpa cum
-          consequuntur sunt placeat id soluta. Dolorum, facilis. Voluptatibus, dolor dicta eos enim
-          et iure. Dicta tempora temporibus minima numquam repudiandae vel beatae, omnis in iste,
-          accusamus veritatis iure illum similique. Suscipit voluptatum voluptate minus, nihil
-          nesciunt aliquid rerum in quia quos explicabo nobis inventore adipisci quidem quam
-          laboriosam distinctio assumenda sunt. Temporibus, impedit maiores? Hic, rerum maiores. Ut
-          similique alias necessitatibus aliquam, ipsum molestias quas consequatur a deserunt quo
-          nobis, cupiditate obcaecati eaque est vel incidunt minus quos quam corporis provident
-          numquam quis aliquid cum! Nemo dolores voluptas vitae veniam reiciendis natus doloremque
-          ut quam minima asperiores totam earum debitis atque esse, cum impedit quis facere ab!
-          Dolorum, unde a?
+        <div className="md:mx-36 md:py-12  pb-20 pt-6 leading-relaxed px-4 md:text-lg text-sm text-justify">
+          <h1 className='font-bold text-2xl mb-2'>Privacy Policy</h1>
+
+          <p className='text-base'>At <strong>Document Sheet</strong>, we prioritize the privacy and security of our users. This Privacy Policy outlines how we collect, use, and protect your information when you interact with our platform. By using our services, you agree to the practices described below.</p>
+
+          <h2 className='font-semibold text-xl my-2'>Information We Collect</h2>
+          <p  className='text-base'>We only collect essential information to provide and improve our services. This includes:</p>
+          <ul>
+            <li className='text-base'><strong>Name:</strong> To identify the user associated with a document sheet.</li>
+            <li className='text-base'><strong>Place:</strong> To record the location where the document is used.</li>
+            <li className='text-base'><strong>Reason:</strong> To log the purpose of the document sheet usage.</li>
+            <li className='text-base'><strong>Date:</strong> To maintain accurate usage records.</li>
+          </ul>
+          <p  className='text-base mt-2'><strong>Note:</strong> We do not collect or use cookies to store any data.</p>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>How We Use Your Information</h2>
+          <p className='text-base'>The collected data is used for the following purposes:</p>
+          <ul>
+            <li>👉🏻 To generate and personalize document sheets with accurate details.</li>
+            <li>👉🏻 To store and maintain a secure record of all document sheets in our database.</li>
+            <li>👉🏻 To validate document sheets using unique serial numbers or QR codes.</li>
+            <li>👉🏻 To process refunds for unused document sheets.</li>
+          </ul>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Data Security</h2>
+          <p className='text-base'>We implement advanced security measures to protect your information:</p>
+          <ul>
+            <li>👉🏻 Secure servers and encryption to prevent unauthorized access.</li>
+            <li>👉🏻 Restricted access to user data, ensuring confidentiality.</li>
+          </ul>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>User Rights</h2>
+          <p className='text-base'>You have the right to:</p>
+          <ul>
+            <li>👉🏻 Access and validate your document sheet using the serial number or QR code.</li>
+            <li>👉🏻 Request a refund for unused sheets.</li>
+            <li>👉🏻 Contact us for data-related inquiries or support.</li>
+          </ul>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Legal Compliance</h2>
+          <p className='text-base'>We strictly adhere to government regulations and do not promote or support any illegal activities.</p>
+
+          <h2 className='font-semibold text-xl mb-2 mt-4'>Contact Us</h2>
+          <p className='text-base'>For questions about our Privacy Policy, reach out to us at:</p>
+          <ul>
+            <li><strong>Phone:</strong> <a href="tel:+919916566269">+919916566269</a></li>
+            <li><strong>Email:</strong> <a href="mailto:contact@documentsheet.com">contact@documentsheet.com</a></li>
+          </ul>
+
+          <p className='text-xl mb-2 mt-4'><strong>Your trust is our priority, and we are committed to safeguarding your data at all times.</strong></p>
+
         </div>
       </div>
     </>

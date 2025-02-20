@@ -3,6 +3,7 @@ import AboutCard from '../components/About/AboutCard';
 import AboutTabs from '../components/About/AboutTabs';
 import CTA from '../components/common/CTA';
 import HeroAbout from '../components/About/HeroAbout';
+import Banner from '../components/common/Banner';
 
 const About = () => {
   return (
@@ -38,7 +39,7 @@ const About = () => {
 
         <meta name="author" content="Somashekhar chalavadi" />
       </Helmet>
-
+    <Banner title={'About Us'} text={'See How We are helping People To Manage Sheets'}  />
       <HeroAbout />
       <AboutTabs />
       <AboutCard />

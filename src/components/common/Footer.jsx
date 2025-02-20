@@ -1,6 +1,6 @@
 import { Home, PlusCircleIcon, ScanBarcodeIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 const Footer = () => {
   const pathname = window.location.pathname;
   return (
@@ -29,25 +29,69 @@ const Footer = () => {
         </div>
       </footer>
 
-      <div className="flex justify-center items-center">
-        <footer className="w-full md:hidden flex justify-around items-center bg-[#C2E9DB] z-[20] fixed bottom-1 p-1 shadow-md rounded-t-3xl">
-          <Link to={'/'} className={`flex flex-col justify-center items-center ${pathname === "/" ? 'text-orange-500' : 'text-black'}`}>
-            <Home size={25} />
-            <small className='text-xs'> Home </small>
-          </Link>
-          <Link
-            to={'/create-new-sheet'}
-            className={`flex flex-col justify-center items-center ${pathname === "/create-new-sheet" ? 'text-orange-500' : 'text-black'}`}
+      <motion.footer
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            transition={{ type: 'spring', stiffness: 200 }}
+            className="fixed -bottom-1 left-0 right-0 bg-gray-100 text-white flex justify-around px-4 py-4 md:hidden shadow-3xl rounded-t-2xl"
           >
-            <PlusCircleIcon size={25} />
-            <small className='text-xs'>Create</small>
-          </Link>
-          <Link to={'/scan-qr'} className={`flex flex-col justify-center items-center ${pathname === "/scan-qr" ? 'text-orange-500' : 'text-black'}`}>
-            <ScanBarcodeIcon size={25} />
-            <small className='text-xs'>Scan</small>
-          </Link>
-        </footer>
-      </div>
+
+              {/* Home Button */}
+              <motion.a
+              className={`flex flex-col items-center group w-1/3 text-xs ${pathname === "/" ? 'text-orange-500' : 'text-gray-500'}`}
+              href='/'
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.2, color: '#FACC15' }}
+            >
+              <div className="w-6">
+                {pathname === "/" ? (
+                   <Home  className="w-full h-full transition-transform duration-300 ease-in-out" />
+                ) : (
+                  <Home  className="w-full h-full transition-transform duration-300 ease-in-out" />
+                )}
+              </div>
+              Home
+            </motion.a>
+
+
+            {/* Create-new sheet  Button */}
+            <motion.a
+              className={`flex flex-col items-center  w-1/3 group text-xs ${pathname === "/create-new-sheet" ? 'text-orange-500' : 'text-gray-500'}`}
+              href='/create-new-sheet'
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.2, color: '#FACC15' }}
+            >
+              <div className="w-6">
+                {pathname === "/create-new-sheet" ? (
+                  <PlusCircleIcon className='w-full h-full transition-transform duration-300 ease-in-out' />
+                ) : (
+                  <PlusCircleIcon className='w-full h-full transition-transform duration-300 ease-in-out' />
+                )}
+                
+                 <small className='text-xs'></small>
+              </div>
+              <p>Create </p>
+            </motion.a>
+
+          
+
+            {/* Settings Button */}
+            <motion.a
+              className={`flex flex-col items-center  w-1/3  group text-xs ${pathname === "/scan-qr" ? 'text-orange-500' : 'text-gray-500'}`}
+             href='/scan-qr'
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.2, color: '#FACC15' }}
+            >
+              <div className="w-6">
+                {pathname === "/scan-qr" ? (
+                  <ScanBarcodeIcon className="w-full h-full transition-transform duration-300 ease-in-out" />
+                ) : (
+                  <ScanBarcodeIcon className="w-full h-full transition-transform duration-300 ease-in-out" />
+                )}
+              </div>  
+              Scan
+            </motion.a>
+          </motion.footer>
     </>
   );
 };

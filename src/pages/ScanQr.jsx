@@ -38,7 +38,7 @@ const ScanQr = () => {
 
         <meta name="author" content="Somashekhar Chalavadi" />
       </Helmet>
-    <Banner title={'Scan Qr'} text={'Scan your Sheet and Get Updated'} />
+      <Banner title={'Scan Qr'} text={'Scan your Sheet and Get Updated'} />
       <ScanHero />
       <ScanTabs />
       <CardGrid />

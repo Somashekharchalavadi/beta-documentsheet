@@ -10,8 +10,8 @@ const ScanTabs = () => {
   const [serialNumber, setSerialNumber] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [sheetDetails, setSheetDetails] = useState(null); // State for fetched data
-  const [activeTab, setActiveTab] = useState('scanner'); // Default tab
+  const [sheetDetails, setSheetDetails] = useState(null);
+  const [activeTab, setActiveTab] = useState('scanner'); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,12 +48,14 @@ const ScanTabs = () => {
     <section className="md:my-24 p-1">
       <div className="border-dashed border-4 p-2 rounded-2xl max-w-2xl border-orange-200 mx-auto flex space-x-4 justify-center mb-8">
         <button
+        type='button'
           className={`tab ${activeTab === 'scanner' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-800'} px-6 py-2 rounded-lg`}
           onClick={() => setActiveTab('scanner')}
         >
           QR Code Scanner
         </button>
         <button
+         type='button'
           className={`tab ${activeTab === 'serialSearch' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-800'} px-6 py-2 rounded-lg`}
           onClick={() => setActiveTab('serialSearch')}
         >
@@ -63,7 +65,7 @@ const ScanTabs = () => {
 
       <div className="tab-content">
         {activeTab === 'scanner' && (
-          <div className="md:py-16 py-12 p-1 flex justify-center">
+          <div className="py-12 p-1 flex justify-center">
             <div className="max-w-7xl mx-auto rounded-lg md:p-8 p-2 flex justify-center border-dashed border-2 border-orange-300">
               <div className="flex flex-col items-center md:w-2/3">
                 <QrCodeScanner />
@@ -81,7 +83,7 @@ const ScanTabs = () => {
         )}
 
         {activeTab === 'serialSearch' && (
-          <div className="md:py-16 py-12 p-1">
+          <div className="py-12 p-1">
             <div className="max-w-7xl mx-auto rounded-lg md:p-8 p-2 flex justify-center border-dashed border-2 border-orange-300">
               <div className="w-1/3 hidden md:block">
                 <Player
