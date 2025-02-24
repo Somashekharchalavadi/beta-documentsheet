@@ -13,7 +13,7 @@ const Accordion = ({ heading, content }) => {
         <button
           type="button"
           onClick={toggleAccordion}
-          className={`flex items-center justify-between md:w-[40vw] w-full  p-5 font-medium rtl:text-right text-black border ${
+          className={`flex items-center justify-between  w-full  p-5 font-medium rtl:text-right text-black border ${
             isOpen ? 'border-[#1A776F]' : 'border-[#1A776F] rounded-t-xl'
           } rounded-md  hover:bg-green-100 gap-3`}
           aria-expanded={isOpen}
@@ -33,7 +33,7 @@ const Accordion = ({ heading, content }) => {
         </button>
       </h2>
       {isOpen && (
-        <div className="p-5 border md:w-[40vw] w-full border-green-200 ">
+        <div className="p-5 border  w-full border-green-200 ">
           <p className="text-gray-500">{content}</p>
         </div>
       )}

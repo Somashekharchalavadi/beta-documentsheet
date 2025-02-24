@@ -6,46 +6,52 @@ import Scan from '../components/home/Scan';
 import Empowering from '../components/home/Empowering';
 import Testimonial from '../components/common/Testimonial';
 import FAQ from '../components/home/FAQ';
+import Pricing from '../components/home/Pricing';
 
 const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Document Sheet - Your Digital Document Manager</title>
+        <title>Document Sheet - Your Digital Document Manager | Secure Document Solutions</title>
         <meta
           name="description"
-          content="Document Sheet is your ultimate note management solution. Easily store, organize, and access your documents and notes."
+          content="Transform your document management with Document Sheet. Create, store, and access your documents securely with QR code technology. Perfect for businesses and individuals."
         />
-
+        <meta
+          name="keywords"
+          content="document management, digital documents, QR code documents, secure storage, document organization, paperless solutions, document sharing"
+        />
         <meta property="og:title" content="Document Sheet - Your Digital Document Manager" />
         <meta
           property="og:description"
-          content="Organize and manage your notes with ease using Document Sheet. Create, share, and collaborate on notes."
+          content="Revolutionize your document management with Document Sheet. Secure, efficient, and easy-to-use digital document solutions with QR code access."
         />
-        <meta property="og:image" content="https://documentsheet.com/android-chrome-192x192.png" />
-        <meta property="og:url" content="https://documentsheet.com" />
         <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Document Sheet - Your Digital Document Manager" />
-        <meta
-          name="twitter:description"
-          content="Organize and manage your notes with ease using Document Sheet. Create, share, and collaborate on notes."
-        />
-        <meta name="twitter:image" content="https://documentsheet.com/android-chrome-192x192.png" />
-        <meta name="twitter:url" content="https://documentsheet.com" />
-
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://documentsheet.com" />
-        <meta name="author" content="Somashekhar chalavadi" />
       </Helmet>
-      <Hero />
-      <Cards />
-      <Scan />
-      <Empowering />
-      <FiveCards />
-      <Testimonial />
-      <FAQ />
+
+      <main className="overflow-hidden"> 
+        <Hero /> 
+        <Cards />
+ 
+        <FiveCards />
+
+        {/* Scan Feature */}
+        <Scan />
+
+        {/* Empowering Section */}
+        <Empowering />
+
+        {/* Testimonials */}
+        <Testimonial />
+
+        {/* FAQ Section */}
+        <FAQ />
+
+        {/* Pricing Section */}
+        <Pricing />
+      </main>
     </>
   );
 };

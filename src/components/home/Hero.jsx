@@ -1,66 +1,147 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <>
-      <section className="bg-[url('https://res.cloudinary.com/dlgyf2xzu/image/upload/v1732252678/Home-BG_pwas2s.webp')] bg-cover bg-center flex justify-center items-center md:min-h-screen md:pt-0 pt-12">
-        <div className="grid max-w-7xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-          <div className="mr-auto place-self-center lg:col-span-6 p-1">
-            <div>
-              <div
-                className="max-w-3xl mb-3 text-4xl font-semibold  md:text-5xl p-1 py-2"
-                style={{ lineHeight: '68px' }}
+    <section className="bg-[url('https://res.cloudinary.com/dlgyf2xzu/image/upload/v1732252678/Home-BG_pwas2s.webp')] bg-cover bg-center flex justify-center items-center md:min-h-screen md:pt-0 pt-12 relative overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-200 rounded-full filter blur-3xl opacity-20 animate-pulse delay-700"></div>
+      </motion.div>
+
+      <div className="grid max-w-7xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 relative">
+        <motion.div
+          className="mr-auto place-self-center lg:col-span-6 p-1"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h1 className="max-w-3xl mb-3 text-4xl font-bold md:text-5xl p-1 py-2 leading-tight md:text-start text-center">
+              Trusted Documents For Your{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                Real Estate
+              </span>
+              <motion.span
+                className="inline-block bg-orange-400 px-4 py-1 ms-2 md:mt-0 mt-4 rounded-3xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Trusted Documents For Your Real Estate{' '}
-                <span className="bg-orange-400 px-4 py-1 ms-2 rounded-3xl p-1">needs</span>
-              </div>
-            </div>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">
-              Effortless and reliable document solutions for real estate <br /> — because every
-              detail matters.
-            </p>
-            <div className="flex ">
+                needs
+              </motion.span>
+            </h1>
+          </motion.div>
+
+          <motion.p
+            className="max-w-2xl mb-8 text-gray-600 lg:mb-8 md:text-lg lg:text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            Effortless and reliable document solutions for real estate{' '}
+            <br className="hidden md:block" /> — because every detail matters.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/create-new-sheet"
-                className="inline-flex items-center justify-center md:px-5 px-3 py-3 mr-3 md:text-base text-xs font-medium text-center text-white rounded-3xl bg-[#219B9D] hover:bg-[#A7E4CD] hover:text-black group focus:ring-2 focus:ring-green-300 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-full bg-gradient-to-r from-[#219B9D] to-[#219B9D]/80 hover:from-[#A7E4CD] hover:to-[#A7E4CD]/80 hover:text-black group transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Create Your Sheet
-                <svg
-                  className="w-5 h-5 ml-2 -mr-1 group/hover:translate-x-2 transition-transform duration-300 ease-in-out"
+                <motion.svg
+                  className="w-5 h-5 ml-2"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
                 >
                   <path
                     fillRule="evenodd"
                     d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                     clipRule="evenodd"
                   ></path>
-                </svg>
+                </motion.svg>
               </Link>
+            </motion.div>
 
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/scan-qr"
-                className="inline-flex items-center justify-center px-12  py-3 md:text-base text-xs font-medium text-center text-black border border-green-400 rounded-lg hover:bg-green-100"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-black bg-white border-2 border-green-400 rounded-full hover:bg-green-50 transition-all duration-300 shadow-md hover:shadow-lg"
               >
-                <i className="fi fi-rs-qr-scan pe-2"></i> Scan QR
+                <motion.i 
+                  className="fi fi-rs-qr-scan pe-2"
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                />
+                Scan QR
               </Link>
-            </div>
-          </div>
-          <div className=" lg:mt-16 lg:col-span-6 flex justify-end items-end">
-            <img
-              src={
-                'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734618574/Group_15_1_vxoqtz_bpyt44.webp'
-              }
-              width={1000}
-              height={1000}
-              loading="lazy"
-              alt="Hero Section"
-            />
-          </div>
-        </div>
-      </section>
-    </>
+            </motion.div>
+          </motion.div>
+
+          {/* Stats Section */}
+          <motion.div
+            className="grid grid-cols-3 gap-4 mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            {[
+              { number: '10K+', label: 'Active Users' },
+              { number: '50K+', label: 'Documents Created' },
+              { number: '99.9%', label: 'Satisfaction Rate' }
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                className="text-center"
+                whileHover={{ y: -5 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 + 1 }}
+              >
+                <div className="text-2xl font-bold text-[#219B9D]">{stat.number}</div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="lg:mt-0 lg:col-span-6 flex justify-end items-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <motion.img
+            src={'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734618574/Group_15_1_vxoqtz_bpyt44.webp'}
+            width={1000}
+            height={1000}
+            loading="lazy"
+            alt="Hero Section"
+            className="w-full h-auto max-w-xl"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

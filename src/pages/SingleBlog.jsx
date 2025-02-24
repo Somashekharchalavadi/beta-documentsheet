@@ -1,32 +1,48 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Blogs from '../data/Blogs';
-import { Link } from 'react-router-dom';
 import ShareButton from '../utils/ShareButton';
 import TimeCalculator from '../utils/TimeCalculator';
 import TruncateText from '../utils/TruncateText';
-import 'react-calendar/dist/Calendar.css';
-import Calendar from 'react-calendar';
+import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 
 const SingleBlog = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const blog = Blogs.find((b) => b.slug === slug);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!blog) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-gray-500">
-        Blog not found.
+      <div className="min-h-screen flex flex-col items-center justify-center text-center p-4">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Blog Not Found</h2>
+        <p className="text-gray-600 mb-8">The article you're looking for doesn't exist or has been moved.</p>
+        <button 
+          onClick={() => navigate('/resources')}
+          className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+        >
+          Back to Articles
+        </button>
       </div>
     );
   }
+
   const parsedDate = new Date(blog.createdOn.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3-$1-$2'));
+  const formattedDate = parsedDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
 
   return (
     <>
       <Helmet>
-        <title>{blog.title}</title>
-        <meta name="description" content={blog.title} />
+        <title>{blog.title} - Document Sheet</title>
+        <meta name="description" content={blog.description} />
 
         <meta property="og:title" content={blog.title} />
         <meta property="og:description" content={blog.description} />
@@ -47,76 +63,152 @@ const SingleBlog = () => {
         <meta name="author" content="Somashekhar Chalavadi" />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto my-24 flex md:flex-row flex-col">
-        <div className="p-4 md:w-2/3">
-          <div className="flex md:flex-row flex-col gap-2">
-            <h1 className="md:text-3xl text-lg font-semibold mb-4 p-1">{blog.title}</h1>
+      <motion.article
+        className="max-w-4xl mx-auto px-4 py-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Breadcrumb */}
+        <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-8">
+          <Link to="/resources" className="hover:text-orange-500">Resources</Link>
+          <span>/</span>
+          <span className="text-gray-900">{blog.title}</span>
+        </nav>
 
-            <div className="flex md:flex-col  md:justify-center justify-end items-center md:w-24 w-full">
-              <TimeCalculator text={blog.description} />
-              <ShareButton url={blog.slug} />
+        {/* Header */}
+        <header className="mb-12">
+          <motion.h1 
+            className="text-4xl font-bold text-gray-900 mb-4"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            {blog.title}
+          </motion.h1>
+
+          <motion.div 
+            className="flex flex-wrap items-center gap-4 text-sm text-gray-500"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="flex items-center">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {formattedDate}
             </div>
-          </div>
+            <div className="flex items-center">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <TimeCalculator text={blog.description} />
+            </div>
+            <ShareButton url={window.location.href} />
+          </motion.div>
+        </header>
 
+        {/* Featured Image */}
+        <motion.div 
+          className="relative rounded-xl overflow-hidden mb-12 shadow-xl"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
           <img
             src={blog.image}
             alt={blog.title}
-            width={800}
-            height={400}
-            loading="lazy"
-            className="rounded-lg mb-4"
+            className="w-full h-[400px] object-cover"
           />
-          <p className="text-gray-600 md:text-lg text-sm leading-relaxed">{blog.description}</p>
-        </div>
+        </motion.div>
 
-        <div className="md:w-1/3 w-full md:p-0 p-4">
-          <h2 className="text-xl font-bold mb-4">Related Articles</h2>
-          {Blogs.filter((b) => b.slug !== slug)
-            .slice(0, 5)
-            .map((relatedBlog, index) => (
-              <div key={index} className="mb-4 border p-4 border-gray-200 rounded-lg">
-                <Link to={`/resources/${relatedBlog.slug}`}>
-                  <h3 className="text-sm font-semibold text-gray-800 hover:underline">
-                    {relatedBlog.title}
-                  </h3>
-                </Link>
-                <p className="text-gray-600 text-sm">
-                  <TruncateText text={relatedBlog.description} maxLength={105} />
-                </p>
-                <div className="flex items-center my-2">
-                  <TimeCalculator text={relatedBlog.description} />
+        {/* Content */}
+        <motion.div 
+          className="prose prose-lg max-w-none"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <p className="text-gray-700 leading-relaxed">{blog.description}</p>
+        </motion.div>
 
-                  <p className="text-xs">
-                    {relatedBlog.tags.split(',').map((tag, index) => (
-                      <span
-                        key={index}
-                        className="inline-block bg-gray-200 text-black px-2 py-1 rounded-3xl mx-2"
-                      >
-                        {tag.trim()}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              </div>
-            ))}
-
-          <p className="text-sm">
+        {/* Tags */}
+        <motion.div 
+          className="mt-12"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          <h3 className="text-lg font-semibold mb-4">Topics</h3>
+          <div className="flex flex-wrap gap-2">
             {blog.tags.split(',').map((tag, index) => (
               <span
                 key={index}
-                className="inline-block bg-green-200 text-black px-4 py-2 rounded-3xl mr-2"
+                className="px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-sm font-medium"
               >
                 {tag.trim()}
               </span>
             ))}
-          </p>
-          <div className="mt-4">
-            <p className="flex items-center justify-center">
-              <Calendar value={parsedDate} />
-            </p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+
+        {/* Related Articles */}
+        <motion.section 
+          className="mt-16"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.7 }}
+        >
+          <h2 className="text-2xl font-bold mb-8">Related Articles</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {Blogs.filter((b) => b.slug !== slug)
+              .slice(0, 2)
+              .map((relatedBlog, index) => (
+                <motion.div
+                  key={index}
+                  className="group rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  whileHover={{ y: -5 }}
+                >
+                  <Link to={`/resources/${relatedBlog.slug}`} className="block">
+                    <div className="relative h-48">
+                      <img
+                        src={relatedBlog.image}
+                        alt={relatedBlog.title}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-0 p-6 text-white">
+                        <h3 className="text-lg font-semibold mb-2">{relatedBlog.title}</h3>
+                        <p className="text-sm text-gray-200">
+                          <TruncateText text={relatedBlog.description} maxLength={100} />
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+          </div>
+        </motion.section>
+
+        {/* Back to Articles */}
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          <Link
+            to="/resources"
+            className="inline-flex items-center px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Articles
+          </Link>
+        </motion.div>
+      </motion.article>
     </>
   );
 };

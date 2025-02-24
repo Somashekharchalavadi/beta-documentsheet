@@ -2,7 +2,7 @@ import RightSideImage from "../../data/scanQR.png"
 const ScanHero = () => {
   return (
     <>
-      <section className="my-12 p-1">
+      <section className="py-12 p-1">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <div>
