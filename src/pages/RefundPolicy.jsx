@@ -33,6 +33,7 @@ const RefundPolicy = () => {
 
           <h3 className='font-semibold text-xl mb-2 mt-4'>Return & Refund Policy</h3>
           <ul>
+            <li>👉🏻 if approved, refund will be credited to your bank account within 10 days</li>
             <li>👉🏻 Users who do not utilize a purchased document sheet can return it within <strong>7 days</strong> and receive a <strong>90% refund</strong>, provided that complete and valid information is submitted.</li>
             <li>👉🏻 Refund requests made after the stipulated time will not be entertained.</li>
             <li>👉🏻 Refunds will be processed as per our internal policies and applicable legal frameworks.</li>
