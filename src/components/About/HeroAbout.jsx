@@ -1,7 +1,9 @@
+import Pill from "../common/Pill";
+
 const HeroAbout = () => {
   return (
     <>
-      <section className="my-12 p-1">
+      <section className="md:py-24 py-16 p-1">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Image Section */}
           <div className="relative">
@@ -30,6 +32,7 @@ const HeroAbout = () => {
 
           {/* Right: Content Section */}
           <div>
+            <Pill text={'Who we are'} />
             <h2 className="md:text-4xl text-xl font-bold text-gray-800 mt-2 p-1">
               Simplifying Document Management for You
             </h2>

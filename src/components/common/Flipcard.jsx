@@ -41,14 +41,14 @@ const FlipCard = ({ title, text, src }) => {
           isFlipped ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="p-3 bg-orange-100 md:w-36 rounded-lg mx-auto">
+        <div className="p-3 md:w-36 rounded-lg mx-auto">
           <img
             src={src}
             width={1000}
             height={1000}
             loading="lazy"
             alt={title}
-            className="w-36 mx-auto animate-pulse duration-200"
+            className="w-36 mx-auto"
           />
         </div>
         <div className="flex flex-col justify-end items-end">

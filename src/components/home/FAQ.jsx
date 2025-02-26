@@ -1,19 +1,24 @@
 import { motion } from 'framer-motion';
 import Accordion from '../common/Accordion';
+import Pill from '../common/Pill';
+import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   const faqs = [
     {
       question: 'How does Document Sheet ensure the security of my documents?',
-      answer: 'Document Sheet ensures the security of your documents through multiple layers of protection including unique QR codes, encrypted storage, and secure access controls. Each document is individually protected and can only be accessed by authorized users.',
+      answer:
+        'Document Sheet ensures the security of your documents through multiple layers of protection including unique QR codes, encrypted storage, and secure access controls. Each document is individually protected and can only be accessed by authorized users.',
     },
     {
       question: 'Can I access my documents from other devices?',
-      answer: 'Yes, you can access your documents from any device through our website using the QR code feature. Our platform is fully responsive and works seamlessly across desktop, tablet, and mobile devices.',
+      answer:
+        'Yes, you can access your documents from any device through our website using the QR code feature. Our platform is fully responsive and works seamlessly across desktop, tablet, and mobile devices.',
     },
     {
       question: 'What types of documents can I create with Document Sheet?',
-      answer: 'You can create various document types, including receipts, forms, contracts, and more. Our platform is especially designed for real estate documentation needs, with customizable templates and validation features.',
+      answer:
+        'You can create various document types, including receipts, forms, contracts, and more. Our platform is especially designed for real estate documentation needs, with customizable templates and validation features.',
     },
     {
       question: 'How do I retrieve my document information using the QR code?',
@@ -21,11 +26,13 @@ const FAQ = () => {
     },
     {
       question: 'Is there a limit to the number of documents I can create?',
-      answer: 'The number of documents you can create depends on your subscription plan. Basic plans start with 50 documents, while our Enterprise plan offers unlimited document creation.',
+      answer:
+        'The number of documents you can create depends on your subscription plan. Basic plans start with 50 documents, while our Enterprise plan offers unlimited document creation.',
     },
     {
       question: 'How can I share my documents with others?',
-      answer: 'You can share documents by sharing the unique QR code or generating a secure link. You have full control over access permissions and can track who views your documents.',
+      answer:
+        'You can share documents by sharing the unique QR code or generating a secure link. You have full control over access permissions and can track who views your documents.',
     },
   ];
 
@@ -57,9 +64,7 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-[#219B9D] text-sm font-semibold tracking-wider uppercase">
-            FAQ
-          </span>
+          <Pill text={'FAQ'}/>
           <h2 className="mt-2 text-4xl font-bold text-gray-900 md:text-5xl">
             Frequently Asked Questions
           </h2>
@@ -103,7 +108,7 @@ const FAQ = () => {
             whileTap={{ scale: 0.95 }}
             className="mt-6 px-6 py-3 bg-gradient-to-r from-[#219B9D] to-[#A7E4CD] text-white rounded-full font-medium hover:shadow-lg transition-shadow duration-200"
           >
-            Contact Support
+           <Link to={'/contact-us'} > Contact Support </Link> 
           </motion.button>
         </motion.div>
       </div>

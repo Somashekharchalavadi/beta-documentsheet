@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const CTA = ({ title, text, btnText }) => {
   return (
     <>
-      <section className="my-12 ">
+      <section className="md:py-24 py-16 ">
         <div className="max-w-7xl mx-auto text-center  py-8 px-6 rounded-lg bg-gray-100">
           <h2 className="md:text-4xl text-xl font-bold text-gray-800 mb-6 p-1">{title}</h2>
           <p className="text-gray-600 md:text-lg text-md mb-10">{text}</p>

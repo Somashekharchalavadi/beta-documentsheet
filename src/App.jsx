@@ -9,7 +9,6 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate initial loading
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -18,12 +17,10 @@ const App = () => {
 
   return (
     <>
-      <AnimatePresence>
-        {isLoading && <Preloader />}
-      </AnimatePresence>
-      
+      <AnimatePresence>{isLoading && <Preloader />}</AnimatePresence>
+
       <BrowserRouter>
-        <Toaster />
+        <Toaster position="bottom-right" />
         <Routess />
       </BrowserRouter>
     </>

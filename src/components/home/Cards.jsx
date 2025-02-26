@@ -1,5 +1,6 @@
 import FlipCard from '../common/Flipcard';
 import { motion } from 'framer-motion';
+import Pill from '../common/Pill';
 
 const animationVariants = {
   hiddenLeft: { opacity: 0, x: -100 },
@@ -10,11 +11,12 @@ const animationVariants = {
 const Cards = () => {
   return (
     <>
-      <section className="my-12">
-        <article>
-          <h1 className="md:text-4xl text-xl font-semibold text-center p-1">
-            Why Choose Document Sheet !!
-          </h1>
+      <section className="py-24 ">
+        <article className="max-w-7xl text-center mx-auto space-y-4"> 
+          <Pill text={'Why Choose Document Sheet !!'} />
+          <p className="md:text-lg text-sm">
+            Document Sheet is a one-stop solution for all your document management needs. We provide customized solutions for various industries, ensuring that your documents are organized, secure, and accessible when you need them.
+          </p>
         </article>
 
         <section className="flex flex-wrap justify-center items-center md:py-12  gap-6  p-1">

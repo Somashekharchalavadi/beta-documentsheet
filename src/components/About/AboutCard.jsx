@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Pill from '../common/Pill';
 
 const animationVariants = {
   hiddenLeft: { opacity: 0, x: -100 },
@@ -8,7 +9,8 @@ const animationVariants = {
 
 const AboutCard = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 md:my-36 my-12">
+    <div className="max-w-7xl mx-auto px-4 md:py-24 py-16">
+     <div className="flex justify-center w-full"> <Pill text="Smooth Process" /> </div>
       <h1 className="md:text-4xl text-xl font-bold text-center mb-8 p-1">
         Simplifying Documentation for a Smarter Future
       </h1>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Pill from '../common/Pill';
 
 const AboutTabs = () => {
   const [activeTab, setActiveTab] = useState('Vision');
@@ -22,12 +23,10 @@ const AboutTabs = () => {
   };
   return (
     <>
-      <section className=" md:my-36 p-1">
+      <section className=" md:py-24 py-16 p-1">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <h4 className="text-orange-500 font-semibold uppercase text-sm tracking-wide">
-            Vision & Mission
-          </h4>
+          <Pill text="Vision & Mission" />
           <h2 className="md:text-4xl text-xl font-bold text-gray-800 mt-2 p-1">
             Revolutionizing Documentation with Efficiency and Security
           </h2>

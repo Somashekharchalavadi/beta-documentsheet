@@ -25,7 +25,7 @@ const NotFoundPage = () => {
           className="mt-8 space-y-4"
         >
           <p className="text-sm font-medium text-gray-700">Try these useful links instead:</p>
-          
+
           <div className="grid grid-cols-2 gap-4 mt-4">
             <Link
               to="/"

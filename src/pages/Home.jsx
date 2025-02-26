@@ -31,26 +31,15 @@ const Home = () => {
         <link rel="canonical" href="https://documentsheet.com" />
       </Helmet>
 
-      <main className="overflow-hidden"> 
-        <Hero /> 
+      <main className="overflow-hidden">
+        <Hero />
         <Cards />
- 
         <FiveCards />
-
-        {/* Scan Feature */}
         <Scan />
-
-        {/* Empowering Section */}
         <Empowering />
-
-        {/* Testimonials */}
-        <Testimonial />
-
-        {/* FAQ Section */}
-        <FAQ />
-
-        {/* Pricing Section */}
         <Pricing />
+        <Testimonial />
+        <FAQ />
       </main>
     </>
   );

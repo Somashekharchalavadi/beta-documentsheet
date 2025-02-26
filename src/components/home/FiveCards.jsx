@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Pill from '../common/Pill';
 
 const FiveCards = () => {
   const steps = [
@@ -20,21 +21,24 @@ const FiveCards = () => {
     {
       number: 3,
       title: 'Share Your Experience',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734190122/Simplification_2_agko2f.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734190122/Simplification_2_agko2f.png',
       color: 'bg-blue-50',
       accent: 'bg-blue-100',
     },
     {
       number: 4,
       title: 'Access Your Sheet',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       color: 'bg-purple-50',
       accent: 'bg-purple-100',
     },
     {
       number: 5,
       title: 'Create Another Sheet',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       color: 'bg-pink-50',
       accent: 'bg-pink-100',
       isLink: true,
@@ -65,10 +69,8 @@ const FiveCards = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
-        >
-          <span className="text-[#219B9D] text-sm font-semibold tracking-wider uppercase">
-            How It Works
-          </span>
+        > 
+          <Pill text={' How It Works'} />
           <h2 className="mt-2 text-4xl font-bold text-gray-900 md:text-5xl">
             Simple Steps to Get Started
           </h2>
@@ -93,7 +95,7 @@ const FiveCards = () => {
             >
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-2xl transform rotate-45"></div>
-              
+
               {step.isLink ? (
                 <Link
                   to="/create-new-sheet"
@@ -111,7 +113,9 @@ const FiveCards = () => {
                 </Link>
               ) : (
                 <div className="flex flex-col items-center space-y-4 relative">
-                  <div className={`w-12 h-12 ${step.accent} rounded-full flex items-center justify-center text-lg font-semibold`}>
+                  <div
+                    className={`w-12 h-12 ${step.accent} rounded-full flex items-center justify-center text-lg font-semibold`}
+                  >
                     {step.number}
                   </div>
                   <motion.img

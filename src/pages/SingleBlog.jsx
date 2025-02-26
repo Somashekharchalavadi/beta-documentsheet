@@ -20,8 +20,10 @@ const SingleBlog = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center p-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Blog Not Found</h2>
-        <p className="text-gray-600 mb-8">The article you're looking for doesn't exist or has been moved.</p>
-        <button 
+        <p className="text-gray-600 mb-8">
+          The article you're looking for doesn't exist or has been moved.
+        </p>
+        <button
           onClick={() => navigate('/resources')}
           className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
         >
@@ -35,7 +37,7 @@ const SingleBlog = () => {
   const formattedDate = parsedDate.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
 
   return (
@@ -71,14 +73,16 @@ const SingleBlog = () => {
       >
         {/* Breadcrumb */}
         <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-8">
-          <Link to="/resources" className="hover:text-orange-500">Resources</Link>
+          <Link to="/resources" className="hover:text-orange-500">
+            Resources
+          </Link>
           <span>/</span>
           <span className="text-gray-900">{blog.title}</span>
         </nav>
 
         {/* Header */}
         <header className="mb-12">
-          <motion.h1 
+          <motion.h1
             className="text-4xl font-bold text-gray-900 mb-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -87,7 +91,7 @@ const SingleBlog = () => {
             {blog.title}
           </motion.h1>
 
-          <motion.div 
+          <motion.div
             className="flex flex-wrap items-center gap-4 text-sm text-gray-500"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -95,13 +99,23 @@ const SingleBlog = () => {
           >
             <div className="flex items-center">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
               </svg>
               {formattedDate}
             </div>
             <div className="flex items-center">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
               <TimeCalculator text={blog.description} />
             </div>
@@ -110,31 +124,149 @@ const SingleBlog = () => {
         </header>
 
         {/* Featured Image */}
-        <motion.div 
+        <motion.div
           className="relative rounded-xl overflow-hidden mb-12 shadow-xl"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <img
-            src={blog.image}
-            alt={blog.title}
-            className="w-full h-[400px] object-cover"
-          />
+          <img src={blog.image} alt={blog.title} className="w-full h-[400px] object-cover" />
         </motion.div>
 
         {/* Content */}
-        <motion.div 
-          className="prose prose-lg max-w-none"
+        <motion.div
+          className="prose prose-lg max-w-none blog-content"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
-        >
-          <p className="text-gray-700 leading-relaxed">{blog.description}</p>
-        </motion.div>
+          dangerouslySetInnerHTML={{ __html: blog.description }}
+        ></motion.div>
+
+        <style>{`
+          .blog-content {
+            color: #374151;
+            line-height: 1.8;
+          }
+          
+          .blog-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1F2937;
+          }
+          
+          .blog-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1F2937;
+          }
+          
+          .blog-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+          }
+          
+          .blog-content ul, .blog-content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+          }
+          
+          .blog-content li {
+            margin: 0.5rem 0;
+            font-size: 1.125rem;
+          }
+          
+          .blog-content ul li {
+            list-style-type: disc;
+          }
+          
+          .blog-content ol li {
+            list-style-type: decimal;
+          }
+          
+          .blog-content a {
+            color: #F97316;
+            text-decoration: underline;
+            transition: color 0.2s;
+          }
+          
+          .blog-content a:hover {
+            color: #EA580C;
+          }
+          
+          .blog-content blockquote {
+            border-left: 4px solid #F97316;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #4B5563;
+          }
+          
+          .blog-content code {
+            background-color: #F3F4F6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+          }
+          
+          .blog-content pre {
+            background-color: #F3F4F6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+          }
+          
+          .blog-content img {
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+            max-width: 100%;
+            height: auto;
+          }
+          
+          .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+          }
+          
+          .blog-content th, .blog-content td {
+            border: 1px solid #E5E7EB;
+            padding: 0.75rem;
+            text-align: left;
+          }
+          
+          .blog-content th {
+            background-color: #F9FAFB;
+            font-weight: 600;
+          }
+          
+          .blog-content hr {
+            border: 0;
+            border-top: 1px solid #E5E7EB;
+            margin: 2rem 0;
+          }
+          
+          @media (max-width: 768px) {
+            .blog-content h2 {
+              font-size: 1.75rem;
+            }
+            
+            .blog-content h3 {
+              font-size: 1.25rem;
+            }
+            
+            .blog-content p, .blog-content li {
+              font-size: 1rem;
+            }
+          }
+        `}</style>
 
         {/* Tags */}
-        <motion.div 
+        <motion.div
           className="mt-12"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -154,7 +286,7 @@ const SingleBlog = () => {
         </motion.div>
 
         {/* Related Articles */}
-        <motion.section 
+        <motion.section
           className="mt-16"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -192,7 +324,7 @@ const SingleBlog = () => {
         </motion.section>
 
         {/* Back to Articles */}
-        <motion.div 
+        <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -203,7 +335,12 @@ const SingleBlog = () => {
             className="inline-flex items-center px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             Back to Articles
           </Link>

@@ -43,7 +43,7 @@ const ScanTabs = () => {
   };
 
   return (
-    <section className="md:my-12 p-1">
+    <section className="py-16 md:py-24 p-1">
       <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-2xl max-w-2xl mx-auto mb-8">
         <div className="flex space-x-4 justify-center">
           <motion.button
@@ -59,7 +59,12 @@ const ScanTabs = () => {
           >
             <span className="flex items-center">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+                />
               </svg>
               QR Code Scanner
             </span>
@@ -77,7 +82,12 @@ const ScanTabs = () => {
           >
             <span className="flex items-center">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
               Search by Serial
             </span>
@@ -132,9 +142,12 @@ const ScanTabs = () => {
                 </div>
                 <div className="md:w-2/3">
                   <div className="max-w-lg mx-auto">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">Search by Serial Number</h3>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                      Search by Serial Number
+                    </h3>
                     <p className="text-gray-600 mb-8">
-                      Enter the serial number associated with your document to retrieve the relevant data.
+                      Enter the serial number associated with your document to retrieve the relevant
+                      data.
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -201,7 +214,9 @@ const ScanTabs = () => {
                         </div>
 
                         <div className="mt-6">
-                          <h5 className="text-lg font-semibold text-gray-800 mb-3">Serial Numbers</h5>
+                          <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                            Serial Numbers
+                          </h5>
                           <div className="space-y-2">
                             {sheetDetails.serialNumbers.map((item, index) => (
                               <div

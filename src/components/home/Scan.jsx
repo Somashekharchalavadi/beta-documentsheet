@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Pill from '../common/Pill';
 
 const Scan = () => {
   return (
@@ -29,10 +30,8 @@ const Scan = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-            >
-              <span className="text-[#219B9D] text-sm font-semibold tracking-wider uppercase">
-                Quick Access
-              </span>
+            > 
+              <Pill text={'Quick Access'} />
               <h2 className="mt-2 text-4xl font-bold text-gray-900 leading-tight">
                 Instant Access with{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#219B9D] to-[#A7E4CD]">
@@ -48,8 +47,8 @@ const Scan = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              Say goodbye to paper trails. Our integrated QR code technology ensures that your documents
-              are accessible anytime, anywhere—fast, secure, and reliable.
+              Say goodbye to paper trails. Our integrated QR code technology ensures that your
+              documents are accessible anytime, anywhere—fast, secure, and reliable.
             </motion.p>
 
             <motion.div
@@ -104,11 +103,7 @@ const Scan = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 * index }}
                   >
-                    <svg
-                      className="w-5 h-5 text-[#219B9D]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
+                    <svg className="w-5 h-5 text-[#219B9D]" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"

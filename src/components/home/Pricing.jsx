@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Pill from '../common/Pill';
 
 const Pricing = () => {
   const features = [
@@ -41,10 +42,8 @@ const Pricing = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
-        >
-          <span className="text-[#219B9D] text-sm font-semibold tracking-wider uppercase">
-            Simple Pricing
-          </span>
+        > 
+          <Pill text={'Simple Pricing'} />
           <h2 className="mt-2 text-4xl font-bold text-gray-900 md:text-5xl">
             Start Managing Your Documents Today
           </h2>
@@ -73,7 +72,9 @@ const Pricing = () => {
                 <span className="text-gray-600 ml-2">/month</span>
               </div>
 
-              <p className="mt-4 text-gray-600">Everything you need to manage your documents efficiently</p>
+              <p className="mt-4 text-gray-600">
+                Everything you need to manage your documents efficiently
+              </p>
 
               <ul className="mt-8 space-y-4">
                 {features.map((feature, index) => (
@@ -100,13 +101,9 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <motion.div
-                className="mt-8"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <motion.div className="mt-8" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  to="/create-new-sheet"
+                  to="/pricing"
                   className="block w-full py-4 px-6 text-center text-white font-medium bg-gradient-to-r from-[#219B9D] to-[#A7E4CD] rounded-full hover:opacity-90 transition-opacity duration-200 text-lg"
                 >
                   Get Started Now
@@ -160,23 +157,7 @@ const Pricing = () => {
             </p>
           </div>
         </motion.div>
-
-        {/* Enterprise section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="mt-24 bg-gradient-to-r from-[#219B9D]/10 to-[#A7E4CD]/10 rounded-2xl p-8 text-center"
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
-          <p className="text-gray-600 mb-6">
-            Contact us for custom pricing and features tailored to your organization's needs
-          </p>
-          <button className="inline-flex items-center px-6 py-3 border-2 border-[#219B9D] text-[#219B9D] font-medium rounded-full hover:bg-[#219B9D] hover:text-white transition-colors duration-200">
-            Contact Sales
-          </button>
-        </motion.div>
+ 
       </div>
     </section>
   );

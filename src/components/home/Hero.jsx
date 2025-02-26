@@ -1,59 +1,101 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
+
+const stats = [
+  { number: 10000, label: "Active Users" },
+  { number: 50000, label: "Documents Created" },
+  { number: 99.9, label: "Satisfaction Rate" },
+];
+
+const StatCounter = ({ value }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 2000; // Duration in milliseconds
+    const startTime = performance.now();
+
+    const animate = () => {
+      const elapsed = performance.now() - startTime;
+      const progress = elapsed / duration;
+      if (progress < 1) {
+        const currentCount = start + (value - start) * progress;
+        setCount(currentCount);
+        requestAnimationFrame(animate);
+      } else {
+        setCount(value); // Ensure it ends at the exact value
+      }
+    };
+
+    animate();
+  }, [value]);
+
+  return (
+    <div className="text-2xl font-bold text-[#219B9D]">
+      {value % 1 !== 0
+        ? count.toFixed(1) + "%"
+        : Math.floor(count).toLocaleString()}
+    </div>
+  );
+};
+
 
 const Hero = () => {
   return (
-    <section className="bg-[url('https://res.cloudinary.com/dlgyf2xzu/image/upload/v1732252678/Home-BG_pwas2s.webp')] bg-cover bg-center flex justify-center items-center md:min-h-screen md:pt-0 pt-12 relative overflow-hidden">
-      {/* Animated background elements */}
+    <section className="bg-[url('/assets/bg-cover.webp')] bg-cover bg-center flex justify-center items-center md:min-h-screen pt-12 md:pt-0 relative overflow-hidden">
+      {/* Animated Background Elements */}
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-200 rounded-full filter blur-3xl opacity-20 animate-pulse delay-700"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-200 rounded-full blur-3xl opacity-20 animate-pulse delay-700"></div>
       </motion.div>
 
       <div className="grid max-w-7xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 relative">
+        {/* Left Section */}
         <motion.div
           className="mr-auto place-self-center lg:col-span-6 p-1"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.div
+          <motion.h1
+            className="max-w-3xl mb-3 text-4xl font-bold md:text-5xl text-center md:text-start"
+            style={{ lineHeight: "75px" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h1 className="max-w-3xl mb-3 text-4xl font-bold md:text-5xl p-1 py-2 leading-tight md:text-start text-center">
-              Trusted Documents For Your{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                Real Estate
-              </span>
-              <motion.span
-                className="inline-block bg-orange-400 px-4 py-1 ms-2 md:mt-0 mt-4 rounded-3xl"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                needs
-              </motion.span>
-            </h1>
-          </motion.div>
+            Trusted Documents For Your{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+              Real Estate
+            </span>
+            <motion.span
+              className="inline-block bg-orange-400 px-4 py-1 ms-2 mt-4 md:mt-0 rounded-3xl"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              needs
+            </motion.span>
+          </motion.h1>
 
           <motion.p
-            className="max-w-2xl mb-8 text-gray-600 lg:mb-8 md:text-lg lg:text-xl"
+            className="max-w-2xl mb-8 text-gray-600 text-lg lg:text-xl text-center md:text-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Effortless and reliable document solutions for real estate{' '}
+            Effortless and reliable document solutions for real estate{" "}
             <br className="hidden md:block" /> — because every detail matters.
           </motion.p>
 
+          {/* CTA Buttons */}
           <motion.div
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-4 justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -61,7 +103,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/create-new-sheet"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-full bg-gradient-to-r from-[#219B9D] to-[#219B9D]/80 hover:from-[#A7E4CD] hover:to-[#A7E4CD]/80 hover:text-black group transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-6 py-3 text-base font-medium text-white rounded-full bg-gradient-to-r from-[#219B9D] to-[#219B9D]/80 hover:from-[#A7E4CD] hover:to-[#A7E4CD]/80 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Create Your Sheet
                 <motion.svg
@@ -84,9 +126,9 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/scan-qr"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-black bg-white border-2 border-green-400 rounded-full hover:bg-green-50 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="inline-flex items-center px-6 py-3 text-base font-medium text-black bg-white border-2 border-green-400 rounded-full hover:bg-green-50 transition-all duration-300 shadow-md hover:shadow-lg"
               >
-                <motion.i 
+                <motion.i
                   className="fi fi-rs-qr-scan pe-2"
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ repeat: Infinity, duration: 2 }}
@@ -103,11 +145,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
-            {[
-              { number: '10K+', label: 'Active Users' },
-              { number: '50K+', label: 'Documents Created' },
-              { number: '99.9%', label: 'Satisfaction Rate' }
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 className="text-center"
@@ -116,21 +154,22 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 + 1 }}
               >
-                <div className="text-2xl font-bold text-[#219B9D]">{stat.number}</div>
+                <StatCounter value={stat.number} />
                 <div className="text-sm text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
+        {/* Right Section - Image */}
         <motion.div
-          className="lg:mt-0 lg:col-span-6 flex justify-end items-center"
+          className="lg:col-span-6 flex justify-end items-end"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.img
-            src={'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734618574/Group_15_1_vxoqtz_bpyt44.webp'}
+            src={"/assets/homepage_hero.webp"}
             width={1000}
             height={1000}
             loading="lazy"

@@ -9,10 +9,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: '/', label: 'Home', icon: Home },
     { href: '/scan-qr', label: 'Scan QR', icon: ScanBarcode },
+    { href: '/about', label: 'About', icon: Home },
+    { href: '/resources', label: 'Resources', icon: Info },
     { href: '/pricing', label: 'Pricing', icon: IndianRupee },
-    { href: '/about', label: 'About', icon: Info },
     { href: '/contact-us', label: 'Contact Us', icon: Phone },
   ];
 
@@ -50,9 +50,7 @@ const Navbar = () => {
       <header>
         <nav
           className={`fixed w-full z-50 top-0 start-0 ${
-            isScrolled
-              ? 'bg-white shadow-md text-black duration-300'
-              : 'bg-transparent text-black'
+            isScrolled ? 'bg-white shadow-md text-black duration-300' : 'bg-transparent text-black'
           }`}
         >
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -76,11 +74,9 @@ const Navbar = () => {
                   key={link.href}
                   to={link.href}
                   className={`py-2 px-3 flex items-center gap-2 hover:text-[#219B9D] transition-colors ${
-                    pathname === link.href
-                      ? 'text-[#219B9D] font-medium'
-                      : 'text-gray-700'
+                    pathname === link.href ? 'text-[#219B9D] font-medium' : 'text-gray-700'
                   }`}
-                > 
+                >
                   {link.label}
                 </Link>
               ))}
@@ -124,10 +120,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div
-            className="h-0.5  absolute bottom-0 left-0 w-full"
-          >
-            <div 
+          <div className="h-0.5  absolute bottom-0 left-0 w-full">
+            <div
               className="h-full bg-[#219B9D] transition-all duration-200"
               style={{ width: `${scrollWidth}%` }}
             />
@@ -202,6 +196,9 @@ const Navbar = () => {
             {/* Footer Links in Sidebar */}
             <div className="mt-auto border-t pt-4">
               <div className="flex flex-col space-y-2 text-sm text-gray-600">
+                <Link to="/refund-policy" className="hover:text-[#219B9D]">
+                  Refund Policy
+                </Link>
                 <Link to="/privacy-policy" className="hover:text-[#219B9D]">
                   Privacy Policy
                 </Link>

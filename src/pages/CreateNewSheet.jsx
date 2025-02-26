@@ -7,10 +7,10 @@ import StatesData from '../data/AddressData.json';
 import Banner from '../components/common/Banner';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { motion, AnimatePresence } from 'framer-motion'; 
+import { motion, AnimatePresence } from 'framer-motion';
 
 const CreateNewSheet = () => {
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const [docData, setDocData] = useState({
@@ -21,7 +21,7 @@ const CreateNewSheet = () => {
     state: '',
     District: '',
     Date: '',
-    NumberOfSheet: '1'
+    NumberOfSheet: '1',
   });
 
   const [errors, setErrors] = useState({
@@ -108,7 +108,6 @@ const CreateNewSheet = () => {
 
   return (
     <>
-
       <Helmet>
         <title>Create New Document Sheet | Easy Document Creation</title>
         <meta
@@ -130,22 +129,22 @@ const CreateNewSheet = () => {
       </Helmet>
 
       <Banner title="Create Your Sheet" text="Fill your information correctly and get your sheet" />
-      
-      <motion.div 
+
+      <motion.div
         className="max-w-7xl mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <div className="flex md:flex-row flex-col-reverse justify-center items-center py-6 md:mb-0 mb-16 px-2 mx-auto w-full">
-          <motion.div 
+          <motion.div
             className="md:w-2/3 w-full space-y-4"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
             {/* Input fields */}
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -157,7 +156,7 @@ const CreateNewSheet = () => {
                 </label>
                 <motion.input
                   whileFocus={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                   type="text"
                   name="UserName"
                   value={docData.UserName}
@@ -187,7 +186,7 @@ const CreateNewSheet = () => {
             </motion.div>
 
             {/* Village and Post */}
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -227,7 +226,7 @@ const CreateNewSheet = () => {
             </motion.div>
 
             {/* State, District, and Date */}
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -294,7 +293,7 @@ const CreateNewSheet = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="flex md:flex-row flex-col gap-4"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -307,7 +306,7 @@ const CreateNewSheet = () => {
                 </label>
                 <motion.select
                   whileFocus={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                   id="NumberOfSheet"
                   name="NumberOfSheet"
                   value={docData.NumberOfSheet}
@@ -350,18 +349,13 @@ const CreateNewSheet = () => {
           </motion.div>
 
           {/* Animation Section */}
-          <motion.div 
+          <motion.div
             className="hidden md:block md:w-1/3 w-full"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <Player
-              autoplay
-              loop
-              src={CreateSheet}
-              style={{ height: 'auto', width: '100%' }}
-            />
+            <Player autoplay loop src={CreateSheet} style={{ height: 'auto', width: '100%' }} />
           </motion.div>
         </div>
       </motion.div>

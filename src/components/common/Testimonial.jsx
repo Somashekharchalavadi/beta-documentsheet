@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Pill from './Pill';
 
 const Testimonials = ({ text, name, location }) => {
   return (
@@ -9,7 +10,9 @@ const Testimonials = ({ text, name, location }) => {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="h-12 w-12 rounded-full bg-gradient-to-r from-[#219B9D] to-[#A7E4CD] flex items-center justify-center text-white font-bold text-xl">{name[0]}</div>
+            <div className="h-12 w-12 rounded-full bg-gradient-to-r from-[#219B9D] to-[#A7E4CD] flex items-center justify-center text-white font-bold text-xl">
+              {name[0]}
+            </div>
             <div>
               <h4 className="text-lg font-semibold text-gray-900">{name}</h4>
               <p className="text-gray-600">{location}</p>
@@ -28,16 +31,18 @@ const Testimonial = () => {
       name: 'Rajesh Kumar',
       role: 'Real Estate Agent',
       company: 'Prime Properties',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
-        'Document Sheet has revolutionized how I handle property documentation. The QR code feature makes accessing and sharing documents incredibly easy. It\'s a game-changer for real estate professionals.',
+        "Document Sheet has revolutionized how I handle property documentation. The QR code feature makes accessing and sharing documents incredibly easy. It's a game-changer for real estate professionals.",
     },
     {
       id: 2,
       name: 'Priya Sharma',
       role: 'Business Owner',
       company: 'Sharma Enterprises',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'The efficiency and security that Document Sheet provides is unmatched. Managing business documents has never been easier. The customer support team is always ready to help.',
     },
@@ -46,7 +51,8 @@ const Testimonial = () => {
       name: 'Anand Patel',
       role: 'Property Manager',
       company: 'Cityscape Realty',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'Document Sheet is an essential tool for our property management needs. The ability to quickly access and verify documents through QR codes has significantly improved our workflow.',
     },
@@ -55,7 +61,8 @@ const Testimonial = () => {
       name: 'Raghavendra Kumar',
       role: 'Real Estate Agent',
       company: 'Prime Properties',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ಭೂ ವಿವಾದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ದಾಖಲೆಗಳನ್ನು ತ್ವರಿತವಾಗಿ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿ ಪಡೆದುಕೊಳ್ಳಲು ಈ ಸೇವೆ ನಮಗೆ ಬಹಳ ಸಹಾಯ ಮಾಡಿತು!',
     },
@@ -64,7 +71,8 @@ const Testimonial = () => {
       name: 'Shanthi Gowda',
       role: 'Business Owner',
       company: 'Sharma Enterprises',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ನಾನೇ ವರ್ಷಗಳಿಂದ ಭೂ ದಾಖಲೆಗಳೊಂದಿಗೆ ಹೋರಾಟ ಮಾಡುತ್ತಿದ್ದೆ. ಅವರ ಸೇವೆಯಿಂದ, ಎಲ್ಲವೂ ಈಗ ಸುಗಮವಾಗಿದೆ! ಧನ್ಯವಾದಗಳು!',
     },
@@ -73,7 +81,8 @@ const Testimonial = () => {
       name: 'Vijay Prasad',
       role: 'Property Manager',
       company: 'Cityscape Realty',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ಭೂ ದಾಖಲೆಗಳಲ್ಲಿ ಅವರ ಪರಿಣತಿ ನನಗೆ ಹೆಚ್ಚಿನ ಸಮಯ ಮತ್ತು ಒತ್ತಡವನ್ನು ಉಳಿಸಿತು. ಅವರ ಸೇವೆಯನ್ನು ಉತ್ಸಾಹದಿಂದ ಶಿಫಾರಸು ಮಾಡುತ್ತೇನೆ. ನಿಮಗೆ ಸಹಾಯವಾಗಬಹುದು!',
     },
@@ -82,7 +91,8 @@ const Testimonial = () => {
       name: 'Divya Shetty',
       role: 'Real Estate Agent',
       company: 'Prime Properties',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ನಾನು ಇಲ್ಲಿನ ಸೇವೆಯನ್ನು ಬಳಸಿದ್ದೇನೆ ಮತ್ತು ಅವರು ಭೂ ದಾಖಲೆಗಳನ್ನೂ ಸಹಾಯ ಮಾಡಿದ್ದಾರೆ. ಪ್ರಾಮಾಣಿಕತೆಯೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುವ ಅವರು ನಮಗೆ ಉತ್ತಮ ಪರಿಹಾರಗಳನ್ನು ಒದಗಿಸುತ್ತಾರೆ.',
     },
@@ -91,7 +101,8 @@ const Testimonial = () => {
       name: 'Karthik Raj',
       role: 'Business Owner',
       company: 'Sharma Enterprises',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ಅವರ ಸೇವೆ ಪ್ರಾಮಾಣಿಕವಾಗಿದ್ದು, ನನಗೆ ಭರವಸೆ ನೀಡಿತು. ನಾನು ಅವರ ಸೇವೆಗಳಿಂದ ತುಂಬಾ ಸಂತೋಷಗೊಂಡಿದ್ದೇನೆ. ಧನ್ಯವಾದಗಳು!',
     },
@@ -100,7 +111,8 @@ const Testimonial = () => {
       name: 'Megha Desai',
       role: 'Property Manager',
       company: 'Cityscape Realty',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ಅದ್ಭುತ ಸೇವೆ! ನಿರಂತರ ಪ್ರಗತಿ ಮಾಡಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ಅವರ ತ್ವರಿತ ಮತ್ತು ವೃತ್ತಿಪರ ಸೇವೆ ನಮಗೆ ಸಮಯ ಉಳಿಸಿತು.',
     },
@@ -109,7 +121,8 @@ const Testimonial = () => {
       name: 'Arun Kumar',
       role: 'Real Estate Agent',
       company: 'Prime Properties',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ನಿಮ್ಮ ಸೇವೆ ನನಗೆ ಬಹಳ ಉಪಯುಕ್ತವಾಗಿದೆ, ಧನ್ಯವಾದಗಳು! ನೀವು ಈ ಸೇವೆಯನ್ನು ಬಳಸಿದರೆ, ನಿಮ್ಮ ಭೂ ದಾಖಲೆಗಳ ಸಮಸ್ಯೆಗೆ ಶ್ರೇಷ್ಠ ಪರಿಹಾರ ಸಿಗುತ್ತದೆ.',
     },
@@ -118,7 +131,8 @@ const Testimonial = () => {
       name: 'Nandini Rao',
       role: 'Business Owner',
       company: 'Sharma Enterprises',
-      image: 'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
+      image:
+        'https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734025428/Simplification_mlxmlr.png',
       content:
         'ಸೇವೆಯ ಗುಣಮಟ್ಟ ಮತ್ತು ಸ್ವಚ್ಛತೆ ನಿಮಗೆ ಶ್ರೇಷ್ಠ ಅನುಭವ ನೀಡುತ್ತದೆ. ಈ ಸೇವೆಯನ್ನು ನನ್ನ ಸ್ನೇಹಿತರಿಗೆ ಮತ್ತು ಕುಟುಂಬದವರಿಗೆ ಶಿಫಾರಸು ಮಾಡುತ್ತೇನೆ.',
     },
@@ -127,15 +141,11 @@ const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
   };
 
   const prev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
   };
 
   return (
@@ -150,10 +160,8 @@ const Testimonial = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
-        >
-          <span className="text-[#219B9D] text-sm font-semibold tracking-wider uppercase">
-            Testimonials
-          </span>
+        > 
+          <Pill text={'Testimonials'}/>
           <h2 className="mt-2 text-4xl font-bold text-gray-900 md:text-5xl">
             What Our Clients Say
           </h2>
@@ -201,12 +209,7 @@ const Testimonial = () => {
                     onClick={prev}
                     className="p-2 rounded-full bg-gray-100 hover:bg-[#219B9D] hover:text-white transition-colors duration-200"
                   >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -221,12 +224,7 @@ const Testimonial = () => {
                     onClick={next}
                     className="p-2 rounded-full bg-gray-100 hover:bg-[#219B9D] hover:text-white transition-colors duration-200"
                   >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -247,9 +245,7 @@ const Testimonial = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentIndex
-                    ? 'bg-[#219B9D]'
-                    : 'bg-gray-300 hover:bg-[#219B9D]/50'
+                  index === currentIndex ? 'bg-[#219B9D]' : 'bg-gray-300 hover:bg-[#219B9D]/50'
                 }`}
               />
             ))}
@@ -265,8 +261,7 @@ const Testimonial = () => {
           className="mt-16 text-center"
         >
           <p className="text-gray-600">
-            Trusted by{' '}
-            <span className="font-semibold text-[#219B9D]">500+ businesses</span> across
+            Trusted by <span className="font-semibold text-[#219B9D]">500+ businesses</span> across
             India
           </p>
         </motion.div>
