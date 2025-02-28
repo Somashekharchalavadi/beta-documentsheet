@@ -8,11 +8,11 @@ export const UserProvider = ({ children }) => {
     name: '',
     sheetID: '',
     serialNumber: '',
-    merchantOrderId: ''
+    merchantOrderId: '',
   });
 
   const updatePaymentData = (data) => {
-    setPaymentData(prev => ({ ...prev, ...data }));
+    setPaymentData((prev) => ({ ...prev, ...data }));
   };
 
   const clearPaymentData = () => {
@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
       name: '',
       sheetID: '',
       serialNumber: '',
-      merchantOrderId: ''
+      merchantOrderId: '',
     });
   };
 

@@ -6,7 +6,7 @@ import { X } from 'lucide-react';
 import { useUserContext } from '../context/UserContext';
 
 const Payment = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { paymentData, updatePaymentData } = useUserContext();
   const { amount, name, sheetID, serialNumber } = paymentData;
   const [showConfirmation, setShowConfirmation] = useState(true);
@@ -31,15 +31,15 @@ const Payment = () => {
           name,
           sheetID,
           serialNumber,
-          redirectUrl: `${window.location.origin}/payment-callback`
-        })
+          redirectUrl: `${window.location.origin}/payment-callback`,
+        }),
       });
       const data = await response.json();
       const { paymentUrl, merchantOrderId } = data;
       if (paymentUrl) {
         updatePaymentData({ merchantOrderId });
         setShowConfirmation(true);
-        window.location.href =paymentUrl;
+        window.location.href = paymentUrl;
       } else {
         throw new Error('No payment URL received');
       }
