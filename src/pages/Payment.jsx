@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useUserContext } from '../context/UserContext';
 
 const Payment = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { amount, name, sheetID, serialNumber } = location.state || {};
+  const navigate = useNavigate(); 
+  const { paymentData, updatePaymentData } = useUserContext();
+  const { amount, name, sheetID, serialNumber } = paymentData;
   const [showConfirmation, setShowConfirmation] = useState(true);
 
   useEffect(() => {
@@ -36,8 +37,9 @@ const Payment = () => {
       const data = await response.json();
       const { paymentUrl, merchantOrderId } = data;
       if (paymentUrl) {
+        updatePaymentData({ merchantOrderId });
         setShowConfirmation(true);
-        navigate(paymentUrl, { state: {name, sheetID, merchantOrderId } });
+        window.location.href =paymentUrl;
       } else {
         throw new Error('No payment URL received');
       }
@@ -193,7 +195,7 @@ const Payment = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth="2"
-                        d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0112.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                       />
                     </svg>
                     <span className="text-gray-700">{num.trim()}</span>

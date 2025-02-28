@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { CheckCircle, SplineIcon, TimerIcon } from 'lucide-react';
+import { useUserContext } from '../context/UserContext';
 
 const PaymentCallback = () => {
     const [status, setStatus] = useState('loading');
     const [paymentDetails, setPaymentDetails] = useState(null);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const location = useLocation();
-    const { name, sheetID, merchantOrderId } = location.state || {};
+    const { paymentData } = useUserContext();
+    const {merchantOrderId } = paymentData;
 
     useEffect(() => {
         const checkPaymentStatus = async () => {
@@ -22,7 +23,7 @@ const PaymentCallback = () => {
                     setPaymentDetails(data);
                     setStatus(data.code === 'PAYMENT_SUCCESS' ? 'SUCCESS' : 'FAILED');
                     if (data.code === 'PAYMENT_SUCCESS') {
-                        navigate('/feedback', { state: { name, sheetID } });
+                        navigate('/feedback');
                     }
                 } else {
                     throw new Error(data.message || 'Payment verification failed');

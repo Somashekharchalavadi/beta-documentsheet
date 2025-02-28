@@ -8,10 +8,12 @@ import Banner from '../components/common/Banner';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import { useUserContext } from '../context/UserContext';
 
 const CreateNewSheet = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { updatePaymentData } = useUserContext();
 
   const [docData, setDocData] = useState({
     UserName: '',
@@ -88,16 +90,14 @@ const CreateNewSheet = () => {
         docData
       );
 
-      if (response.success === false) {
+      if (response.data.success) {
+        const { amount, name, sheetID, serialNumber } = response.data;
+        updatePaymentData({ amount, name, sheetID, serialNumber });
+        navigate('/payment');
+      } else {
         toast.error('Failed to Create Sheet');
         return;
       }
-
-      const sheetID = response.data.data._id;
-      const amount = response.data.data.amount;
-      const name = docData.UserName;
-      const serialNumber = response.data.data.serialNumbers.map((item) => item.serialNumber);
-      navigate('/payment', { state: { amount, name, sheetID, serialNumber } });
     } catch (error) {
       console.error('Error creating sheet:', error.response?.data || error.message);
       toast.error('Failed to create sheet. Please try again.');
