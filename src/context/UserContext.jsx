@@ -7,15 +7,6 @@ export const UserProvider = ({ children }) => {
     amount: '',
     name: '',
     sheetID: '',
-<<<<<<< HEAD
-    serialNumber: '',
-    merchantOrderId: '',
-  });
-
-  const updatePaymentData = (data) => {
-    setPaymentData((prev) => ({ ...prev, ...data }));
-  };
-=======
     serialNumber: [],
     merchantOrderId: ''
   });
@@ -30,20 +21,14 @@ export const UserProvider = ({ children }) => {
         : data.serialNumber || prev.serialNumber
     }));
   }; 
->>>>>>> 7e5f1205bdd9f8f6b9013f45ad3da8ceab874e36
 
   const clearPaymentData = () => {
     setPaymentData({
       amount: '',
       name: '',
       sheetID: '',
-<<<<<<< HEAD
       serialNumber: '',
       merchantOrderId: '',
-=======
-      serialNumber: [],
-      merchantOrderId: ''
->>>>>>> 7e5f1205bdd9f8f6b9013f45ad3da8ceab874e36
     });
   };
 
