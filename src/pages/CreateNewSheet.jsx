@@ -91,8 +91,15 @@ const CreateNewSheet = () => {
       );
 
       if (response.data.success) {
-        const { amount, name, sheetID, serialNumber } = response.data;
-        updatePaymentData({ amount, name, sheetID, serialNumber });
+        const { amount, name, _id, serialNumbers } = response.data.data;
+        console.log('Sheet Created:', response.data.data);
+        const serialNumberValues = serialNumbers.map(item => item.serialNumber);
+        updatePaymentData({ 
+          amount, 
+          name, 
+          sheetID: _id, 
+          serialNumber: serialNumberValues 
+        });
         navigate('/payment');
       } else {
         toast.error('Failed to Create Sheet');

@@ -7,26 +7,37 @@ export const UserProvider = ({ children }) => {
     amount: '',
     name: '',
     sheetID: '',
-    serialNumber: '',
+    serialNumber: [],
     merchantOrderId: ''
   });
 
   const updatePaymentData = (data) => {
-    setPaymentData(prev => ({ ...prev, ...data }));
-  };
+    console.log('Updating Payment Data:', data);
+    setPaymentData(prev => ({
+      ...prev,
+      ...data,
+      serialNumber: Array.isArray(data.serialNumber)
+        ? [...prev.serialNumber, ...data.serialNumber]
+        : data.serialNumber || prev.serialNumber
+    }));
+  }; 
 
   const clearPaymentData = () => {
     setPaymentData({
       amount: '',
       name: '',
       sheetID: '',
-      serialNumber: '',
+      serialNumber: [],
       merchantOrderId: ''
     });
   };
 
   return (
-    <UserContext.Provider value={{ paymentData, updatePaymentData, clearPaymentData }}>
+    <UserContext.Provider value={{ 
+      paymentData, 
+      updatePaymentData, 
+      clearPaymentData 
+    }}>
       {children}
     </UserContext.Provider>
   );
