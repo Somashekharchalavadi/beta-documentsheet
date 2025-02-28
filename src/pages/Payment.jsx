@@ -147,7 +147,7 @@ const Payment = () => {
             </div>
           </div>
         </motion.div>
-
+ 
         {/* Right Column - Serial Numbers */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -175,35 +175,37 @@ const Payment = () => {
           </div>
 
           <div className="space-y-3">
-            {serialNumber &&
-              (Array.isArray(serialNumber) ? serialNumber : String(serialNumber).split(',')).map(
-                (num, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                    className="flex items-center space-x-3 p-1 bg-white/50 rounded-lg"
+            {Array.isArray(serialNumber) && serialNumber.length > 0 ? (
+              serialNumber.map((num, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className="flex items-center space-x-3 p-2 bg-white/50 rounded-lg shadow-sm"
+                >
+                  <svg
+                    className="w-4 h-4 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      className="w-4 h-4 text-gray-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0112.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span className="text-gray-700">{num.trim()}</span>
-                  </motion.div>
-                )
-              )}
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0112.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span className="text-gray-700">{num}</span>
+                </motion.div>
+              ))
+            ) : (
+              <p className="text-gray-500">No serial numbers available</p>
+            )}
           </div>
         </motion.div>
+
       </div>
 
       <motion.div
