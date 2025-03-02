@@ -38,7 +38,7 @@ const CreateNewSheet = () => {
   });
 
   const validateFields = () => {
-    console.log('CreateNewSheet - Validating fields:', docData);
+    console.log('[CreateNewSheet] Starting field validation:', docData);
     const tempErrors = {};
     let isValid = true;
 
@@ -47,21 +47,26 @@ const CreateNewSheet = () => {
         tempErrors[key] =
           `${key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase())} is required`;
         isValid = false;
+        console.log(`[CreateNewSheet] Validation failed for ${key}`);
       }
     });
 
-    console.log('CreateNewSheet - Validation results:', { isValid, errors: tempErrors });
+    console.log('[CreateNewSheet] Validation complete:', { isValid, errors: tempErrors });
     setErrors(tempErrors);
     return isValid;
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log('CreateNewSheet - Input change:', { field: name, value });
-    setDocData({
-      ...docData,
-      [name]: value,
-      ...(name === 'state' && { District: '' }),
+    console.log('[CreateNewSheet] Input changed:', { field: name, value });
+    setDocData(prev => {
+      const newData = {
+        ...prev,
+        [name]: value,
+        ...(name === 'state' && { District: '' }),
+      };
+      console.log('[CreateNewSheet] Updated form data:', newData);
+      return newData;
     });
   };
 
@@ -73,9 +78,11 @@ const CreateNewSheet = () => {
     Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
   const onHandleDocCreated = async () => {
-    console.log('CreateNewSheet - Starting document creation with data:', docData);
+    console.log('[CreateNewSheet] Starting sheet creation process');
+    console.log('[CreateNewSheet] Form data:', docData);
+
     if (!validateFields()) {
-      console.log('CreateNewSheet - Validation failed');
+      console.log('[CreateNewSheet] Form validation failed');
       toast.error('Please fill all the fields');
       return;
     }
@@ -84,57 +91,48 @@ const CreateNewSheet = () => {
     const todayFormatted = today.toISOString().split('T')[0];
 
     if (docData.Date < todayFormatted) {
-      console.log('CreateNewSheet - Invalid date selected:', docData.Date);
+      console.log('[CreateNewSheet] Invalid date selected:', { selected: docData.Date, today: todayFormatted });
       toast.error('Please do not select past dates.');
       return;
     }
 
     try {
       setLoading(true);
-      console.log('CreateNewSheet - Sending API request');
+      console.log('[CreateNewSheet] Sending API request to create sheet');
+      
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/api/user/create-sheet`,
         docData
       );
 
-      console.log('CreateNewSheet - API Response:', response.data);
+      console.log('[CreateNewSheet] API Response:', response.data);
 
-      if (response.success === false) {
-        console.log('CreateNewSheet - API returned success: false');
-        toast.error('Failed to Create Sheet');
-        return;
-      }
-
-      const sheetID = response.data.data._id;
-      const amount = response.data.data.amount;
-      const name = docData.UserName;
-      const serialNumber = response.data.data.serialNumbers.map((item) => item.serialNumber);
-      
-      console.log('CreateNewSheet - Navigating to payment with data:', {
-        sheetID,
-        amount,
-        name,
-        serialNumber
-      });
-      
-      navigate('/payment', { state: { amount, name, sheetID, serialNumber } });
       if (response.data.success) {
-        const { amount, name, _id, serialNumbers } = response.data.data;
-        console.log('Sheet Created:', response.data.data);
+        const { amount, name, _id: sheetID, serialNumbers } = response.data.data;
+        console.log('[CreateNewSheet] Sheet created successfully:', {
+          amount,
+          name,
+          sheetID,
+          serialNumbers
+        });
+
         const serialNumberValues = serialNumbers.map(item => item.serialNumber);
+        console.log('[CreateNewSheet] Updating payment data');
         updatePaymentData({ 
           amount, 
           name, 
-          sheetID: _id, 
+          sheetID, 
           serialNumber: serialNumberValues 
         });
+
+        console.log('[CreateNewSheet] Navigating to payment page');
         navigate('/payment');
       } else {
+        console.log('[CreateNewSheet] API returned success: false');
         toast.error('Failed to Create Sheet');
-        return;
       }
     } catch (error) {
-      console.error('CreateNewSheet - Error:', error.response?.data || error.message);
+      console.error('[CreateNewSheet] Error creating sheet:', error.response?.data || error.message);
       toast.error('Failed to create sheet. Please try again.');
     } finally {
       setLoading(false);

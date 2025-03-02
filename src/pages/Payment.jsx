@@ -11,57 +11,72 @@ const Payment = () => {
   const { amount, name, sheetID, serialNumber } = location.state || {};
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(true);
+  const { paymentData, updatePaymentData } = useUserContext();
   const merchantTransactionId = `TXN_ID_${Date.now()}`;
   const merchantUserId = `MIUI_${Date.now()}`;
 
   useEffect(() => {
-    console.log('Payment Page - Initial Data:', { amount, name, sheetID, serialNumber });
-    if (!amount || !name || !sheetID || !serialNumber) {
-      console.log('Payment Page - Missing Data, redirecting to create-new-sheet');
+    console.log('[Payment] Component mounted');
+    console.log('[Payment] Payment data from context:', paymentData);
+    
+    if (!paymentData.amount || !paymentData.name || !paymentData.sheetID || !paymentData.serialNumber) {
+      console.log('[Payment] Missing payment data, redirecting to create-new-sheet');
       toast.error('Missing or invalid payment details!');
       navigate('/create-new-sheet');
       return;
     }
-  }, [amount, name, sheetID, serialNumber, navigate]);
+  }, [paymentData, navigate]);
 
   const handlePaymentInitiation = async () => {
-    console.log('Payment Page - Initiating payment with data:', {
-      amount,
-      name,
-      sheetID,
-      serialNumber,
+    console.log('[Payment] Initiating payment process');
+    console.log('[Payment] Payment details:', {
+      amount: paymentData.amount,
+      name: paymentData.name,
+      sheetID: paymentData.sheetID,
+      serialNumber: paymentData.serialNumber,
       merchantTransactionId,
       merchantUserId
     });
+
     setIsLoading(true);
     setShowConfirmation(false);
 
     try {
+      console.log('[Payment] Sending payment creation request');
       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/user/create-payment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          amount,
-          name,
-          sheetID,
-          serialNumber,
+          amount: paymentData.amount,
+          name: paymentData.name,
+          sheetID: paymentData.sheetID,
+          serialNumber: paymentData.serialNumber,
           merchantTransactionId,
           merchantUserId
         }),
       });
+
       const data = await response.json();
+      console.log('[Payment] Payment API Response:', data);
+
       const { paymentUrl, merchantOrderId } = data;
       if (paymentUrl) {
-        updatePaymentData({ merchantOrderId });
-        setShowConfirmation(true);
+        console.log('[Payment] Payment URL received:', paymentUrl);
+        console.log('[Payment] Updating payment data with merchantOrderId:', merchantOrderId);
+        updatePaymentData({ ...paymentData, merchantOrderId });
+        
+        console.log('[Payment] Redirecting to payment URL');
         window.location.href = paymentUrl;
       } else {
+        console.error('[Payment] No payment URL in response');
         throw new Error('No payment URL received');
       }
     } catch (error) {
-      console.error('Payment Page - Error:', error);
+      console.error('[Payment] Payment initiation error:', error);
       toast.error('Failed to initiate payment. Please try again.');
       setShowConfirmation(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -109,7 +124,7 @@ const Payment = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Name</p>
-                <p className="text-lg font-medium text-gray-800">{name}</p>
+                <p className="text-lg font-medium text-gray-800">{paymentData.name}</p>
               </div>
             </div>
           </div>
@@ -133,7 +148,7 @@ const Payment = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Amount</p>
-                <p className="text-lg font-medium text-gray-800">₹{amount}</p>
+                <p className="text-lg font-medium text-gray-800">₹{paymentData.amount}</p>
               </div>
             </div>
           </div>
@@ -157,7 +172,7 @@ const Payment = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Sheet ID</p>
-                <p className="text-lg font-medium text-gray-800">{sheetID}</p>
+                <p className="text-lg font-medium text-gray-800">{paymentData.sheetID}</p>
               </div>
             </div>
           </div>
@@ -190,8 +205,8 @@ const Payment = () => {
           </div>
 
           <div className="space-y-3">
-            {Array.isArray(serialNumber) && serialNumber.length > 0 ? (
-              serialNumber.map((num, index) => (
+            {Array.isArray(paymentData.serialNumber) && paymentData.serialNumber.length > 0 ? (
+              paymentData.serialNumber.map((num, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: 20 }}
