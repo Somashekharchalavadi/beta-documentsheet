@@ -20,7 +20,7 @@ const PaymentCallback = () => {
       console.log('Checking payment status...'); // ✅ Debug: Function execution
 
       try {
-        const response = await axios.get(
+        const response = await axios.post(
           `${import.meta.env.VITE_BASE_URL}/api/user/verify-payment/${merchantOrderId}`
         );
         console.log('API Response:', response.data); // ✅ Debug: Checking API response

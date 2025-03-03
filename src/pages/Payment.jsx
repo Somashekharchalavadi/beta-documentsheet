@@ -46,7 +46,7 @@ const Payment = () => {
           sheetID: paymentData.sheetID,
           serialNumber: paymentData.serialNumber, 
           redirectUrl : `${window.location.origin}/payment-callback`
-        }),
+        })
       });
 
       const data = await response.json();
