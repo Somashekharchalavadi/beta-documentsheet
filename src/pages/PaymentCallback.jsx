@@ -13,14 +13,14 @@ const PaymentCallback = () => {
   const { paymentData } = useUserContext();
   const { merchantOrderId } = paymentData;
 
-  console.log('merchantOrderId:', merchantOrderId); // ✅ Debug: Checking merchantOrderId
+  console.log('merchantOrderId:', merchantOrderId); 
 
   useEffect(() => {
     const checkPaymentStatus = async () => {
       console.log('Checking payment status...'); // ✅ Debug: Function execution
 
       try {
-        const response = await axios.post(
+        const response = await axios.get(
           `${import.meta.env.VITE_BASE_URL}/api/user/verify-payment/${merchantOrderId}`
         );
         console.log('API Response:', response.data); // ✅ Debug: Checking API response
