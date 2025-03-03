@@ -28,15 +28,14 @@ const PaymentCallback = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_BASE_URL}/api/user/verify_payment/${merchantOrderId}`
         );
-        console.log('API Response:', response.data); 
 
         const { data } = response;
 
         if (data.success) {
           setPaymentDetails(data);
-          setStatus(data.code);
+          setStatus(data.status);
 
-          if (data.code === 'SUCCESS') {
+          if (data.status === 'COMPLETED') {
             console.log('Payment Successful! Redirecting to feedback page.');
             navigate('/feedback');
           }
@@ -53,7 +52,7 @@ const PaymentCallback = () => {
     const checkInterval = setInterval(async () => {
       console.log(`Interval running: Current status = ${status}`); // ✅ Debug: Interval execution
 
-      if (status === 'SUCCESS' || status === 'FAILED') {
+      if (status === 'COMPLETED' || status === 'FAILED') {
         console.log('Clearing interval as payment status is final.');
         clearInterval(checkInterval);
         return;
@@ -72,7 +71,7 @@ const PaymentCallback = () => {
 
   const getStatusContent = () => {
     switch (status) {
-      case 'SUCCESS':
+      case 'COMPLETED':
         return {
           icon: <CheckCircle className="text-green-500 text-6xl mb-4" />,
           title: 'Payment Successful',
@@ -116,7 +115,7 @@ const PaymentCallback = () => {
         <h2 className={`text-2xl font-bold mb-2 ${content.color}`}>{content.title}</h2>
         <p className="text-gray-600 mb-6">{content.message}</p>
 
-        {(status === 'SUCCESS' || status === 'FAILED' || status === 'error') && (
+        {(status === 'COMPLETED' || status === 'FAILED' || status === 'error') && (
           <button
             onClick={() => navigate('/')}
             className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
@@ -125,7 +124,7 @@ const PaymentCallback = () => {
           </button>
         )}
 
-        {paymentDetails && status === 'SUCCESS' && (
+        {paymentDetails && status === 'COMPLETED' && (
           <div className="mt-6 text-left bg-gray-50 p-4 rounded-md">
             <h3 className="font-semibold mb-2">Payment Details:</h3>
             <p className="text-sm text-gray-600">
