@@ -7,8 +7,6 @@ import { useUserContext } from '../context/UserContext';
 
 const Payment = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { amount, name, sheetID, serialNumber } = location.state || {};
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(true);
   const { paymentData, updatePaymentData } = useUserContext();

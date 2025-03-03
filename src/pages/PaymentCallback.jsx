@@ -13,41 +13,56 @@ const PaymentCallback = () => {
   const { paymentData } = useUserContext();
   const { merchantOrderId } = paymentData;
 
+  console.log('merchantOrderId:', merchantOrderId); // ✅ Debug: Checking merchantOrderId
+
   useEffect(() => {
     const checkPaymentStatus = async () => {
+      console.log('Checking payment status...'); // ✅ Debug: Function execution
+
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_BASE_URL}/api/user/verify-payment/${merchantOrderId}`
         );
+        console.log('API Response:', response.data); // ✅ Debug: Checking API response
+
         const { data } = response;
 
         if (data.success) {
           setPaymentDetails(data);
           setStatus(data.code === 'PAYMENT_SUCCESS' ? 'SUCCESS' : 'FAILED');
+
           if (data.code === 'PAYMENT_SUCCESS') {
+            console.log('Payment Successful! Redirecting to feedback page.');
             navigate('/feedback');
           }
         } else {
           throw new Error(data.message || 'Payment verification failed');
         }
       } catch (error) {
-        console.error('Error checking payment status:', error);
+        console.error('Error checking payment status:', error); // ✅ Debug: Log error details
         setStatus('error');
         setError(error.response?.data?.error || error.message || 'Failed to verify payment status');
       }
     };
 
     const checkInterval = setInterval(async () => {
+      console.log(`Interval running: Current status = ${status}`); // ✅ Debug: Interval execution
+
       if (status === 'SUCCESS' || status === 'FAILED') {
+        console.log('Clearing interval as payment status is final.');
         clearInterval(checkInterval);
         return;
       }
+
       await checkPaymentStatus();
     }, 3000);
 
-    checkPaymentStatus();
+    checkPaymentStatus(); // Initial API call
 
-    return () => clearInterval(checkInterval);
+    return () => {
+      console.log('Clearing interval on unmount.');
+      clearInterval(checkInterval);
+    };
   }, [status]);
 
   const getStatusContent = () => {
