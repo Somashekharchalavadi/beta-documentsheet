@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Pill from '../common/Pill';
 
 const PricingSection = () => {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.section
@@ -38,12 +36,12 @@ const PricingSection = () => {
               price: '₹100',
               popular: true,
               features: [
+                '100 To 150 GSM',
                 '5 Premium Quality Sheets',
                 'Waterproof & Fireproof File',
                 'Professional Format',
                 '24/7 Priority Support',
                 '30-Day Money-back Guarantee',
-                'Free Express Delivery',
               ],
               gradient: 'from-orange-500 to-orange-600',
               shadowColor: 'orange',

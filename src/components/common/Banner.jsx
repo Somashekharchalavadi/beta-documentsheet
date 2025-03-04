@@ -43,10 +43,23 @@ const Banner = ({ title, text }) => {
           >
             {title}
           </motion.h1>
-          <p className="mt-4">{text}</p>
+          <p className="my-4">{text}</p>
+          <motion.h3
+            className="max-w-3xl  mb-3 text-3xl font-bold md:text-5xl text-center md:text-start"
+            style={{ lineHeight: '15px' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+           
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600">
+            Go Green  Keep it clean
+            </span>
+            
+          </motion.h3>
 
           <motion.div
-            className="absolute bottom-0 left-0 -z-1 w-full"
+            className="absolute bottom-0 left-0  w-full"
             initial="hidden"
             animate="visible"
           >

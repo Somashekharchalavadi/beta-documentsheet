@@ -56,7 +56,7 @@ const Contact = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          Got a query? Let us know, and we'll respond promptly!
+          Got a query? Let us know, and we&apos;ll respond promptly!
         </motion.h2>
 
         <div className="flex justify-center items-center">

@@ -47,7 +47,7 @@ const TermsCondition = () => {
 
           <h2 className="font-semibold text-xl mb-2 mt-4">Legal Compliance</h2>
           <p className="text-base">
-            Document Sheet operates in strict adherence to legal guidelines. Our document sheets are
+            Document Sheet operates in strict adherence to TRADE MARK REFISTRATION OF LOGO [TMR = 3283846] legal guidelines . Our document sheets are
             not stamp papers but serve as supplementary pages in bond agreements and other legal
             documentation.
           </p>

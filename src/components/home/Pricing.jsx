@@ -4,12 +4,12 @@ import Pill from '../common/Pill';
 
 const Pricing = () => {
   const features = [
+    '100 To 150 GSM',
     '5 Premium Quality Sheets',
     'Waterproof & Fireproof File',
     'Professional Format',
     '24/7 Priority Support',
     '30-Day Money-back Guarantee',
-    'Free Express Delivery',
   ];
 
   const benefits = [

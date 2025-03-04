@@ -4,12 +4,12 @@ const TabComponent = () => {
   return (
     <div className="md:max-w-7xl w-full mx-auto flex md:flex-row flex-col gap-6 md:py-12 items-center justify-stretch">
       <Link
-        to="tel:9036664041"
+        to="tel:9916566269"
         className="w-96 md:h-96  h-auto p-2 flex flex-col justify-center items-center bg-white  border-dashed border-orange-200 border-4 rounded-lg shadow hover:bg-orange-100 hover:scale-95"
       >
         <i className="fi fi-rr-circle-phone  text-3xl"></i>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Call us Now</h5>
-        <p className="text-gray-600 hover:underline">9036664041</p>
+        <p className="text-gray-600 hover:underline">9916566269</p>
       </Link>
 
       <iframe

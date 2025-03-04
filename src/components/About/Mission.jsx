@@ -19,7 +19,7 @@ const Mission = () => (
           <Pill text={'Mission'} />
           <h2 className="text-3xl font-bold my-6">How We Work</h2>
           <p className="text-gray-600 mb-6">
-            At Document Sheet, we're committed to revolutionizing document management through
+            At Document Sheet, we re committed to revolutionizing document management through
             innovative digital solutions. Our mission is to make document handling seamless, secure,
             and accessible to everyone.
           </p>
@@ -29,6 +29,7 @@ const Mission = () => (
               'Ensure maximum security and privacy of your data',
               'Provide easy access to documents anytime, anywhere',
               'Reduce paper waste and promote sustainability',
+              'The Support is backed by KARNATAKA PARISHAR SAMRAKSHAN SAMITI'
             ].map((item, index) => (
               <div key={index} className="flex items-center space-x-3">
                 <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
@@ -53,9 +54,9 @@ const Mission = () => (
           <div className="aspect-square rounded-full bg-orange-100 absolute -top-4 -right-4 w-24 h-24"></div>
           <div className="aspect-square rounded-full bg-orange-200 absolute -bottom-4 -left-4 w-16 h-16"></div>
           <img
-            src="/assets/mission.png"
+            src="/logo.png"
             alt="Our Mission"
-            className="relative z-10 w-full hover:animate-pulse cursor-crosshair h-auto rounded-lg"
+            className="relative z-10 w-full hover:animate-pulse cursor-crosshair h-auto  rounded-full"
           />
         </motion.div>
       </div>

@@ -12,6 +12,11 @@ const SingleBlog = () => {
   const navigate = useNavigate();
   const blog = Blogs.find((b) => b.slug === slug);
 
+  const stripHtml = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent || "";
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
@@ -313,7 +318,7 @@ const SingleBlog = () => {
                       <div className="absolute bottom-0 p-6 text-white">
                         <h3 className="text-lg font-semibold mb-2">{relatedBlog.title}</h3>
                         <p className="text-sm text-gray-200">
-                          <TruncateText text={relatedBlog.description} maxLength={100} />
+                          <TruncateText text={stripHtml(blog.description)} maxLength={120} />
                         </p>
                       </div>
                     </div>
