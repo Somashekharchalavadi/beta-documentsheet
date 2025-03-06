@@ -165,7 +165,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.img
-            src={'/assets/homepage_hero.webp'}
+            src={'/assets/hero.png'}
             width={1000}
             height={1000}
             loading="lazy"

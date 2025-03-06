@@ -71,7 +71,7 @@ const ContactPageMessage = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row items-start space-y-4 md:py-6  md:pb-0 pb-20 md:space-y-0 md:space-x-4 ">
+      <div className="flex flex-col md:flex-row items-start space-y-4 md:py-6  md:space-y-0 md:space-x-4 ">
         <div className="w-full md:w-1/2 p-4">
           <iframe
             src="https://lottie.host/embed/d6822f26-b60e-4b30-a3dd-5684a85a6223/bBLzC6lflG.lottie"

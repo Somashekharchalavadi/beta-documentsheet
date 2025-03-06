@@ -23,8 +23,8 @@ const Contact = () => (
             <span className="text-2xl">📞</span>
             <div>
               <h3 className="font-semibold">Phone</h3>
-              <a href="tel:9036664041" className="text-gray-600 hover:underline">
-                9036664041
+              <a href="tel:9916566269" className="text-gray-600 hover:underline">
+                9916566269
               </a>
             </div>
           </div>
@@ -42,7 +42,7 @@ const Contact = () => (
             <div>
               <h3 className="font-semibold">WhatsApp</h3>
               <a
-                href="https://wa.me/9036664041"
+                href="https://wa.me/9916566269"
                 className="text-orange-500 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -31,11 +31,13 @@ const Banner = ({ title, text }) => {
       <motion.div
         initial="hidden"
         animate="visible"
-        className=" relative flex justify-center items-center md:h-72 h-48 bg-gradient-to-b from-[#F8E7C9] to-[#D7EFE3]"
+        className=" relative flex justify-between items-center md:h-72 h-48 bg-gradient-to-b from-[#F8E7C9] to-[#D7EFE3]"
       >
-        <div className="text-center">
+        <div className="w-2/12 flex justify-start items-end"><img src="/assets/Banner.png" alt="partner logo" loading='lazy' className='w-48' /> </div>
+        
+        <div className="text-center w-8/12">
           <motion.h1
-            className="md:text-3xl text-xl font-semibold text-gray-800 p-1"
+            className="md:text-3xl text-xl font-semibold text-gray-800"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -43,17 +45,16 @@ const Banner = ({ title, text }) => {
           >
             {title}
           </motion.h1>
-          <p className="my-4">{text}</p>
+          <p className="my-4 text-xs md:text-lg">{text}</p>
           <motion.h3
-            className="max-w-3xl  mb-3 text-3xl font-bold md:text-5xl text-center md:text-start"
-            style={{ lineHeight: '15px' }}
+            className="text-xl font-bold md:text-5xl text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
            
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600">
-            Go Green  Keep it clean
+            Go Green  Keep It Clean
             </span>
             
           </motion.h3>
@@ -86,6 +87,7 @@ const Banner = ({ title, text }) => {
             </svg>
           </motion.div>
         </div>
+        <div className="w-2/12"> <div className="w-10 h-10 bg-green-200 animate-pulse rounded-full"></div> </div>
       </motion.div>
     </>
   );
