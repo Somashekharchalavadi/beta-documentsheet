@@ -6,6 +6,7 @@ import axios from 'axios';
 import QRCODEANIMATION from '../../data/QR_Code_Animation.json';
 import AuthAnimation from '../../data/Auth_Animation.json';
 import QrCodeScanner from './QrCodeScanner';
+import GetCerticate from '../common/GetCerticate';
 
 const ScanTabs = () => {
   const [serialNumber, setSerialNumber] = useState('');
@@ -25,7 +26,7 @@ const ScanTabs = () => {
     setLoading(true);
     setError(null);
     setSheetDetails(null);
-
+    setSerialNumber(serialNumber.trim());
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/user/search-sheet/${serialNumber}`
@@ -224,6 +225,7 @@ const ScanTabs = () => {
                                 className="flex items-center justify-between p-2 bg-gray-50 rounded-lg"
                               >
                                 <span className="font-medium">{item.serialNumber}</span>
+                                <GetCerticate serialNumber={item.serialNumber}/>
                                 <span
                                   className={`px-3 py-1 rounded-full text-sm font-medium ${
                                     item.status === 'cancelled'
@@ -235,9 +237,6 @@ const ScanTabs = () => {
                                 </span>
                               </div>
                             ))}
-
-                           <div className="hover:underline"> Get Certificate of your Sheet </div> 
-
                           </div>
                         </div>
                       </motion.div>

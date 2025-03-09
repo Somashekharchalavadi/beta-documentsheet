@@ -26,7 +26,7 @@ const Banner = ({ title, text }) => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="relative md:min-h-[60vh] min-h-[40vh] flex items-center justify-center text-center bg-gradient-to-r from-green-100 via-white to-green-100 overflow-hidden px-6 md:px-12"
+      className="relative min-h-[45vh] flex items-center justify-center text-center bg-gradient-to-r from-green-100 via-white to-green-100 overflow-hidden px-6 md:px-12"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -45,17 +45,17 @@ const Banner = ({ title, text }) => {
       </div>
 
       {/* Content */}
-      <motion.div variants={itemVariants} className="max-w-4xl md:space-y-6 space-y-2 py-6 z-10">
+      <motion.div variants={itemVariants} className="max-w-4xl space-y-2 py-6 z-10">
         <motion.img
           src="/assets/Banner.png"
           alt="Logo"
           loading="lazy"
-          className="w-32 md:w-40 mx-auto"
+          className="w-32 md:w-24 mx-auto"
           variants={itemVariants}
         />
 
         <motion.h1
-          className="text-xl md:text-6xl font-extrabold text-gray-800 leading-tight"
+          className="text-xl md:text-3xl font-semibold text-gray-800 leading-tight"
           variants={itemVariants}
         >
           {title}
@@ -69,7 +69,7 @@ const Banner = ({ title, text }) => {
         </motion.p>
 
         <motion.h3
-          className="text-2xl md:text-4xl font-bold text-green-600"
+          className="text-2xl md:text-2xl font-bold text-green-600"
           variants={itemVariants}
         >
           Go Green, Keep It Clean

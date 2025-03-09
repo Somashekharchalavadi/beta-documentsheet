@@ -3,7 +3,8 @@ import Cookies from 'js-cookie';
 import CryptoJS from 'crypto-js';
 
 const SECRET_KEY = 'documentsheet123@2024';
-const COOKIE_NAME = 'user_Details_DOC';
+const COOKIE_NAME = 'DocumentSheet_Payment_Data';
+const CERTIFICATE_COOKIE_NAME = 'DocumentSheet_Certificate_Data';
 
 const UserContext = createContext();
 
@@ -14,12 +15,21 @@ export const UserProvider = ({ children }) => {
     sheetID: '',
     serialNumber: [],
     merchantOrderId: '',
-    
   }); 
+  
+  const [certificateData, setCertificateData] = useState({
+    serialNumber: [],
+    merchantOrderId: '',
+  });
 
   const saveToCookie = (data) => {
     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString();
     Cookies.set(COOKIE_NAME, encryptedData, { expires: 1/48 });
+  };
+
+  const saveCertificateToCookie = (data) => {
+    const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString();
+    Cookies.set(CERTIFICATE_COOKIE_NAME, encryptedData, { expires: 1/48 });
   };
 
   const loadFromCookie = () => {
@@ -34,6 +44,19 @@ export const UserProvider = ({ children }) => {
       }
     }
   };
+
+  const loadFromCookie2  = () => {
+    const cookieData = Cookies.get(CERTIFICATE_COOKIE_NAME);
+    if (cookieData) {
+      try {
+        const bytes = CryptoJS.AES.decrypt(cookieData, SECRET_KEY);
+        const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        setCertificateData(decryptedData);
+      } catch (error) {
+        console.error('Error decrypting cookie data:', error);
+      }
+    }
+  }
  
   const updatePaymentData = (data) => {
     console.log('Updating Payment Data:', data);
@@ -50,6 +73,21 @@ export const UserProvider = ({ children }) => {
     });
   };
 
+  const updateCertifcateDetails = (data) => {
+    console.log('Updating Certificate Data:', data);
+    setCertificateData(prev => {
+      const updatedData = {
+        ...prev,
+        ...data,
+        serialNumber: Array.isArray(data.serialNumber)
+          ? [...prev.serialNumber, ...data.serialNumber]
+          : data.serialNumber || prev.serialNumber
+      };
+      saveCertificateToCookie(updatedData);
+      return updatedData;
+    });
+  };
+
   const clearPaymentData = () => {
     setPaymentData({
       amount: '',
@@ -61,15 +99,27 @@ export const UserProvider = ({ children }) => {
     Cookies.remove(COOKIE_NAME);
   };
 
+  const clearCertificateData = () => {
+    setCertificateData({
+      serialNumber: [],
+      merchantOrderId: '',
+    });
+    Cookies.remove(CERTIFICATE_COOKIE_NAME);
+  };
+
   useEffect(() => {
     loadFromCookie();
+    loadFromCookie2();
   }, []);
 
   return (
     <UserContext.Provider value={{ 
       paymentData, 
       updatePaymentData, 
-      clearPaymentData 
+      clearPaymentData ,
+      certificateData,
+      updateCertifcateDetails,
+      clearCertificateData
     }}>
       {children}
     </UserContext.Provider>
