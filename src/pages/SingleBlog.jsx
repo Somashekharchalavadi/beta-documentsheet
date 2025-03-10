@@ -13,8 +13,8 @@ const SingleBlog = () => {
   const blog = Blogs.find((b) => b.slug === slug);
 
   const stripHtml = (html) => {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent || "";
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
   };
 
   useEffect(() => {

@@ -59,7 +59,7 @@ const CreateNewSheet = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     console.log('[CreateNewSheet] Input changed:', { field: name, value });
-    setDocData(prev => {
+    setDocData((prev) => {
       const newData = {
         ...prev,
         [name]: value,
@@ -78,7 +78,6 @@ const CreateNewSheet = () => {
     Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
   const onHandleDocCreated = async () => {
-   
     if (!validateFields()) {
       console.log('[CreateNewSheet] Form validation failed');
       toast.error('Please fill all the fields');
@@ -89,7 +88,10 @@ const CreateNewSheet = () => {
     const todayFormatted = today.toISOString().split('T')[0];
 
     if (docData.Date < todayFormatted) {
-      console.log('[CreateNewSheet] Invalid date selected:', { selected: docData.Date, today: todayFormatted });
+      console.log('[CreateNewSheet] Invalid date selected:', {
+        selected: docData.Date,
+        today: todayFormatted,
+      });
       toast.error('Please do not select past dates.');
       return;
     }
@@ -97,7 +99,7 @@ const CreateNewSheet = () => {
     try {
       setLoading(true);
       console.log('[CreateNewSheet] Sending API request to create sheet');
-      
+
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/api/user/create-sheet`,
         docData
@@ -109,16 +111,16 @@ const CreateNewSheet = () => {
           amount,
           name,
           sheetID,
-          serialNumbers
+          serialNumbers,
         });
 
-        const serialNumberValues = serialNumbers.map(item => item.serialNumber);
+        const serialNumberValues = serialNumbers.map((item) => item.serialNumber);
         console.log('[CreateNewSheet] Updating payment data');
-        updatePaymentData({ 
-          amount, 
-          name, 
-          sheetID, 
-          serialNumber: serialNumberValues 
+        updatePaymentData({
+          amount,
+          name,
+          sheetID,
+          serialNumber: serialNumberValues,
         });
 
         console.log('[CreateNewSheet] Navigating to payment page');
@@ -128,7 +130,10 @@ const CreateNewSheet = () => {
         toast.error('Failed to Create Sheet');
       }
     } catch (error) {
-      console.error('[CreateNewSheet] Error creating sheet:', error.response?.data || error.message);
+      console.error(
+        '[CreateNewSheet] Error creating sheet:',
+        error.response?.data || error.message
+      );
       toast.error('Failed to create sheet. Please try again.');
     } finally {
       setLoading(false);

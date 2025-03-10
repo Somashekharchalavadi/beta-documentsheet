@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '/about', label: 'About', icon: Home },
-    { href: '/scan-qr', label: 'Scan QR', icon: ScanBarcode }, 
+    { href: '/scan-qr', label: 'Scan QR', icon: ScanBarcode },
     { href: '/resources', label: 'Resources', icon: BookCheck },
     { href: '/pricing', label: 'Pricing', icon: IndianRupee },
     { href: '/contact-us', label: 'Contact Us', icon: Phone },
@@ -69,18 +69,18 @@ const Navbar = () => {
             </Link>
 
             <div className="hidden lg:flex space-x-6 rtl:space-x-reverse font-regular">
-             
-             {!isMenuOpen && ( navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`py-2 px-3 flex items-center gap-2  hover:text-[#219B9D] transition-colors ${
-                    pathname === link.href ? 'text-[#219B9D] font-medium' : 'text-gray-700'
-                  }`}
-                >
-                  {link.label} 
-                </Link>
-              )))}
+              {!isMenuOpen &&
+                navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`py-2 px-3 flex items-center gap-2  hover:text-[#219B9D] transition-colors ${
+                      pathname === link.href ? 'text-[#219B9D] font-medium' : 'text-gray-700'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
             </div>
 
             {/* Right Section */}

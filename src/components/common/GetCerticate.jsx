@@ -34,7 +34,9 @@ const CertificateCallback = () => {
 
           if (data.status === 'COMPLETED') {
             // ✅ Step 2: Generate Certificate
-            await axios.post(`${import.meta.env.VITE_BASE_URL}/api/user/generate-certificate`, { serialNumber });
+            await axios.post(`${import.meta.env.VITE_BASE_URL}/api/user/generate-certificate`, {
+              serialNumber,
+            });
 
             // ✅ Step 3: Redirect to Scan QR Page
             setTimeout(() => {
@@ -105,12 +107,8 @@ const CertificateCallback = () => {
           <div className="p-6 md:p-8 space-y-6">
             <div className="flex flex-col items-center gap-4">
               {content.icon}
-              <h2 className={`text-2xl font-bold ${content.color}`}>
-                {content.title}
-              </h2>
-              <p className="text-gray-600 text-center">
-                {content.message}
-              </p>
+              <h2 className={`text-2xl font-bold ${content.color}`}>{content.title}</h2>
+              <p className="text-gray-600 text-center">{content.message}</p>
             </div>
 
             {(status === 'COMPLETED' || status === 'FAILED' || status === 'error') && (
@@ -129,9 +127,7 @@ const CertificateCallback = () => {
                 <p className="text-sm text-gray-600">
                   Transaction ID: {paymentDetails.merchantTransactionId}
                 </p>
-                <p className="text-sm text-gray-600">
-                  Amount: ₹{paymentDetails.amount / 100}
-                </p>
+                <p className="text-sm text-gray-600">Amount: ₹{paymentDetails.amount / 100}</p>
               </div>
             )}
           </div>
@@ -142,4 +138,4 @@ const CertificateCallback = () => {
 };
 
 export default CertificateCallback;
-5
+5;

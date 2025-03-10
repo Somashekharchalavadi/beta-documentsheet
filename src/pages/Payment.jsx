@@ -9,10 +9,15 @@ const Payment = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(true);
-  const { paymentData, updatePaymentData ,clearPaymentData} = useUserContext();
+  const { paymentData, updatePaymentData, clearPaymentData } = useUserContext();
 
-  useEffect(() => {  
-    if (!paymentData.amount || !paymentData.name || !paymentData.sheetID || !paymentData.serialNumber) {
+  useEffect(() => {
+    if (
+      !paymentData.amount ||
+      !paymentData.name ||
+      !paymentData.sheetID ||
+      !paymentData.serialNumber
+    ) {
       navigate('/create-new-sheet');
       return;
     }
@@ -31,17 +36,17 @@ const Payment = () => {
           amount: paymentData.amount,
           name: paymentData.name,
           sheetID: paymentData.sheetID,
-          serialNumber: paymentData.serialNumber, 
-          redirectUrl : `${window.location.origin}/payment-callback`
-        })
+          serialNumber: paymentData.serialNumber,
+          redirectUrl: `${window.location.origin}/payment-callback`,
+        }),
       });
 
       const data = await response.json();
       console.log('[Payment] Payment API Response:', data);
 
       const { paymentUrl, merchantOrderId } = data;
-      if (paymentUrl) { 
-        updatePaymentData({ ...paymentData, merchantOrderId }); 
+      if (paymentUrl) {
+        updatePaymentData({ ...paymentData, merchantOrderId });
         window.location.href = paymentUrl;
       } else {
         console.error('[Payment] No payment URL in response');
@@ -58,8 +63,8 @@ const Payment = () => {
 
   const CancelPayment = () => {
     clearPaymentData();
-    navigate('/create-new-sheet')
-  }
+    navigate('/create-new-sheet');
+  };
   const PaymentConfirmation = () => (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -157,7 +162,7 @@ const Payment = () => {
             </div>
           </div>
         </motion.div>
- 
+
         {/* Right Column - Serial Numbers */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -215,7 +220,6 @@ const Payment = () => {
             )}
           </div>
         </motion.div>
-
       </div>
 
       <motion.div

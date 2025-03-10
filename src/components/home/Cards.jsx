@@ -28,7 +28,6 @@ const Cards = () => {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
             variants={animationVariants}
-           
           >
             <FlipCard
               title={'Digital Document'}

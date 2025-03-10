@@ -29,7 +29,7 @@ const Mission = () => (
               'Ensure maximum security and privacy of your data',
               'Provide easy access to documents anytime, anywhere',
               'Reduce paper waste and promote sustainability',
-              'The Support is backed by KARNATAKA PARISHAR SAMRAKSHAN SAMITI'
+              'The Support is backed by KARNATAKA PARISHAR SAMRAKSHAN SAMITI',
             ].map((item, index) => (
               <div key={index} className="flex items-center space-x-3">
                 <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">

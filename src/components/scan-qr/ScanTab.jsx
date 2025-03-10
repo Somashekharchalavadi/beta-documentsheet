@@ -225,7 +225,7 @@ const ScanTabs = () => {
                                 className="flex items-center justify-between p-2 bg-gray-50 rounded-lg"
                               >
                                 <span className="font-medium">{item.serialNumber}</span>
-                                <GetCerticate serialNumber={item.serialNumber}/>
+                                <GetCerticate serialNumber={item.serialNumber} />
                                 <span
                                   className={`px-3 py-1 rounded-full text-sm font-medium ${
                                     item.status === 'cancelled'

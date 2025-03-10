@@ -28,13 +28,12 @@ const Blog = () => {
   const regularBlogs = filteredBlogs.filter((blog) => !blog.featured);
 
   const stripHtml = (html) => {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent || "";
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
   };
 
   return (
     <div className="max-w-7xl mx-auto my-16 px-4">
-
       <motion.div
         className="mb-12"
         initial={{ opacity: 0, y: 20 }}
@@ -70,9 +69,10 @@ const Blog = () => {
               <motion.button
                 key={tag}
                 className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap
-                  ${selectedTag === tag
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ${
+                    selectedTag === tag
+                      ? 'bg-orange-500 text-white'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 onClick={() => setSelectedTag(tag)}
                 whileHover={{ scale: 1.05 }}
@@ -111,7 +111,6 @@ const Blog = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                     <div className="absolute bottom-0 p-6 text-white">
                       <h3 className="text-xl font-bold mb-2">{blog.title}</h3>
-
                     </div>
                   </div>
                 </Link>

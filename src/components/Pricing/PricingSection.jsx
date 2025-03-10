@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Pill from '../common/Pill';
 
 const PricingSection = () => {
-
   return (
     <motion.section
       className="md:py-24 py-16 px-6 bg-gradient-to-b from-gray-50 to-white"

@@ -42,7 +42,6 @@ const SuccessPage = () => {
         }),
       });
 
-    
       if (!response.ok) {
         throw new Error('Failed to submit feedback');
       }
@@ -59,7 +58,6 @@ const SuccessPage = () => {
   };
 
   const DownloadSheet = async (sheetID) => {
-   
     if (!sheetID) {
       console.log('[SuccessPage] No sheetID provided');
       toast.error('Sheet Not Found');
@@ -74,7 +72,6 @@ const SuccessPage = () => {
         }
       );
 
-     
       if (response.status === 200) {
         const fileBlob = new Blob([response.data], { type: 'application/pdf' });
         const fileURL = URL.createObjectURL(fileBlob);
@@ -97,7 +94,6 @@ const SuccessPage = () => {
   };
 
   const DownloadBill = async (sheetID) => {
-   
     if (!sheetID) {
       console.log('[SuccessPage] No sheetID provided');
       toast.error('Sheet Not Found');
@@ -112,7 +108,6 @@ const SuccessPage = () => {
         }
       );
 
-      
       if (response.status === 200) {
         console.log('[SuccessPage] Creating bill download link');
         const fileBlob = new Blob([response.data], { type: 'application/pdf' });
@@ -141,7 +136,6 @@ const SuccessPage = () => {
   };
 
   useEffect(() => {
-   
     if (!paymentData.sheetID) {
       console.log('[SuccessPage] No sheetID found, redirecting to home');
       navigate('/');
@@ -152,7 +146,7 @@ const SuccessPage = () => {
       console.log('[SuccessPage] Documents already fetched');
       return;
     }
- 
+
     hasFetched.current = true;
     DownloadSheet(paymentData.sheetID);
     DownloadBill(paymentData.sheetID);

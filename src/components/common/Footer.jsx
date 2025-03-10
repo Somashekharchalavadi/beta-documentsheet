@@ -33,7 +33,6 @@ const Footer = () => {
           </ul>
         </div>
       </footer>
-
     </>
   );
 };

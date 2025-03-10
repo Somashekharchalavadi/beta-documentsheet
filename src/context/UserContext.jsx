@@ -1,4 +1,4 @@
-import { createContext, useContext, useState ,useEffect} from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import CryptoJS from 'crypto-js';
 
@@ -15,8 +15,8 @@ export const UserProvider = ({ children }) => {
     sheetID: '',
     serialNumber: [],
     merchantOrderId: '',
-  }); 
-  
+  });
+
   const [certificateData, setCertificateData] = useState({
     serialNumber: [],
     merchantOrderId: '',
@@ -24,12 +24,12 @@ export const UserProvider = ({ children }) => {
 
   const saveToCookie = (data) => {
     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString();
-    Cookies.set(COOKIE_NAME, encryptedData, { expires: 1/48 });
+    Cookies.set(COOKIE_NAME, encryptedData, { expires: 1 / 48 });
   };
 
   const saveCertificateToCookie = (data) => {
     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString();
-    Cookies.set(CERTIFICATE_COOKIE_NAME, encryptedData, { expires: 1/48 });
+    Cookies.set(CERTIFICATE_COOKIE_NAME, encryptedData, { expires: 1 / 48 });
   };
 
   const loadFromCookie = () => {
@@ -45,7 +45,7 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const loadFromCookie2  = () => {
+  const loadFromCookie2 = () => {
     const cookieData = Cookies.get(CERTIFICATE_COOKIE_NAME);
     if (cookieData) {
       try {
@@ -56,17 +56,17 @@ export const UserProvider = ({ children }) => {
         console.error('Error decrypting cookie data:', error);
       }
     }
-  }
- 
+  };
+
   const updatePaymentData = (data) => {
     console.log('Updating Payment Data:', data);
-    setPaymentData(prev => {
+    setPaymentData((prev) => {
       const updatedData = {
         ...prev,
         ...data,
         serialNumber: Array.isArray(data.serialNumber)
           ? [...prev.serialNumber, ...data.serialNumber]
-          : data.serialNumber || prev.serialNumber
+          : data.serialNumber || prev.serialNumber,
       };
       saveToCookie(updatedData); // Save updated data to cookie
       return updatedData;
@@ -75,13 +75,13 @@ export const UserProvider = ({ children }) => {
 
   const updateCertifcateDetails = (data) => {
     console.log('Updating Certificate Data:', data);
-    setCertificateData(prev => {
+    setCertificateData((prev) => {
       const updatedData = {
         ...prev,
         ...data,
         serialNumber: Array.isArray(data.serialNumber)
           ? [...prev.serialNumber, ...data.serialNumber]
-          : data.serialNumber || prev.serialNumber
+          : data.serialNumber || prev.serialNumber,
       };
       saveCertificateToCookie(updatedData);
       return updatedData;
@@ -113,14 +113,16 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ 
-      paymentData, 
-      updatePaymentData, 
-      clearPaymentData ,
-      certificateData,
-      updateCertifcateDetails,
-      clearCertificateData
-    }}>
+    <UserContext.Provider
+      value={{
+        paymentData,
+        updatePaymentData,
+        clearPaymentData,
+        certificateData,
+        updateCertifcateDetails,
+        clearCertificateData,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

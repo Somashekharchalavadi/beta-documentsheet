@@ -10,15 +10,15 @@ const PaymentCallback = () => {
   const [paymentDetails, setPaymentDetails] = useState(null);
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { paymentData ,clearPaymentData} = useUserContext();
+  const { paymentData, clearPaymentData } = useUserContext();
   const { merchantOrderId } = paymentData;
 
   useEffect(() => {
     const checkPaymentStatus = async () => {
-      console.log('Checking payment status...'); 
+      console.log('Checking payment status...');
 
       try {
-        if(!merchantOrderId) {
+        if (!merchantOrderId) {
           console.error('Merchant Order ID is missing');
           throw new Error('Merchant Order ID is missing');
         }
@@ -105,7 +105,7 @@ const PaymentCallback = () => {
   const ClearCookieAndData = () => {
     clearPaymentData();
     navigate('/');
-  }
+  };
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-50">
       <motion.div

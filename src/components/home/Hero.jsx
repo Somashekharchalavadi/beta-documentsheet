@@ -67,10 +67,16 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-           From Sheets To 
-          <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-green-400 to-green-500 animate-pulse"> Success  </span>
-            Privacy  At Every Step    
-          <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500"> 100 GSM Quality PRINT</span>
+            From Sheets To
+            <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-green-400 to-green-500 animate-pulse">
+              {' '}
+              Success{' '}
+            </span>
+            Privacy At Every Step
+            <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">
+              {' '}
+              100 GSM Quality PRINT
+            </span>
           </motion.h1>
 
           <motion.p
@@ -79,8 +85,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Effortless and reliable document solutions for Social service and LETTERHEREADS
-            — because every detail matters.
+            Effortless and reliable document solutions for Social service and LETTERHEREADS —
+            because every detail matters.
           </motion.p>
 
           {/* CTA Buttons */}
