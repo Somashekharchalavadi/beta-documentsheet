@@ -21,7 +21,7 @@ const CertificateCallback = () => {
         }
 
         const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/api/user/verify_payment/${merchantOrderId}`
+          `${import.meta.env.VITE_BASE_URL}/api/user/verify_payment-for-certificate/${merchantOrderId}`
         );
 
         const { data } = response;
