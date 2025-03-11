@@ -26,16 +26,12 @@ const PaymentCallback = () => {
     const verifyPayment = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/api/user/verify-payment/${merchantTransactionId}`,
+          `${import.meta.env.VITE_BASE_URL}/api/user/verify_payment/${merchantTransactionId}`,
           {
-            method: 'POST',
+            method: 'GET',
             headers: {
               'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              status,
-              merchantOrderId: paymentData.merchantOrderId,
-            }),
+            }
           }
         );
 
