@@ -48,8 +48,7 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <nav
-          className={`fixed w-full z-50 top-0 start-0 ${
+        <nav  className={`fixed w-full z-50 top-0 start-0 ${
             isScrolled ? 'bg-white shadow-md text-black duration-300' : 'bg-transparent text-black'
           }`}
         >
@@ -183,16 +182,6 @@ const Navbar = () => {
                 </Link>
               ))}
             </div>
-
-            {/* Create New Sheet Button in Sidebar */}
-            <Link to="/create-new-sheet" className="mt-6">
-              <button
-                type="button"
-                className="w-full text-white bg-[#219B9D] hover:bg-[#219B9D]/90 font-medium rounded-lg text-sm px-5 py-3 text-center transition-all duration-200"
-              >
-                Get Your Sheet
-              </button>
-            </Link>
 
             {/* Footer Links in Sidebar */}
             <div className="mt-auto border-t pt-4">

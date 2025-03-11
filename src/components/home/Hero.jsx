@@ -40,7 +40,7 @@ const StatCounter = ({ value }) => {
 
 const Hero = () => {
   return (
-    <section className="bg-[url('/assets/bg-cover.webp')] bg-cover bg-center flex justify-center items-center md:min-h-screen pt-12 md:pt-0 relative overflow-hidden">
+    <section className="bg-[url('/assets/bg-cover.webp')] bg-cover bg-center flex justify-center items-center min-h-screen py-12 md:pt-0 relative overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
         className="absolute inset-0"
@@ -55,7 +55,7 @@ const Hero = () => {
       <div className="grid max-w-7xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 relative">
         {/* Left Section */}
         <motion.div
-          className="mr-auto place-self-center lg:col-span-6 p-1 space-y-4"
+          className="mr-auto place-self-center lg:col-span-6 p-1 space-y-6"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -80,7 +80,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="max-w-2xl mb-8 text-gray-600 text-lg lg:text-xl text-center md:text-start"
+            className="max-w-3xl mb-8 text-gray-600 text-lg lg:text-xl text-center md:text-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -99,7 +99,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/create-new-sheet"
-                className="inline-flex items-center md:px-6 md:py-3 px-3 py-1 text-base font-medium text-white rounded-full bg-gradient-to-r from-[#219B9D] to-[#219B9D]/80 hover:from-[#A7E4CD] hover:to-[#A7E4CD]/80 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center md:px-6 md:py-3 px-3 py-2 text-base font-medium text-white rounded-full bg-gradient-to-r from-[#219B9D] to-[#219B9D]/80 hover:from-[#A7E4CD] hover:to-[#A7E4CD]/80 hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Create Your Sheet
                 <motion.svg
@@ -122,7 +122,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/scan-qr"
-                className="inline-flex items-center md:px-6 md:py-3 px-3 py-1 text-base font-medium text-black bg-white border-2 border-green-400 rounded-full hover:bg-green-50 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="inline-flex items-center md:px-6 md:py-3 px-3 py-2 text-base font-medium text-black bg-white border-2 border-green-400 rounded-full hover:bg-green-50 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <motion.i
                   className="fi fi-rs-qr-scan pe-2"
@@ -136,7 +136,7 @@ const Hero = () => {
 
           {/* Stats Section */}
           <motion.div
-            className="grid grid-cols-3 gap-4 mt-12"
+            className="grid grid-cols-3 gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}

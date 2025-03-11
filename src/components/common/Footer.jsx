@@ -1,3 +1,4 @@
+import { Home, QrCode, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -33,6 +34,22 @@ const Footer = () => {
           </ul>
         </div>
       </footer>
+
+      {/* Mobile View Footer */}
+      <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-2 border-t flex justify-around items-center md:hidden">
+        <Link to="/" className="flex flex-col items-center text-gray-600 hover:text-green-600">
+          <Home size={24} />
+          <span className="text-xs">Home</span>
+        </Link>
+        <Link to="/scan-qr" className="flex flex-col items-center text-gray-600 hover:text-green-600">
+          <QrCode size={24} />
+          <span className="text-xs">Scan QR</span>
+        </Link>
+        <Link to="/settings" className="flex flex-col items-center text-gray-600 hover:text-green-600">
+          <Settings size={24} />
+          <span className="text-xs">Settings</span>
+        </Link>
+      </div>
     </>
   );
 };
