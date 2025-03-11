@@ -74,25 +74,22 @@ export const UserProvider = ({ children }) => {
   };
 
   const updateCertificateDetails = (data) => {
-    console.log('Updating Certificate Data:', data);
+    console.log('Incoming Certificate Data:', data);
     setCertificateData((prev) => {
-      // Extract the serial number if it's spread across numeric keys
-      let serialNum = '';
-      if (typeof data === 'object') {
-        // Combine the characters into a single serial number
-        for (let i = 0; i < Object.keys(data).length; i++) {
-          if (typeof data[i] === 'string') {
-            serialNum += data[i];
-          }
-        }
-      }
-
+      // Handle direct serialNumber and merchantOrderId updates
       const updatedData = {
         ...prev,
         merchantOrderId: data.merchantOrderId || prev.merchantOrderId,
-        serialNumber: serialNum ?
-          [...(prev.serialNumber || []), serialNum] :
-          (Array.isArray(data.serialNumber) ? data.serialNumber : prev.serialNumber || [])
+        serialNumber: data.serialNumber ?
+          // If serialNumber is a string, make it an array item
+          (typeof data.serialNumber === 'string' ?
+            [...(prev.serialNumber || []), data.serialNumber] :
+            // If it's already an array, use it directly
+            Array.isArray(data.serialNumber) ?
+              data.serialNumber :
+              prev.serialNumber
+          ) :
+          prev.serialNumber || []
       };
 
       console.log('Updated Certificate Data:', updatedData);

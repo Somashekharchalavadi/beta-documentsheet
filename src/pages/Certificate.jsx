@@ -12,7 +12,7 @@ const Certificate = () => {
   const [certificateData, setCertificateData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { updateCertifcateDetails } = useUserContext();
+  const { updateCertificateDetails } = useUserContext();
 
   useEffect(() => {
     const fetchCertificate = async () => {
@@ -48,7 +48,7 @@ const Certificate = () => {
 
       const { paymentUrl, merchantOrderId } = data;
       if (paymentUrl) {
-        updateCertifcateDetails({ ...serialNumber, merchantOrderId });
+        updateCertificateDetails({ serialNumber: serialNum, merchantOrderId });
         window.location.href = paymentUrl;
       } else {
         console.error('[Payment] No payment URL in response');
