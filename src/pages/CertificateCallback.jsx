@@ -39,7 +39,8 @@ const CertificateCallback = () => {
         );
 
         const { data } = response.data;
-        if (data.success) {
+        console.log(data);
+        if (data.success === true) {
           setPaymentDetails(data);
           setStatus(data.status);
 
