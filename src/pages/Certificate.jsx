@@ -37,14 +37,10 @@ const Certificate = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-gray-50 py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center"
-        >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
             className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"
           />
           <p className="text-gray-600 text-sm sm:text-base">Loading certificate details...</p>
@@ -62,8 +58,18 @@ const Certificate = () => {
           className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg max-w-md mx-4"
         >
           <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-6 h-6 sm:w-8 sm:h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-6 h-6 sm:w-8 sm:h-8 text-red-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">Error</h2>
@@ -111,7 +117,9 @@ const Certificate = () => {
                     </div>
                     <div>
                       <p className="text-xs sm:text-sm text-gray-500">Name</p>
-                      <p className="text-sm sm:text-base font-medium text-gray-900">{certificateData.name}</p>
+                      <p className="text-sm sm:text-base font-medium text-gray-900">
+                        {certificateData.name}
+                      </p>
                     </div>
                   </div>
 
@@ -121,7 +129,9 @@ const Certificate = () => {
                     </div>
                     <div>
                       <p className="text-xs sm:text-sm text-gray-500">Place</p>
-                      <p className="text-sm sm:text-base font-medium text-gray-900">{certificateData.place}</p>
+                      <p className="text-sm sm:text-base font-medium text-gray-900">
+                        {certificateData.place}
+                      </p>
                     </div>
                   </div>
 
@@ -131,7 +141,9 @@ const Certificate = () => {
                     </div>
                     <div>
                       <p className="text-xs sm:text-sm text-gray-500">Reason</p>
-                      <p className="text-sm sm:text-base font-medium text-gray-900">{certificateData.reason}</p>
+                      <p className="text-sm sm:text-base font-medium text-gray-900">
+                        {certificateData.reason}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -184,12 +196,15 @@ const Certificate = () => {
                       transition={{ delay: 0.5 + index * 0.1 }}
                       className="flex items-center justify-between p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-100"
                     >
-                      <span className="text-sm sm:text-base font-medium text-gray-700">{item.serialNumber}</span>
+                      <span className="text-sm sm:text-base font-medium text-gray-700">
+                        {item.serialNumber}
+                      </span>
                       <span
-                        className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${item.status === 'cancelled'
+                        className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${
+                          item.status === 'cancelled'
                             ? 'bg-red-100 text-red-700'
                             : 'bg-green-100 text-green-700'
-                          }`}
+                        }`}
                       >
                         {item.status}
                       </span>

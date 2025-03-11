@@ -1,11 +1,26 @@
-import { Home, QrCode, Settings } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Home, IndianRupee, MessageCircle, PlusCircleIcon, QrCode } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const footerLinks = [
+    { path: '/', icon: Home, label: 'Home' },
+    { path: '/scan-qr', icon: QrCode, label: 'Scan QR' },
+    { path: '/create-new-sheet', icon: PlusCircleIcon, label: 'Create' },
+    { path: '/pricing', icon: IndianRupee, label: 'Pricing' },
+    { path: '/contact-us', icon: MessageCircle, label: 'Contact' }
+  ];
+
   return (
     <>
       {/* Desktop Footer */}
-      <footer className="bg-[#C2E9DB] rounded-lg shadow">
+      <footer className="bg-[#C2E9DB] rounded-lg shadow hidden md:block">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between text-center">
           <span className="text-sm text-black sm:text-center">
             {' '}
@@ -36,20 +51,33 @@ const Footer = () => {
       </footer>
 
       {/* Mobile View Footer */}
-      <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-2 border-t flex justify-around items-center md:hidden">
-        <Link to="/" className="flex flex-col items-center text-gray-600 hover:text-green-600">
-          <Home size={24} />
-          <span className="text-xs">Home</span>
-        </Link>
-        <Link to="/scan-qr" className="flex flex-col items-center text-gray-600 hover:text-green-600">
-          <QrCode size={24} />
-          <span className="text-xs">Scan QR</span>
-        </Link>
-        <Link to="/settings" className="flex flex-col items-center text-gray-600 hover:text-green-600">
-          <Settings size={24} />
-          <span className="text-xs">Settings</span>
-        </Link>
-      </div>
+      <motion.div
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        className="fixed bottom-0 left-0 w-full bg-white shadow-lg border-t flex justify-around items-center md:hidden px-2 py-1"
+      >
+        {footerLinks.map((link) => (
+          <Link
+            key={link.path}
+            to={link.path}
+            className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg transition-all duration-200 ${isActive(link.path)
+              ? 'text-orange-500 scale-110'
+              : 'text-gray-600 hover:text-orange-500'
+              }`}
+          >
+            <motion.div
+              whileTap={{ scale: 0.9 }}
+              className={`mb-0.5 ${isActive(link.path) ? 'drop-shadow-md' : ''}`}
+            >
+              {<link.icon size={28} strokeWidth={isActive(link.path) ? 2.5 : 2} />}
+            </motion.div>
+            <span className={`text-[10px]  ${isActive(link.path) ? 'text-orange-400' : 'text-gray-500'
+              }`}>
+              {link.label}
+            </span>
+          </Link>
+        ))}
+      </motion.div>
     </>
   );
 };

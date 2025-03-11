@@ -168,16 +168,17 @@ const SuccessPage = () => {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          transition={{ type: 'spring', stiffness: 260, damping: 20 }}
           className="flex justify-center mb-6 sm:mb-8"
         >
           <div className="w-20 h-20 sm:w-24 sm:h-24 bg-green-100 rounded-full flex items-center justify-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <svg className="w-12 h-12 sm:w-16 sm:h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.2 }}>
+              <svg
+                className="w-12 h-12 sm:w-16 sm:h-16 text-green-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <motion.path
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -218,15 +219,16 @@ const SuccessPage = () => {
                 whileTap={!isDownloading && { scale: 0.98 }}
                 onClick={() => DownloadSheet(sheetID)}
                 disabled={isDownloading}
-                className={`w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2.5 sm:py-3 rounded-lg transition-all duration-200 ${isDownloading
+                className={`w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2.5 sm:py-3 rounded-lg transition-all duration-200 ${
+                  isDownloading
                     ? 'opacity-75 cursor-not-allowed'
                     : 'hover:bg-blue-700 hover:shadow-lg'
-                  }`}
+                }`}
               >
                 {isDownloading ? (
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                     className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full"
                   />
                 ) : (
@@ -249,21 +251,24 @@ const SuccessPage = () => {
                 whileTap={!isDownloading && { scale: 0.98 }}
                 onClick={() => DownloadBill(sheetID)}
                 disabled={isDownloading}
-                className={`w-full flex items-center justify-center gap-2 bg-green-600 text-white py-2.5 sm:py-3 rounded-lg transition-all duration-200 ${isDownloading
+                className={`w-full flex items-center justify-center gap-2 bg-green-600 text-white py-2.5 sm:py-3 rounded-lg transition-all duration-200 ${
+                  isDownloading
                     ? 'opacity-75 cursor-not-allowed'
                     : 'hover:bg-green-700 hover:shadow-lg'
-                  }`}
+                }`}
               >
                 {isDownloading ? (
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                     className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full"
                   />
                 ) : (
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                 )}
-                <span className="ml-1">{isDownloading ? 'Downloading...' : 'Download Invoice'}</span>
+                <span className="ml-1">
+                  {isDownloading ? 'Downloading...' : 'Download Invoice'}
+                </span>
               </motion.button>
             </motion.div>
           </div>
@@ -275,7 +280,9 @@ const SuccessPage = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center">Share Your Experience</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center">
+                Share Your Experience
+              </h2>
 
               {/* Rating */}
               <div className="flex justify-center gap-1 sm:gap-2 mb-4 sm:mb-6">
@@ -285,10 +292,11 @@ const SuccessPage = () => {
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => handleRatingClick(star)}
-                    className={`p-1 rounded-full transition-all duration-200 ${rating >= star
+                    className={`p-1 rounded-full transition-all duration-200 ${
+                      rating >= star
                         ? 'text-yellow-400 hover:text-yellow-500'
                         : 'text-gray-300 hover:text-gray-400'
-                      }`}
+                    }`}
                   >
                     <Star className="w-6 h-6 sm:w-8 sm:h-8 fill-current" />
                   </motion.button>
@@ -314,15 +322,16 @@ const SuccessPage = () => {
                   whileTap={!isSubmitting && { scale: 0.98 }}
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2.5 sm:py-3 rounded-lg transition-all duration-200 ${isSubmitting
+                  className={`w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2.5 sm:py-3 rounded-lg transition-all duration-200 ${
+                    isSubmitting
                       ? 'opacity-75 cursor-not-allowed'
                       : 'hover:bg-blue-700 hover:shadow-lg'
-                    }`}
+                  }`}
                 >
                   {isSubmitting ? (
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                       className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full"
                     />
                   ) : (

@@ -13,9 +13,9 @@ const Contact = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -24,11 +24,11 @@ const Contact = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 200,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   };
 
   return (
@@ -61,27 +61,21 @@ const Contact = () => {
         animate="visible"
         className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 space-y-12 max-w-7xl mx-auto"
       >
-        <motion.div
-          variants={itemVariants}
-          className="flex justify-center items-center"
-        >
+        <motion.div variants={itemVariants} className="flex justify-center items-center">
           <motion.div
             whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 400 }}
+            transition={{ type: 'spring', stiffness: 400 }}
             className="w-full max-w-4xl"
           >
             <TabComponent />
           </motion.div>
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          className="space-y-8"
-        >
+        <motion.div variants={itemVariants} className="space-y-8">
           <div className="flex justify-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400 }}
+              transition={{ type: 'spring', stiffness: 400 }}
             >
               <Pill text={'Query section'} />
             </motion.div>
@@ -98,8 +92,8 @@ const Contact = () => {
             <motion.div
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 400 }}
-              className="w-full max-w-4xl bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+              transition={{ type: 'spring', stiffness: 400 }}
+              className="w-full max-w-4xl bg-white/80 backdrop-blur-sm rounded-xl transition-all duration-300"
             >
               <ContactPageMessage />
             </motion.div>
@@ -107,12 +101,7 @@ const Contact = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        variants={itemVariants}
-        initial="hidden"
-        animate="visible"
-        className="mb-12"
-      >
+      <motion.div variants={itemVariants} initial="hidden" animate="visible" className="mb-12">
         <Faq />
       </motion.div>
     </>

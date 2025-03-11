@@ -12,13 +12,9 @@ export default defineConfig({
   build: {
     terserOptions: {
       compress: {
-        drop_console: true, // Optional: remove console logs
-        pure_getters: true, // Optional: clean up getters
+        pure_getters: true,
       },
-      mangle: true, // Optional: minify
-      format: {
-        comments: false, // Optional: remove comments in the final bundle
-      },
+      mangle: true,
     },
     outDir: 'build',
     minify: 'terser',

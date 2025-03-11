@@ -22,7 +22,7 @@ const App = () => {
 
       <BrowserRouter>
         <UserProvider>
-          <Toaster position="bottom-right" />
+          <Toaster position="top-right" />
           <Routess />
         </UserProvider>
       </BrowserRouter>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Home, ScanBarcode, IndianRupee, Phone, BookCheck } from 'lucide-react';
+import { Home, ScanBarcode, IndianRupee, Phone, BookCheck, BookCheckIcon, UserRoundCheckIcon } from 'lucide-react';
 
 const Navbar = () => {
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -48,7 +48,8 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <nav  className={`fixed w-full z-50 top-0 start-0 ${
+        <nav
+          className={`fixed w-full z-50 top-0 start-0 ${
             isScrolled ? 'bg-white shadow-md text-black duration-300' : 'bg-transparent text-black'
           }`}
         >
@@ -166,21 +167,29 @@ const Navbar = () => {
             </div>
 
             {/* Navigation Links */}
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
+            <div className="flex flex-col space-y-2"> 
+            <Link 
+                  to={'/about'}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                    pathname === link.href
+                    pathname === '/about'
                       ? 'bg-[#219B9D]/10 text-[#219B9D]'
                       : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
-                  <link.icon className="w-5 h-5" />
-                  {link.label}
+                  <UserRoundCheckIcon className="w-5 h-5" />
+                  About Us
                 </Link>
-              ))}
+               <Link 
+                  to={'/resources'}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                    pathname === '/resources'
+                      ? 'bg-[#219B9D]/10 text-[#219B9D]'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <BookCheckIcon className="w-5 h-5" />
+                  Resources
+                </Link> 
             </div>
 
             {/* Footer Links in Sidebar */}

@@ -4,10 +4,7 @@ import Pill from '../common/Pill';
 
 const CardGrid = () => {
   return (
-    <section
-      className="  w-80 ml-10 sm:border-blue-700 sm:w-3/4 sm:ml-20 md:border-yellow-600 md:ml-24  lg:border-green-600 lg:ml-32
-      "
-    >
+    <section  className="w-80 sm:w-3/4 mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +26,7 @@ const CardGrid = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <div className="flex flex-col justify-center items-center md:min-h-64 p-3 bg-gradient-to-r from-orange-600 to-orange-300 border border-orange-200 rounded-lg shadow hover:scale-95 hover:shadow-lg transition-transform duration-300">
+          <div className="flex flex-col justify-center items-center md:min-h-64 h-full p-3 bg-gradient-to-r from-orange-600 to-orange-300 border border-orange-200 rounded-lg shadow hover:scale-95 hover:shadow-lg transition-transform duration-300">
             <h5 className="mb-2 md:text-2xl text-md font-bold tracking-tight text-white p-1">
               Manage Your Documents Seamlessly
             </h5>
@@ -71,7 +68,7 @@ const CardGrid = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <div className="flex flex-col justify-center items-center md:min-h-72 md:p-6 p-5 bg-gradient-to-r from-[#5ba375] to-[#1A776F] border border-orange-200 rounded-lg shadow hover:scale-95 hover:shadow-lg transition-transform duration-300">
+          <div className="flex flex-col justify-center items-center md:min-h-72 h-full md:p-6 p-5 bg-gradient-to-r from-[#5ba375] to-[#1A776F] border border-orange-200 rounded-lg shadow hover:scale-95 hover:shadow-lg transition-transform duration-300">
             <h5 className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-white">
               Track, Update, and Collaborate
             </h5>
@@ -88,6 +85,7 @@ const CardGrid = () => {
           </div>
         </motion.div>
       </div>
+
     </section>
   );
 };

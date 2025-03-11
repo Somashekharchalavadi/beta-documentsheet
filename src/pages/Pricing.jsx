@@ -13,9 +13,9 @@ const Pricing = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -24,11 +24,11 @@ const Pricing = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 200,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   };
 
   return (
@@ -77,10 +77,7 @@ const Pricing = () => {
           <Testimonial />
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          className="bg-white/80 backdrop-blur-sm"
-        >
+        <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-sm">
           <Contact />
         </motion.div>
       </motion.div>

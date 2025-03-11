@@ -74,7 +74,7 @@ const PaymentCallback = () => {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
             >
               <CheckCircle className="w-16 h-16 sm:w-20 sm:h-20 text-green-500" />
             </motion.div>
@@ -91,7 +91,7 @@ const PaymentCallback = () => {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
             >
               <XCircle className="w-16 h-16 sm:w-20 sm:h-20 text-red-500" />
             </motion.div>
@@ -108,7 +108,7 @@ const PaymentCallback = () => {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
             >
               <XCircle className="w-16 h-16 sm:w-20 sm:h-20 text-red-500" />
             </motion.div>
@@ -125,11 +125,11 @@ const PaymentCallback = () => {
             <motion.div
               animate={{
                 rotate: 360,
-                scale: [1, 1.1, 1]
+                scale: [1, 1.1, 1],
               }}
               transition={{
-                rotate: { duration: 1.5, repeat: Infinity, ease: "linear" },
-                scale: { duration: 1.5, repeat: Infinity }
+                rotate: { duration: 1.5, repeat: Infinity, ease: 'linear' },
+                scale: { duration: 1.5, repeat: Infinity },
               }}
             >
               <Loader className="w-16 h-16 sm:w-20 sm:h-20 text-blue-500" />
@@ -158,14 +158,10 @@ const PaymentCallback = () => {
           className={`bg-white rounded-2xl shadow-xl overflow-hidden ${content.bgColor} border ${content.borderColor}`}
           initial={{ y: 20 }}
           animate={{ y: 0 }}
-          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
         >
           {/* Status Icon */}
-          <motion.div
-            className="flex justify-center pt-6 sm:pt-8"
-          >
-            {content.icon}
-          </motion.div>
+          <motion.div className="flex justify-center pt-6 sm:pt-8">{content.icon}</motion.div>
 
           {/* Content */}
           <div className="p-6 sm:p-8">
@@ -192,7 +188,7 @@ const PaymentCallback = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
+                transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
                 className="bg-white rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border border-green-100 shadow-sm"
               >
                 <h3 className="font-semibold text-gray-800 mb-3 sm:mb-4">Payment Details</h3>
@@ -229,13 +225,14 @@ const PaymentCallback = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                whileHover={{ scale: 1.02, boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}
+                whileHover={{ scale: 1.02, boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}
                 whileTap={{ scale: 0.98 }}
                 onClick={ClearCookieAndData}
-                className={`w-full py-2.5 sm:py-3 rounded-lg font-medium transition-all duration-200 ${status === 'COMPLETED'
+                className={`w-full py-2.5 sm:py-3 rounded-lg font-medium transition-all duration-200 ${
+                  status === 'COMPLETED'
                     ? 'bg-green-500 hover:bg-green-600 text-white'
                     : 'bg-blue-500 hover:bg-blue-600 text-white'
-                  }`}
+                }`}
               >
                 <span className="flex items-center justify-center gap-2">
                   {status === 'COMPLETED' ? (

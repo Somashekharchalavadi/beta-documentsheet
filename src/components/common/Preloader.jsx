@@ -89,7 +89,7 @@ const Preloader = () => {
           transition={{ delay: 0.5 }}
           className="mt-6 text-center text-[#219B9D] font-medium"
         >
-          Creating Your Document...
+          Welcome to Document Sheet...
         </motion.div>
       </div>
     </motion.div>
