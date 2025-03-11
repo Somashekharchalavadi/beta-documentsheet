@@ -5,8 +5,8 @@ import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import QRCODEANIMATION from '../../data/QR_Code_Animation.json';
 import AuthAnimation from '../../data/Auth_Animation.json';
-import QrCodeScanner from './QrCodeScanner';
-import GetCerticate from '../common/GetCerticate';
+import QrCodeScanner from './QrCodeScanner'; 
+import { Link } from 'react-router-dom';
 
 const ScanTabs = () => {
   const [serialNumber, setSerialNumber] = useState('');
@@ -224,8 +224,10 @@ const ScanTabs = () => {
                                 key={index}
                                 className="flex items-center justify-between p-2 bg-gray-50 rounded-lg"
                               >
-                                <span className="font-medium">{item.serialNumber}</span>
-                                <GetCerticate serialNumber={item.serialNumber} />
+                                <span className="font-medium">{item.serialNumber}</span> 
+                                <Link to={`/certificate/${item.serialNumber}`} className="text-blue-500">
+                                  Get Certificate
+                                </Link>
                                 <span
                                   className={`px-3 py-1 rounded-full text-sm font-medium ${
                                     item.status === 'cancelled'

@@ -10,6 +10,8 @@ const SuccessPage = () => {
   const [description, setDescription] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasFetched = useRef(false);
+  const [loading,setLoading] = useState(false);
+  const [isDownladoing, setIsDownloading] = useState(false);
   const { paymentData, clearPaymentData } = useUserContext();
   const { name, sheetID } = paymentData;
 
@@ -34,7 +36,7 @@ const SuccessPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: paymentData.name,
+          name,
           email,
           mobile,
           rating,
@@ -67,6 +69,7 @@ const SuccessPage = () => {
     }
 
     try {
+      setIsDownloading(true);
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/user/genrate-Sheet/${sheetID}`,
         {
@@ -85,14 +88,19 @@ const SuccessPage = () => {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(fileURL);
+        setIsDownloading(false);
         toast.success('Your Sheet has been downloaded');
       } else {
         console.error('[SuccessPage] Sheet download failed with status:', response.status);
+        setIsDownloading(false);
         toast.error('Failed to Download Sheet');
       }
     } catch (error) {
       console.error('[SuccessPage] Sheet download error:', error);
+      setIsDownloading(false);
       toast.error('Failed to Download Sheet');
+    }finally{
+      setIsDownloading(false);
     }
   };
 
@@ -103,7 +111,7 @@ const SuccessPage = () => {
       toast.error('Sheet Not Found');
       return;
     }
-
+    setLoading(true);
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/user/genrate-bill/${sheetID}`,
@@ -124,14 +132,20 @@ const SuccessPage = () => {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(fileURL);
+        setLoading(false);
         toast.success('Your Invoice has been downloaded');
       } else {
         console.error('[SuccessPage] Bill download failed with status:', response.status);
+        setLoading(false);
         toast.error('Failed to Download Invoice');
       }
     } catch (error) {
       console.error('[SuccessPage] Bill download error:', error);
+      setLoading(false);
       toast.error('Failed to Download Invoice');
+    }
+    finally{
+      setLoading(false);
     }
   };
 
@@ -139,12 +153,22 @@ const SuccessPage = () => {
     clearPaymentData();
     navigate(route);
   };
+  const [seconds, setSeconds] = useState(15);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
 
   useEffect(() => {
    
     if (!paymentData.sheetID) {
       console.log('[SuccessPage] No sheetID found, redirecting to home');
-      navigate('/');
+      // navigate('/');
       return;
     }
 
@@ -161,14 +185,46 @@ const SuccessPage = () => {
   return (
     <>
       <div className="py-24 min-h-screen bg-[url('https://res.cloudinary.com/dlgyf2xzu/image/upload/v1734580950/Checker_euvc9v.png')] bg-no-repeat bg-cover bg-center mx-auto">
-        {/* Get Invoice Button */}
-        <div className="max-w-7xl mx-auto">
+       
+       {isDownladoing 
+       ? 
+      <>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
+      <div className="flex flex-col items-center p-6 bg-white shadow-xl rounded-xl">
+        {/* Animated Spinner */}
+        <div className="relative flex items-center justify-center mb-6">
+          <div className="w-16 h-16 border-4 border-t-green-500 border-gray-300 rounded-full animate-spin"></div>
+          <div className="absolute flex space-x-1 bottom-[-10px]">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse delay-200"></div>
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse delay-400"></div>
+          </div>
+        </div>
+
+        {/* Countdown Timer */}
+        <h1 className="text-center text-xl font-semibold text-gray-900 animate-fade-in">
+          Please wait for <span className="text-green-500 font-bold">{seconds}</span> seconds.
+        </h1>
+        <p className="text-sm text-gray-600 mt-2 text-center animate-fade-in">
+          Do not close this browser or tab while the process completes.
+        </p>
+      </div>
+    </div>
+
+      </>
+      :
+      <>
+      {/* Get Invoice Button */}
+      <div className="max-w-7xl mx-auto">
           <div className="flex justify-end pr-8">
             <button
               onClick={() => DownloadBill(sheetID)}
-              className="px-6 py-2 rounded-md bg-green-200 text-green-800 font-medium hover:bg-green-300 transition"
+              className={`px-6 py-2 rounded-md bg-green-200 text-green-800 font-medium hover:bg-green-300 transition ${
+                loading ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={loading}
             >
-              Get Invoice
+              {loading ? 'Downloading...' : 'Get Invoice'}
             </button>
           </div>
 
@@ -252,6 +308,8 @@ const SuccessPage = () => {
             </div>
           </div>
         </div>
+      </>}
+        
       </div>
     </>
   );

@@ -27,7 +27,7 @@ const CardGrid = () => {
           viewport={{ once: true }}
         >
           <div className="flex flex-col justify-center items-center md:min-h-64 h-full p-3 bg-gradient-to-r from-orange-600 to-orange-300 border border-orange-200 rounded-lg shadow hover:scale-95 hover:shadow-lg transition-transform duration-300">
-            <h5 className="mb-2 md:text-2xl text-md font-bold tracking-tight text-white p-1">
+            <h5 className="mb-2 md:text-2xl text-sm font-bold tracking-tight text-white p-1">
               Manage Your Documents Seamlessly
             </h5>
             <p className="font-normal text-white md:text-md text-xs">
@@ -36,7 +36,7 @@ const CardGrid = () => {
             </p>
             <Link
               to={'/create-new-sheet'}
-              className="md:my-4 my-1 md:px-8 px-3 md:py-2 py-1 md:text-lg text-xs border border-dashed border-green-200 rounded-lg text-orange-100 shadow-md bg-orange-500 hover:bg-orange-400"
+              className="md:my-4 my-2 md:px-8 px-3 md:py-2 py-1 md:text-lg text-xs border border-dashed border-green-200 rounded-lg text-orange-100 shadow-md bg-orange-500 hover:bg-orange-400"
             >
               Create New Sheet
             </Link>
@@ -69,7 +69,7 @@ const CardGrid = () => {
           viewport={{ once: true }}
         >
           <div className="flex flex-col justify-center items-center md:min-h-72 h-full md:p-6 p-5 bg-gradient-to-r from-[#5ba375] to-[#1A776F] border border-orange-200 rounded-lg shadow hover:scale-95 hover:shadow-lg transition-transform duration-300">
-            <h5 className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-white">
+            <h5 className="mb-2 md:text-2xl text-lg font-bold tracking-tight text-white">
               Track, Update, and Collaborate
             </h5>
             <p className="font-normal text-white md:text-base text-xs text-center">
@@ -78,7 +78,7 @@ const CardGrid = () => {
             </p>
             <Link
               to={'/pricing'}
-              className="md:my-4 my-1 md:px-8 px-3 md:py-2 py-1 md:text-lg text-xs border border-dashed border-green-200 rounded-lg text-white shadow-md bg-green-500 hover:bg-green-400"
+              className="md:my-4 my-2 md:px-8 px-3 md:py-2 py-1 md:text-lg text-xs border border-dashed border-green-200 rounded-lg text-white shadow-md bg-green-500 hover:bg-green-400"
             >
               See our pricing
             </Link>
