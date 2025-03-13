@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Scanner } from '@yudiel/react-qr-scanner';
-import { useNavigate } from 'react-router-dom';
 const QrCodeScanner = () => {
   const [isScanning, setIsScanning] = useState(false);
-const navigate = useNavigate();
   const startScanner = () => {
     setIsScanning(true);
   };
@@ -14,9 +12,8 @@ const navigate = useNavigate();
 
   const handleScan = (result) => {
     if (result) {
-      navigate(result[0].rawValue);
+      window.location.href = (result[0].rawValue);
       setIsScanning(false);
-     
     }
   };
 
