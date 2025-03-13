@@ -91,6 +91,8 @@ const CertificateCallback = () => {
         URL.revokeObjectURL(fileURL);
         setIsDownloading(false);
         toast.success('Your Sheet has been downloaded');
+        navigate('/scan-qr');
+        clearCertificateData();
       } else {
         console.error('[SuccessPage] Sheet download failed with status:', response.status);
         setIsDownloading(false);
@@ -157,9 +159,7 @@ const CertificateCallback = () => {
   };
 
   const content = getStatusContent();
-  if(navigate){
-    clearCertificateData();
-  }
+
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-50 px-4 py-8 md:px-6 md:py-16">
       <motion.div
