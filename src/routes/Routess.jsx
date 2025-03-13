@@ -43,12 +43,14 @@ const Routess = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-condition" element={<TermsCondition />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
-        <Route path="/feedback" element={<SuccessPage />} />
-        <Route path="/certificate/:serialNumber" element={<Certificate />} />
-        <Route path="/certificate-callback" element={<CertificateCallback />} />
+        <Route path="/feedback" element={<SuccessPage />} /> 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
+      <Routes>
+      <Route path="/certificate/:serialNumber" element={<Certificate />} />
+      <Route path="/certificate-callback" element={<CertificateCallback />} />
+      </Routes>
     </>
   );
 };

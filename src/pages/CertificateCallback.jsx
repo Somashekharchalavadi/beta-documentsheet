@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
-import { CheckCircle, SplineIcon, TimerIcon, Download } from 'lucide-react';
+import { CheckCircle, SplineIcon, TimerIcon } from 'lucide-react';
 import { useUserContext } from '../context/UserContext';
 import {toast} from 'react-hot-toast';
 
