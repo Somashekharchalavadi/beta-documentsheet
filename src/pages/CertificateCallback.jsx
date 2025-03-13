@@ -15,7 +15,7 @@ const CertificateCallback = () => {
   const navigate = useNavigate();
   const { certificateData, clearCertificateData } = useUserContext();
   const { merchantOrderId } = certificateData;
-
+console.log(certificateData);
   // Timer Animation
   useEffect(() => {
     if (isDownloading && timeLeft > 0) {
@@ -68,17 +68,20 @@ const CertificateCallback = () => {
     return () => clearInterval(checkInterval);
   }, [status, merchantOrderId, navigate]);
 
-  if(navigate){
-    clearCertificateData();
-  }
+  // if(navigate){
+  //   clearCertificateData();
+  // }
   const GenerateCertificate = async (serialNumber) => {
     if (isDownloading) return; 
     try {
       setIsDownloading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/api/user/get-certificate/${serialNumber}`, { responseType: 'blob' }
+        `${import.meta.env.VITE_BASE_URL}/api/user/get-certificate/${serialNumber}`,
+         { 
+          responseType: 'blob' ,
+        }
       );
-
+console.log(response);
       if (response.status === 200) {
         const fileBlob = new Blob([response.data], { type: 'application/pdf' });
         const fileURL = URL.createObjectURL(fileBlob);
