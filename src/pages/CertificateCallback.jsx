@@ -15,7 +15,7 @@ const CertificateCallback = () => {
   const navigate = useNavigate();
   const { certificateData, clearCertificateData } = useUserContext();
   const { merchantOrderId } = certificateData;
-console.log(certificateData);
+
   // Timer Animation
   useEffect(() => {
     if (isDownloading && timeLeft > 0) {
@@ -68,9 +68,7 @@ console.log(certificateData);
     return () => clearInterval(checkInterval);
   }, [status, merchantOrderId, navigate]);
 
-  // if(navigate){
-  //   clearCertificateData();
-  // }
+
   const GenerateCertificate = async (serialNumber) => {
     if (isDownloading) return; 
     try {
@@ -81,7 +79,6 @@ console.log(certificateData);
           responseType: 'blob' ,
         }
       );
-console.log(response);
       if (response.status === 200) {
         const fileBlob = new Blob([response.data], { type: 'application/pdf' });
         const fileURL = URL.createObjectURL(fileBlob);
@@ -160,7 +157,9 @@ console.log(response);
   };
 
   const content = getStatusContent();
-
+  if(navigate){
+    clearCertificateData();
+  }
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-50 px-4 py-8 md:px-6 md:py-16">
       <motion.div
@@ -208,10 +207,10 @@ console.log(response);
                   <div className="bg-gray-50 rounded-lg p-4 space-y-2">
                     <h3 className="font-semibold">Payment Details</h3>
                     <p className="text-sm text-gray-600">
-                      Transaction ID: {paymentDetails.merchantTransactionId}
+                      Transaction ID: {merchantOrderId}
                     </p>
                     <p className="text-sm text-gray-600">
-                      Amount: ₹{paymentDetails.amount / 100}
+                      Amount: ₹25
                     </p>
                   </div>
                 </motion.div>
