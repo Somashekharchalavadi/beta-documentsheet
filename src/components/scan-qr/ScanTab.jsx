@@ -131,7 +131,7 @@ const ScanTabs = () => {
             exit={{ opacity: 0, y: -20 }}
             className="py-8"
           >
-            <div className="max-w-7xl mx-auto rounded-xl p-6 bg-white shadow-lg">
+            <div className="max-w-7xl mx-auto rounded-xl p-6 bg-white">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="md:w-1/3 hidden md:block">
                   <Player

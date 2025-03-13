@@ -85,7 +85,7 @@ const Certificate = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-50 py-20 px-4">
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
         <h1 className="text-xl font-semibold text-center mb-6">Certificate Details</h1>
         <div className="grid gap-4">
           <div className="flex items-center gap-3">
@@ -122,7 +122,7 @@ const Certificate = () => {
                 onClick={() => handleDownloadCertificate(item.serialNumber)}
                 className="flex items-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 md:text-lg text-xs"
               >
-                <Lock className="w-4 h-4" /> Download Certificate
+               <Lock className="w-4 h-4" /> Download Certificate
               </motion.button>
             </div>
           ))}

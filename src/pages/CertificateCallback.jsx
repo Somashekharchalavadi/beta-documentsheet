@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import { CheckCircle, SplineIcon, TimerIcon, Download } from 'lucide-react';
 import { useUserContext } from '../context/UserContext';
+import {toast} from 'react-hot-toast';
 
 const CertificateCallback = () => {
   const [status, setStatus] = useState('loading');
@@ -73,22 +74,23 @@ const CertificateCallback = () => {
         `${import.meta.env.VITE_BASE_URL}/api/user/get-certificate/${serialNumber}`
       );
       clearCertificateData();
+
       if (response.status === 200) {
         const fileBlob = new Blob([response.data], { type: 'application/pdf' });
         const fileURL = URL.createObjectURL(fileBlob);
         const link = document.createElement('a');
         link.href = fileURL;
-        link.download = ` Certificate-${serialNumber}.pdf`;
+        link.download = `Certificate-${serialNumber}.pdf`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(fileURL);
         setIsDownloading(false);
-        toast.success('Your Certificate has been downloaded');
+        toast.success('Your Sheet has been downloaded');
       } else {
-        console.error('[CertificatePage] Certificate download failed with status:', response.status);
+        console.error('[SuccessPage] Sheet download failed with status:', response.status);
         setIsDownloading(false);
-        toast.error('Failed to Download Certificate');
+        toast.error('Failed to Download Sheet');
       }
     } catch (error) {
       console.error('Error generating certificate:', error);
