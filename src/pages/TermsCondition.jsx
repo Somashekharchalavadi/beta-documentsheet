@@ -46,14 +46,25 @@ const TermsCondition = () => {
           </p>
 
           <h2 className="font-semibold text-xl mb-2 mt-4">Legal Compliance</h2>
+
           <p className="text-base">
-            Document Sheet operates in strict adherence to TRADE MARK REFISTRATION OF LOGO [TMR =
-            3283846] legal guidelines . Our document sheets are not stamp papers but serve as
-            supplementary pages in bond agreements and other legal documentation.
+            Document Sheet company operates in strict adherence to{' '}
+            <strong>TRADE MARK REGISTRATION OF LOGO (TMR: 3213846)</strong> and are officially
+            recognized under <strong>KPSS - GOVT REGISTRATION OF SOCIETY</strong> with committee{' '}
+            <strong>Tarao NO: 625, 626, 628, 629</strong>. This regulation was implemented in
+            compliance with <strong>CENTRAL VIGILANCE COMMISSION</strong>.
           </p>
+
           <p className="text-base">
-            We comply with all government regulations, including <strong>GST Registration</strong>{' '}
-            and <strong>MSME Registration</strong>, ensuring legitimacy and reliability.
+            Our document sheets are not stamp papers but serve as Supportive Documents in legal
+            documentation. We comply with all government regulations, including{' '}
+            <strong>GST Registration</strong> and <strong>MSME Registration</strong>, ensuring
+            legitimacy and reliability.
+          </p>
+
+          <p className="text-base">
+            We are also registered for <strong>"The Integrity Pledge"</strong> with{' '}
+            <strong>REG NO: 9326297452</strong> for Document Sheet.
           </p>
 
           <h2 className="font-semibold text-xl mb-2 mt-4">Authorized Use</h2>

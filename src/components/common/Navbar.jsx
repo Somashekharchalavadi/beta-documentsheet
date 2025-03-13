@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Home, ScanBarcode, IndianRupee, Phone, BookCheck, BookCheckIcon, UserRoundCheckIcon } from 'lucide-react';
+import {
+  Home,
+  ScanBarcode,
+  IndianRupee,
+  Phone,
+  BookCheck,
+  BookCheckIcon,
+  UserRoundCheckIcon,
+} from 'lucide-react';
 
 const Navbar = () => {
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -167,29 +175,29 @@ const Navbar = () => {
             </div>
 
             {/* Navigation Links */}
-            <div className="flex flex-col space-y-2"> 
-            <Link 
-                  to={'/about'}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                    pathname === '/about'
-                      ? 'bg-[#219B9D]/10 text-[#219B9D]'
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
-                >
-                  <UserRoundCheckIcon className="w-5 h-5" />
-                  About Us
-                </Link>
-               <Link 
-                  to={'/resources'}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                    pathname === '/resources'
-                      ? 'bg-[#219B9D]/10 text-[#219B9D]'
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
-                >
-                  <BookCheckIcon className="w-5 h-5" />
-                  Resources
-                </Link> 
+            <div className="flex flex-col space-y-2">
+              <Link
+                to={'/about'}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                  pathname === '/about'
+                    ? 'bg-[#219B9D]/10 text-[#219B9D]'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <UserRoundCheckIcon className="w-5 h-5" />
+                About Us
+              </Link>
+              <Link
+                to={'/resources'}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                  pathname === '/resources'
+                    ? 'bg-[#219B9D]/10 text-[#219B9D]'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <BookCheckIcon className="w-5 h-5" />
+                Resources
+              </Link>
             </div>
 
             {/* Footer Links in Sidebar */}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin, Tag, Lock, User2Icon, IndianRupeeIcon } from 'lucide-react';
 import TimeConverter from '../utils/TimeConverter';
 import axios from 'axios';
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { useUserContext } from '../context/UserContext';
 
 const Certificate = () => {
@@ -38,10 +38,14 @@ const Certificate = () => {
 
   const handleDownloadCertificate = async (serialNum) => {
     try {
-      const redirectUrl = `${window.location.origin}/certificate-callback`
-      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/user/create-payment-for-certificate`, {
-        serialNumber: serialNum, redirectUrl
-      });
+      const redirectUrl = `${window.location.origin}/certificate-callback`;
+      const response = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/user/create-payment-for-certificate`,
+        {
+          serialNumber: serialNum,
+          redirectUrl,
+        }
+      );
 
       const data = response.data;
       console.log('[Payment] Payment API Response:', data);
@@ -64,9 +68,7 @@ const Certificate = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-gray-100">
         <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: 1 }}>
-          <motion.div
-            className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"
-          />
+          <motion.div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-gray-700 text-sm">Loading certificate details...</p>
         </motion.div>
       </div>
@@ -102,7 +104,9 @@ const Certificate = () => {
           </div>
           <div className="flex items-center gap-3">
             <Calendar className="text-green-600" />
-            <p className="text-gray-800"><TimeConverter date={certificateData.date} /></p>
+            <p className="text-gray-800">
+              <TimeConverter date={certificateData.date} />
+            </p>
           </div>
           <div className="flex items-center gap-3">
             <IndianRupeeIcon className="text-yellow-600" />
@@ -114,15 +118,20 @@ const Certificate = () => {
         <div className="mt-6">
           <h2 className="text-lg font-semibold mb-4">Serial Numbers</h2>
           {certificateData.serialNumbers.map((item, index) => (
-            <div key={index} className="flex justify-between items-center p-3 bg-gray-100 rounded-md mb-2">
-              <span className="text-gray-700 font-medium md:text-lg text-xs">{item.serialNumber}</span>
+            <div
+              key={index}
+              className="flex justify-between items-center p-3 bg-gray-100 rounded-md mb-2"
+            >
+              <span className="text-gray-700 font-medium md:text-lg text-xs">
+                {item.serialNumber}
+              </span>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleDownloadCertificate(item.serialNumber)}
                 className="flex items-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 md:text-lg text-xs"
               >
-               <Lock className="w-4 h-4" /> Download Certificate
+                <Lock className="w-4 h-4" /> Download Certificate
               </motion.button>
             </div>
           ))}

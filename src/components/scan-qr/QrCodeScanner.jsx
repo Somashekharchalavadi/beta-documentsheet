@@ -12,7 +12,7 @@ const QrCodeScanner = () => {
 
   const handleScan = (result) => {
     if (result) {
-      window.location.href = (result[0].rawValue);
+      window.location.href = result[0].rawValue;
       setIsScanning(false);
     }
   };
@@ -61,7 +61,6 @@ const QrCodeScanner = () => {
           </>
         )}
       </div>
-
     </div>
   );
 };

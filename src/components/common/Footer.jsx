@@ -14,7 +14,7 @@ const Footer = () => {
     { path: '/scan-qr', icon: QrCode, label: 'Scan QR' },
     { path: '/create-new-sheet', icon: PlusCircleIcon, label: 'Create' },
     { path: '/pricing', icon: IndianRupee, label: 'Pricing' },
-    { path: '/contact-us', icon: MessageCircle, label: 'Contact' }
+    { path: '/contact-us', icon: MessageCircle, label: 'Contact' },
   ];
 
   return (
@@ -60,10 +60,11 @@ const Footer = () => {
           <Link
             key={link.path}
             to={link.path}
-            className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg transition-all duration-200 ${isActive(link.path)
-              ? 'text-orange-500 scale-110'
-              : 'text-gray-600 hover:text-orange-500'
-              }`}
+            className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg transition-all duration-200 ${
+              isActive(link.path)
+                ? 'text-orange-500 scale-110'
+                : 'text-gray-600 hover:text-orange-500'
+            }`}
           >
             <motion.div
               whileTap={{ scale: 0.9 }}
@@ -71,8 +72,11 @@ const Footer = () => {
             >
               {<link.icon size={28} strokeWidth={isActive(link.path) ? 2.5 : 2} />}
             </motion.div>
-            <span className={`text-[10px]  ${isActive(link.path) ? 'text-orange-400' : 'text-gray-500'
-              }`}>
+            <span
+              className={`text-[10px]  ${
+                isActive(link.path) ? 'text-orange-400' : 'text-gray-500'
+              }`}
+            >
               {link.label}
             </span>
           </Link>

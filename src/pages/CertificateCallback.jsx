@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import { CheckCircle, SplineIcon, TimerIcon } from 'lucide-react';
 import { useUserContext } from '../context/UserContext';
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const CertificateCallback = () => {
   const [status, setStatus] = useState('loading');
@@ -34,7 +34,7 @@ const CertificateCallback = () => {
         if (!merchantOrderId) {
           throw new Error('Merchant Order ID is missing');
         }
-        
+
         const response = await axios.get(
           `${import.meta.env.VITE_BASE_URL}/api/user/verify_payment-for-certificate/${merchantOrderId}?serialNumber=${certificateData.serialNumber[0]}`
         );
@@ -44,7 +44,7 @@ const CertificateCallback = () => {
           setStatus(data.status);
 
           if (data.status === 'COMPLETED') {
-            clearInterval(checkInterval); 
+            clearInterval(checkInterval);
             GenerateCertificate(certificateData.serialNumber[0]);
           }
         } else {
@@ -68,15 +68,14 @@ const CertificateCallback = () => {
     return () => clearInterval(checkInterval);
   }, [status, merchantOrderId, navigate]);
 
-
   const GenerateCertificate = async (serialNumber) => {
-    if (isDownloading) return; 
+    if (isDownloading) return;
     try {
       setIsDownloading(true);
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/user/get-certificate/${serialNumber}`,
-         { 
-          responseType: 'blob' ,
+        {
+          responseType: 'blob',
         }
       );
       if (response.status === 200) {
@@ -113,7 +112,7 @@ const CertificateCallback = () => {
             <motion.div
               className="w-20 h-20 rounded-full border-4 border-blue-500"
               animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
             />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold">
               {timeLeft}
@@ -178,9 +177,7 @@ const CertificateCallback = () => {
               className="flex flex-col items-center gap-6"
             >
               {content.icon}
-              <h2 className={`text-2xl font-bold ${content.color} text-center`}>
-                {content.title}
-              </h2>
+              <h2 className={`text-2xl font-bold ${content.color} text-center`}>{content.title}</h2>
               <p className="text-gray-600 text-center">{content.message}</p>
 
               {isDownloading && (
@@ -191,7 +188,7 @@ const CertificateCallback = () => {
                 >
                   <motion.div
                     className="h-full bg-blue-500"
-                    initial={{ width: "0%" }}
+                    initial={{ width: '0%' }}
                     animate={{ width: `${((10 - timeLeft) / 10) * 100}%` }}
                     transition={{ duration: 0.5 }}
                   />
@@ -206,12 +203,8 @@ const CertificateCallback = () => {
                 >
                   <div className="bg-gray-50 rounded-lg p-4 space-y-2">
                     <h3 className="font-semibold">Payment Details</h3>
-                    <p className="text-sm text-gray-600">
-                      Transaction ID: {merchantOrderId}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      Amount: ₹25
-                    </p>
+                    <p className="text-sm text-gray-600">Transaction ID: {merchantOrderId}</p>
+                    <p className="text-sm text-gray-600">Amount: ₹25</p>
                   </div>
                 </motion.div>
               )}

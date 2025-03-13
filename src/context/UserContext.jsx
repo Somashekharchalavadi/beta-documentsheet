@@ -80,16 +80,15 @@ export const UserProvider = ({ children }) => {
       const updatedData = {
         ...prev,
         merchantOrderId: data.merchantOrderId || prev.merchantOrderId,
-        serialNumber: data.serialNumber ?
-          // If serialNumber is a string, make it an array item
-          (typeof data.serialNumber === 'string' ?
-            [...(prev.serialNumber || []), data.serialNumber] :
-            // If it's already an array, use it directly
-            Array.isArray(data.serialNumber) ?
-              data.serialNumber :
-              prev.serialNumber
-          ) :
-          prev.serialNumber || []
+        serialNumber: data.serialNumber
+          ? // If serialNumber is a string, make it an array item
+            typeof data.serialNumber === 'string'
+            ? [...(prev.serialNumber || []), data.serialNumber]
+            : // If it's already an array, use it directly
+              Array.isArray(data.serialNumber)
+              ? data.serialNumber
+              : prev.serialNumber
+          : prev.serialNumber || [],
       };
 
       console.log('Updated Certificate Data:', updatedData);

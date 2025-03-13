@@ -96,20 +96,19 @@ const CreateNewSheet = () => {
       return;
     }
 
-    if(docData.Reason.length > 200) {
-      toast.error("Reason must be within 200 Charachter")
+    if (docData.Reason.length > 200) {
+      toast.error('Reason must be within 200 Charachter');
     }
-    if(docData.Village.length > 200) {
-      toast.error("Village name must be within 30 chatachter")
+    if (docData.Village.length > 200) {
+      toast.error('Village name must be within 30 chatachter');
     }
-    if(docData.Post.length > 30) {
-      toast.error("Post lenght must be within 30 Charachter")
+    if (docData.Post.length > 30) {
+      toast.error('Post lenght must be within 30 Charachter');
     }
-    if(docData.NumberOfSheet > 5) {
-      toast.error("Max 5 Sheet can be printed .")
+    if (docData.NumberOfSheet > 5) {
+      toast.error('Max 5 Sheet can be printed .');
     }
 
-    
     try {
       setLoading(true);
       console.log('[CreateNewSheet] Sending API request to create sheet');

@@ -49,7 +49,6 @@ const Routess = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
-
     </>
   );
 };

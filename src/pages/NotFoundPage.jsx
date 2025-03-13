@@ -9,9 +9,9 @@ const NotFoundPage = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -20,11 +20,11 @@ const NotFoundPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 200,
-        damping: 20
-      }
-    }
+        damping: 20,
+      },
+    },
   };
 
   return (
@@ -34,13 +34,13 @@ const NotFoundPage = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
           className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-orange-200 rounded-full blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 1.5, delay: 0.2, ease: 'easeOut' }}
           className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-200 rounded-full blur-3xl"
         />
       </div>
@@ -52,14 +52,8 @@ const NotFoundPage = () => {
         className="max-w-md w-full space-y-8 text-center relative z-10"
       >
         {/* 404 SVG Animation */}
-        <motion.div
-          variants={itemVariants}
-          className="relative mx-auto w-64 h-64 mb-8"
-        >
-          <svg
-            viewBox="0 0 100 100"
-            className="w-full h-full"
-          >
+        <motion.div variants={itemVariants} className="relative mx-auto w-64 h-64 mb-8">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
             <motion.path
               d="M20,50 C20,34 34,20 50,20 C66,20 80,34 80,50 C80,66 66,80 50,80 C34,80 20,66 20,50"
               fill="none"
@@ -67,7 +61,7 @@ const NotFoundPage = () => {
               strokeWidth="2"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 2, ease: 'easeInOut' }}
             />
             <motion.circle
               cx="50"
@@ -108,16 +102,22 @@ const NotFoundPage = () => {
             Oops! Page Not Found
           </h2>
           <p className="text-sm sm:text-base text-gray-600 max-w-sm mx-auto">
-            The page you're looking for seems to have wandered off. Don't worry, you can find your way back using these helpful links.
+            The page you're looking for seems to have wandered off. Don't worry, you can find your
+            way back using these helpful links.
           </p>
         </motion.div>
 
         <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 mt-8">
           {[
-            { to: "/", icon: Home, text: "Back Home", color: "bg-[#219B9D]" },
-            { to: "/create-new-sheet", icon: PlusCircle, text: "Create Sheet", color: "bg-orange-500" },
-            { to: "/scan-qr", icon: ScanBarcode, text: "Scan QR", color: "bg-blue-500" },
-            { to: "/contact-us", icon: Phone, text: "Contact Us", color: "bg-purple-500" }
+            { to: '/', icon: Home, text: 'Back Home', color: 'bg-[#219B9D]' },
+            {
+              to: '/create-new-sheet',
+              icon: PlusCircle,
+              text: 'Create Sheet',
+              color: 'bg-orange-500',
+            },
+            { to: '/scan-qr', icon: ScanBarcode, text: 'Scan QR', color: 'bg-blue-500' },
+            { to: '/contact-us', icon: Phone, text: 'Contact Us', color: 'bg-purple-500' },
           ].map((link, index) => (
             <motion.div
               key={link.to}
@@ -125,7 +125,9 @@ const NotFoundPage = () => {
               whileTap={{ scale: 0.95 }}
               className="relative group"
             >
-              <div className={`absolute inset-0 ${link.color} rounded-lg blur opacity-25 group-hover:opacity-40 transition-opacity`} />
+              <div
+                className={`absolute inset-0 ${link.color} rounded-lg blur opacity-25 group-hover:opacity-40 transition-opacity`}
+              />
               <Link
                 to={link.to}
                 className={`relative flex items-center justify-center gap-2 px-4 py-3 ${link.color} text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200`}
@@ -133,7 +135,7 @@ const NotFoundPage = () => {
                 <motion.div
                   initial={{ rotate: 0 }}
                   whileHover={{ rotate: 15 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  transition={{ type: 'spring', stiffness: 400 }}
                 >
                   <link.icon className="w-5 h-5" />
                 </motion.div>
@@ -143,10 +145,7 @@ const NotFoundPage = () => {
           ))}
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          className="mt-8 text-sm sm:text-base text-gray-500"
-        >
+        <motion.div variants={itemVariants} className="mt-8 text-sm sm:text-base text-gray-500">
           <p>
             If you believe this is a mistake, please{' '}
             <Link
@@ -154,7 +153,8 @@ const NotFoundPage = () => {
               className="text-[#219B9D] hover:text-[#219B9D]/80 font-medium hover:underline transition-all duration-200"
             >
               contact our support team
-            </Link>.
+            </Link>
+            .
           </p>
         </motion.div>
       </motion.div>

@@ -4,7 +4,7 @@ import Pill from '../common/Pill';
 
 const CardGrid = () => {
   return (
-    <section  className="w-80 sm:w-3/4 mx-auto">
+    <section className="w-80 sm:w-3/4 mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +85,6 @@ const CardGrid = () => {
           </div>
         </motion.div>
       </div>
-
     </section>
   );
 };

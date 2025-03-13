@@ -37,7 +37,7 @@ const ScanQr = () => {
       <ScanTabs />
       <ScanHero />
       <HowItWorks />
-      <Features /> 
+      <Features />
       <CardGrid />
       <FAQ />
     </>

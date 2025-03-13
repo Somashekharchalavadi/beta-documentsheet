@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import QRCODEANIMATION from '../../data/QR_Code_Animation.json';
 import AuthAnimation from '../../data/Auth_Animation.json';
-import QrCodeScanner from './QrCodeScanner'; 
+import QrCodeScanner from './QrCodeScanner';
 import { Link } from 'react-router-dom';
 
 const ScanTabs = () => {
@@ -224,8 +224,11 @@ const ScanTabs = () => {
                                 key={index}
                                 className="flex items-center justify-between p-2 bg-gray-50 rounded-lg"
                               >
-                                <span className="font-medium">{item.serialNumber}</span> 
-                                <Link to={`/certificate/${item.serialNumber}`} className="text-blue-500">
+                                <span className="font-medium">{item.serialNumber}</span>
+                                <Link
+                                  to={`/certificate/${item.serialNumber}`}
+                                  className="text-blue-500"
+                                >
                                   Get Certificate
                                 </Link>
                                 <span
