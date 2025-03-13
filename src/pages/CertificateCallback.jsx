@@ -67,14 +67,16 @@ const CertificateCallback = () => {
     return () => clearInterval(checkInterval);
   }, [status, merchantOrderId, navigate]);
 
+  if(navigate){
+    clearCertificateData();
+  }
   const GenerateCertificate = async (serialNumber) => {
     try {
       setIsDownloading(true);
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/user/get-certificate/${serialNumber}`
       );
-      clearCertificateData();
-
+      console.log(response);
       if (response.status === 200) {
         const fileBlob = new Blob([response.data], { type: 'application/pdf' });
         const fileURL = URL.createObjectURL(fileBlob);
