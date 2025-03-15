@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CreateSheet from '../data/CreateSheet.json';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import StatesData from '../data/AddressData.json';
 import Banner from '../components/common/Banner';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,useLocation} from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useUserContext } from '../context/UserContext';
@@ -13,7 +13,14 @@ import { useUserContext } from '../context/UserContext';
 const CreateNewSheet = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { updatePaymentData } = useUserContext();
+  const location = useLocation();
+
+  const { paymentData, updatePaymentData } = useUserContext();
+useEffect(()=>{
+  if(location.pathname === '/create-new-sheet'){
+    paymentData.serialNumber = [];
+  }
+},[location])
 
   const [docData, setDocData] = useState({
     UserName: '',
