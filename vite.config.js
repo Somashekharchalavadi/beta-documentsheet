@@ -13,6 +13,8 @@ export default defineConfig({
     terserOptions: {
       compress: {
         pure_getters: true,
+        drop_console: true,
+        drop_debugger: true,
       },
       mangle: true,
     },
