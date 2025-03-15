@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
@@ -193,9 +193,8 @@ const SuccessPage = () => {
 
                 {/* Countdown Timer */}
                 <h1 className="text-center text-xl font-semibold text-gray-900 animate-fade-in"> Please wait for <span className="text-green-500 font-bold">{seconds}</span>{' '} seconds. </h1>
-                <h2 className="text-md text-gray-600 mt-2 text-center animate-fade-in">Please wait while your certificate is being prepared.</h2>
                 <p className="text-md text-gray-600 mt-2 text-center animate-fade-in"> Kindly do not leave the page or turn off your screen</p>
-                <h3 className="text-lg text-gray-800 mt-2 text-center animate-fade-in"> <strong>Note:</strong> To ensure the document's durability and quality, please use 100 GSM paper for printing.</h3>
+                <h3 className="text-lg text-gray-800 mt-2 text-center animate-fade-in"> <strong>Note:</strong> To ensure the document&apos;s durability and quality, please use 100 GSM paper for printing.</h3>
               </div>
             </div>
           </>
