@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import StatesData from '../data/AddressData.json';
 import Banner from '../components/common/Banner';
-import { useNavigate ,useLocation} from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useUserContext } from '../context/UserContext';
@@ -16,11 +16,11 @@ const CreateNewSheet = () => {
   const location = useLocation();
 
   const { paymentData, updatePaymentData } = useUserContext();
-useEffect(()=>{
-  if(location.pathname === '/create-new-sheet'){
-    paymentData.serialNumber = [];
-  }
-},[location])
+  useEffect(() => {
+    if (location.pathname === '/create-new-sheet') {
+      paymentData.serialNumber = [];
+    }
+  }, [location])
 
   const [docData, setDocData] = useState({
     UserName: '',
@@ -100,10 +100,10 @@ useEffect(()=>{
       return;
     }
 
-    if (docData.Reason.length > 200) {
-      toast.error('Reason must be within 200 Charachter');
+    if (docData.Reason.length > 300) {
+      toast.error('Reason must be within 300 Charachter');
     }
-    if (docData.Village.length > 200) {
+    if (docData.Village.length > 30) {
       toast.error('Village name must be within 30 chatachter');
     }
     if (docData.Post.length > 30) {
@@ -385,9 +385,8 @@ useEffect(()=>{
                   whileTap={{ scale: 0.98 }}
                   disabled={loading}
                   onClick={onHandleDocCreated}
-                  className={`w-80 h-12 py-3 rounded-xl focus:outline-none ring-2 transition-all duration-700 ring-green-100 bg-green-300 text-black hover:bg-green-400 ${
-                    loading ? 'cursor-not-allowed opacity-50' : ''
-                  }`}
+                  className={`w-80 h-12 py-3 rounded-xl focus:outline-none ring-2 transition-all duration-700 ring-green-100 bg-green-300 text-black hover:bg-green-400 ${loading ? 'cursor-not-allowed opacity-50' : ''
+                    }`}
                 >
                   {loading ? (
                     <div className="flex items-center justify-center">
