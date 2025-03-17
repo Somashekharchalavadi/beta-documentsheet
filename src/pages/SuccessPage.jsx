@@ -147,7 +147,7 @@ const SuccessPage = () => {
     clearPaymentData();
     navigate(route);
   };
-  const [seconds, setSeconds] = useState(15);
+  const [seconds, setSeconds] = useState(25);
 
   useEffect(() => {
     const interval = setInterval(() => {

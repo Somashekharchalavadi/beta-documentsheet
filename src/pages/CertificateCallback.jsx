@@ -10,7 +10,7 @@ const CertificateCallback = () => {
   const [status, setStatus] = useState('loading');
   const [paymentDetails, setPaymentDetails] = useState(null);
   const [error, setError] = useState('');
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(25);
   const [isDownloading, setIsDownloading] = useState(false);
   const navigate = useNavigate();
   const { certificateData, clearCertificateData } = useUserContext();
