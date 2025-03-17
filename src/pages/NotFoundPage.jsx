@@ -28,7 +28,7 @@ const NotFoundPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 md:py-16 md:px-8  p-2 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -49,10 +49,10 @@ const NotFoundPage = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-md w-full space-y-8 text-center relative z-10"
+        className="max-w-md w-full md:space-y-4 space-y-2 text-center relative"
       >
         {/* 404 SVG Animation */}
-        <motion.div variants={itemVariants} className="relative mx-auto w-64 h-64 mb-8">
+        <motion.div variants={itemVariants} className="relative mx-auto w-64 h-64 md:mb-8 mb-2">
           <svg viewBox="0 0 100 100" className="w-full h-full">
             <motion.path
               d="M20,50 C20,34 34,20 50,20 C66,20 80,34 80,50 C80,66 66,80 50,80 C34,80 20,66 20,50"
@@ -97,17 +97,17 @@ const NotFoundPage = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="space-y-4">
+        <motion.div variants={itemVariants} className="md:space-y-4 space-y-2">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
             Oops! Page Not Found
           </h2>
           <p className="text-sm sm:text-base text-gray-600 max-w-sm mx-auto">
-            The page you're looking for seems to have wandered off. Don't worry, you can find your
+            The page you&apos;re looking for seems to have wandered off. Don&apos;t worry, you can find your
             way back using these helpful links.
           </p>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 mt-8">
+        <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 md:mt-8 mt-2">
           {[
             { to: '/', icon: Home, text: 'Back Home', color: 'bg-[#219B9D]' },
             {
@@ -120,7 +120,7 @@ const NotFoundPage = () => {
             { to: '/contact-us', icon: Phone, text: 'Contact Us', color: 'bg-purple-500' },
           ].map((link, index) => (
             <motion.div
-              key={link.to}
+              key={index}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="relative group"
@@ -145,7 +145,7 @@ const NotFoundPage = () => {
           ))}
         </motion.div>
 
-        <motion.div variants={itemVariants} className="mt-8 text-sm sm:text-base text-gray-500">
+        <motion.div variants={itemVariants} className="md:mt-8 mt-2 text-sm sm:text-base text-gray-500">
           <p>
             If you believe this is a mistake, please{' '}
             <Link
