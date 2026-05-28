@@ -101,12 +101,31 @@ jobs:
 
             docker pull "$IMAGE_LOWER:latest"
 
-            echo "Stopping container..."
+            echo "=== Port ${PORT} — containers before cleanup ==="
+            docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" | grep -E ":${PORT}->|0\.0\.0\.0:${PORT}->|127\.0\.0\.1:${PORT}->" || true
+
+            echo "=== Stop target container: ${CONTAINER} ==="
             docker stop "$CONTAINER" 2>/dev/null || true
+            docker rm "$CONTAINER" 2>/dev/null || true
+
+            echo "=== Free port ${PORT} (any Docker container still publishing it) ==="
+            if ids=$(docker ps -q --filter "publish=${PORT}"); then
+              if [ -n "$ids" ]; then
+                echo "Stopping: $ids"
+                docker stop $ids 2>/dev/null || true
+              fi
+            fi
+            if ids=$(docker ps -aq --filter "publish=${PORT}"); then
+              if [ -n "$ids" ]; then
+                docker rm $ids 2>/dev/null || true
+              fi
+            fi
+
             sleep "$COOLDOWN"
 
-            docker rm "$CONTAINER" 2>/dev/null || true
-            sleep "$COOLDOWN"
+            if ss -tulnp 2>/dev/null | grep -q ":${PORT} "; then
+              echo "WARNING: port ${PORT} may still be in use (non-Docker process?). Check: ss -tulnp | grep :${PORT}"
+            fi
 
             docker run -d \
               --name "$CONTAINER" \
