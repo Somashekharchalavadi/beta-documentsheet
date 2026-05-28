@@ -7,12 +7,7 @@ const ScanHero = () => {
           <div>
             <div className="flex">
               <div className="w-8">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke="#faa700"
-                >
+                <svg viewBox="0 0 24 24" fill="orange" xmlns="http://www.w3.org/2000/svg" stroke="#faa700">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
@@ -23,13 +18,7 @@ const ScanHero = () => {
                       strokeWidth="1.5"
                       strokeLinecap="round"
                     ></path>{' '}
-                    <path
-                      d="M7.44645 7.24121C5.11144 8.94915 3.32371 12.2158 4.24844 18.0004C5.06701 15.5892 7.53446 13.6579 10.2908 12.7283"
-                      stroke="#1C274C"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>{' '}
+                    <path d="M7.44645 7.24121C5.11144 8.94915 3.32371 12.2158 4.24844 18.0004C5.06701 15.5892 7.53446 13.6579 10.2908 12.7283" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>{' '}
                     <path
                       d="M10.2808 16C10.2808 16 10.9135 17.3908 11.6935 17.8692C12.4735 18.3475 14 18.2808 14 18.2808C14 18.2808 12.6092 18.9135 12.1308 19.6935C11.6525 20.4735 11.7192 22 11.7192 22C11.7192 22 11.0865 20.6092 10.3065 20.1308C9.52652 19.6525 8 19.7192 8 19.7192C8 19.7192 9.39082 19.0865 9.86916 18.3065C10.3475 17.5265 10.2808 16 10.2808 16Z"
                       stroke="#1C274C"
@@ -44,12 +33,7 @@ const ScanHero = () => {
                 </svg>
               </div>
               <div className="w-8">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke="#faa700"
-                >
+                <svg viewBox="0 0 24 24" fill="orange" xmlns="http://www.w3.org/2000/svg" stroke="#faa700">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
@@ -60,13 +44,7 @@ const ScanHero = () => {
                       strokeWidth="1.5"
                       strokeLinecap="round"
                     ></path>{' '}
-                    <path
-                      d="M7.44645 7.24121C5.11144 8.94915 3.32371 12.2158 4.24844 18.0004C5.06701 15.5892 7.53446 13.6579 10.2908 12.7283"
-                      stroke="#1C274C"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>{' '}
+                    <path d="M7.44645 7.24121C5.11144 8.94915 3.32371 12.2158 4.24844 18.0004C5.06701 15.5892 7.53446 13.6579 10.2908 12.7283" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>{' '}
                     <path
                       d="M10.2808 16C10.2808 16 10.9135 17.3908 11.6935 17.8692C12.4735 18.3475 14 18.2808 14 18.2808C14 18.2808 12.6092 18.9135 12.1308 19.6935C11.6525 20.4735 11.7192 22 11.7192 22C11.7192 22 11.0865 20.6092 10.3065 20.1308C9.52652 19.6525 8 19.7192 8 19.7192C8 19.7192 9.39082 19.0865 9.86916 18.3065C10.3475 17.5265 10.2808 16 10.2808 16Z"
                       stroke="#1C274C"
@@ -81,12 +59,7 @@ const ScanHero = () => {
                 </svg>
               </div>
               <div className="w-8">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke="#faa700"
-                >
+                <svg viewBox="0 0 24 24" fill="orange" xmlns="http://www.w3.org/2000/svg" stroke="#faa700">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
@@ -97,13 +70,7 @@ const ScanHero = () => {
                       strokeWidth="1.5"
                       strokeLinecap="round"
                     ></path>{' '}
-                    <path
-                      d="M7.44645 7.24121C5.11144 8.94915 3.32371 12.2158 4.24844 18.0004C5.06701 15.5892 7.53446 13.6579 10.2908 12.7283"
-                      stroke="#1C274C"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>{' '}
+                    <path d="M7.44645 7.24121C5.11144 8.94915 3.32371 12.2158 4.24844 18.0004C5.06701 15.5892 7.53446 13.6579 10.2908 12.7283" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>{' '}
                     <path
                       d="M10.2808 16C10.2808 16 10.9135 17.3908 11.6935 17.8692C12.4735 18.3475 14 18.2808 14 18.2808C14 18.2808 12.6092 18.9135 12.1308 19.6935C11.6525 20.4735 11.7192 22 11.7192 22C11.7192 22 11.0865 20.6092 10.3065 20.1308C9.52652 19.6525 8 19.7192 8 19.7192C8 19.7192 9.39082 19.0865 9.86916 18.3065C10.3475 17.5265 10.2808 16 10.2808 16Z"
                       stroke="#1C274C"
@@ -118,28 +85,13 @@ const ScanHero = () => {
                 </svg>
               </div>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 p-1">
-              Manage Your Documents with Ease
-            </h2>
-            <p className="text-gray-600 mt-4">
-              Leverage our smart QR code system to retrieve or upload your documents quickly. Say
-              goodbye to manual processes and hello to seamless efficiency.
-            </p>
-            <p className="text-gray-600 mt-4">
-              Whether you have a serial number or a QR code, our tools are built for speed,
-              accuracy, and security.
-            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 p-1">Manage Your Documents with Ease</h2>
+            <p className="text-gray-600 mt-4">Leverage our smart QR code system to retrieve or upload your documents quickly. Say goodbye to manual processes and hello to seamless efficiency.</p>
+            <p className="text-gray-600 mt-4">Whether you have a serial number or a QR code, our tools are built for speed, accuracy, and security.</p>
           </div>
           {/* Right Image */}
           <div className="relative">
-            <img
-              src={'/assets/scan-qr.png'}
-              alt="QR Code Illustration"
-              width={1000}
-              height={1000}
-              loading="lazy"
-              className="w-full h-auto"
-            />
+            <img src={'/assets/scan-qr.png'} alt="QR Code Illustration" width={1000} height={1000} loading="lazy" className="w-full h-auto" />
           </div>
         </div>
       </section>

@@ -27,20 +27,12 @@ const AboutTabs = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <Pill text="Vision & Mission" />
-          <h2 className="md:text-4xl text-xl font-bold text-gray-800 mt-2 p-1">
-            Revolutionizing Documentation with Efficiency and Security
-          </h2>
+          <h2 className="md:text-4xl text-xl font-bold text-gray-800 mt-2 p-1">Revolutionizing Documentation with Efficiency and Security</h2>
 
           {/* Tabs */}
           <div className="md:mt-8 mt-4 flex space-x-4">
             {['Vision', 'Mission', 'Approach'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`md:px-6 px-3 py-2 rounded-full font-semibold md:text-sm text-xs transition-colors ${
-                  activeTab === tab ? 'bg-orange-500 text-white' : 'bg-orange-100 text-orange-500'
-                }`}
-              >
+              <button key={tab} onClick={() => setActiveTab(tab)} className={`md:px-6 px-3 py-2 rounded-full font-semibold md:text-sm text-xs transition-colors ${activeTab === tab ? 'bg-orange-500 text-white' : 'bg-orange-100 text-orange-500'}`}>
                 Our {tab}
               </button>
             ))}
@@ -50,24 +42,13 @@ const AboutTabs = () => {
           <div className="md:mt-12 mt-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left: Text Content */}
             <div>
-              <h3 className="md:text-2xl text-lg font-bold text-gray-800">
-                {tabsContent[activeTab].title}
-              </h3>
-              <p className="text-gray-600 mt-4 md:text-base text-xs">
-                {tabsContent[activeTab].text}
-              </p>
+              <h3 className="md:text-2xl text-lg font-bold text-gray-800">{tabsContent[activeTab].title}</h3>
+              <p className="text-gray-600 mt-4 md:text-base text-xs">{tabsContent[activeTab].text}</p>
             </div>
 
             {/* Right: Image */}
             <div>
-              <img
-                src={tabsContent[activeTab].image}
-                alt={activeTab}
-                className="w-full rounded-lg shadow-lg"
-                width={1000}
-                height={1000}
-                loading="lazy"
-              />
+              <img src={tabsContent[activeTab].image} alt={activeTab} className="w-full rounded-lg shadow-lg" width={1000} height={1000} loading="lazy" />
             </div>
           </div>
         </div>

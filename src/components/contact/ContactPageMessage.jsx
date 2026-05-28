@@ -73,65 +73,23 @@ const ContactPageMessage = () => {
     <>
       <div className="flex flex-col md:flex-row items-start space-y-4 md:py-6  md:space-y-0 md:space-x-4 ">
         <div className="w-full md:w-1/2 p-4">
-          <iframe
-            src="https://lottie.host/embed/d6822f26-b60e-4b30-a3dd-5684a85a6223/bBLzC6lflG.lottie"
-            className="w-full md:h-[50vh]"
-            frameBorder="0"
-            title="contact-animations"
-          ></iframe>
+          <iframe src="https://lottie.host/embed/d6822f26-b60e-4b30-a3dd-5684a85a6223/bBLzC6lflG.lottie" className="w-full md:h-[50vh]" frameBorder="0" title="contact-animations"></iframe>
         </div>
         <div className="w-full md:w-1/2 p-4 bg-gray-50 rounded-lg shadow border-2">
           <form className="max-w-3xl" onSubmit={handleSubmit}>
             <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full mt-2 p-2 border border-gray-400 rounded-md"
-              required
-            />
+            <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full mt-2 p-2 border border-gray-400 rounded-md" required />
 
             <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full mt-2 p-2 border border-gray-400 rounded-md"
-              required
-            />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full mt-2 p-2 border border-gray-400 rounded-md" required />
 
             <label>Mobile Number</label>
-            <input
-              type="number"
-              name="mobile"
-              value={formData.mobile}
-              onChange={handleChange}
-              className="w-full mt-2 p-2 border border-gray-400 rounded-md"
-              required
-              maxLength={10}
-            />
+            <input type="number" name="mobile" value={formData.mobile} onChange={handleChange} className="w-full mt-2 p-2 border border-gray-400 rounded-md" required maxLength={10} />
 
             <label>Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full mt-2 p-2 border border-gray-400 rounded-md"
-              rows="4"
-              required
-            />
+            <textarea name="message" value={formData.message} onChange={handleChange} className="w-full mt-2 p-2 border border-gray-400 rounded-md" rows="4" required />
 
-            <button
-              type="submit"
-              disabled={isLoading}
-              className={`w-full mt-4 p-2 font-regular rounded-md ${
-                isLoading
-                  ? 'bg-gray-400 text-gray-800 cursor-not-allowed'
-                  : 'bg-[#219B9D] hover:bg-[#1A776F] text-white'
-              }`}
-            >
+            <button type="submit" disabled={isLoading} className={`w-full mt-4 p-2 font-regular rounded-md ${isLoading ? 'bg-gray-400 text-gray-800 cursor-not-allowed' : 'bg-[#219B9D] hover:bg-[#1A776F] text-white'}`}>
               {isLoading ? 'Submitting' : 'Raise a Query'}
             </button>
           </form>

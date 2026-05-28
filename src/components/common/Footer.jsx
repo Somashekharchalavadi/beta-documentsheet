@@ -51,34 +51,13 @@ const Footer = () => {
       </footer>
 
       {/* Mobile View Footer */}
-      <motion.div
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        className="fixed bottom-0 left-0 w-full bg-white shadow-lg border-t flex justify-around items-center md:hidden px-2 py-1"
-      >
+      <motion.div initial={{ y: 100 }} animate={{ y: 0 }} className="fixed bottom-0 left-0 w-full bg-white shadow-lg border-t flex justify-around items-center md:hidden px-2 py-1">
         {footerLinks.map((link) => (
-          <Link
-            key={link.path}
-            to={link.path}
-            className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg transition-all duration-200 ${
-              isActive(link.path)
-                ? 'text-orange-500 scale-110'
-                : 'text-gray-600 hover:text-orange-500'
-            }`}
-          >
-            <motion.div
-              whileTap={{ scale: 0.9 }}
-              className={`mb-0.5 ${isActive(link.path) ? 'drop-shadow-md' : ''}`}
-            >
+          <Link key={link.path} to={link.path} className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg transition-all duration-200 ${isActive(link.path) ? 'text-orange-500 scale-110' : 'text-gray-600 hover:text-orange-500'}`}>
+            <motion.div whileTap={{ scale: 0.9 }} className={`mb-0.5 ${isActive(link.path) ? 'drop-shadow-md' : ''}`}>
               {<link.icon size={28} strokeWidth={isActive(link.path) ? 2.5 : 2} />}
             </motion.div>
-            <span
-              className={`text-[10px]  ${
-                isActive(link.path) ? 'text-orange-400' : 'text-gray-500'
-              }`}
-            >
-              {link.label}
-            </span>
+            <span className={`text-[10px]  ${isActive(link.path) ? 'text-orange-400' : 'text-gray-500'}`}>{link.label}</span>
           </Link>
         ))}
       </motion.div>

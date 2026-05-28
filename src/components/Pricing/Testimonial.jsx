@@ -3,19 +3,9 @@ import Pill from '../common/Pill';
 
 const Testimonial = () => {
   return (
-    <motion.section
-      className="md:py-24 py-16 overflow-hidden"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
+    <motion.section className="md:py-24 py-16 overflow-hidden" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
       <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-        >
+        <motion.div className="text-center mb-12" initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}>
           <Pill text={'Testimonial'} />
           <h2 className="text-3xl font-bold mb-4">What Our Clients Say</h2>
           <p className="text-gray-600">Trusted by professionals and businesses worldwide</p>
@@ -32,76 +22,60 @@ const Testimonial = () => {
                   name: 'Rahul Sharma',
                   role: 'Business Owner',
                   image: '/assets/testimonials/user1.jpg',
-                  content:
-                    'Document Sheet has streamlined our document management process. The waterproof feature gives us peace of mind.',
+                  content: 'Document Sheet has streamlined our document management process. The waterproof feature gives us peace of mind.',
                   rating: 5,
                 },
                 {
                   name: 'Priya Patel',
                   role: 'HR Manager',
                   image: '/assets/testimonials/user2.jpg',
-                  content:
-                    'The professional formats save us so much time. Customer support is always responsive and helpful.',
+                  content: 'The professional formats save us so much time. Customer support is always responsive and helpful.',
                   rating: 5,
                 },
                 {
                   name: 'Amit Kumar',
                   role: 'Startup Founder',
                   image: '/assets/testimonials/user3.jpg',
-                  content:
-                    'Best investment for our document needs. The quality is exceptional and delivery is always on time.',
+                  content: 'Best investment for our document needs. The quality is exceptional and delivery is always on time.',
                   rating: 5,
                 },
                 {
                   name: 'Sneha Reddy',
                   role: 'Legal Consultant',
                   image: '/assets/testimonials/user4.jpg',
-                  content:
-                    'The fireproof feature is a game-changer. Essential for storing important legal documents.',
+                  content: 'The fireproof feature is a game-changer. Essential for storing important legal documents.',
                   rating: 5,
                 },
                 {
                   name: 'Vikram Singh',
                   role: 'Real Estate Agent',
                   image: '/assets/testimonials/user5.jpg',
-                  content:
-                    'Using Document Sheet for all our property documents. The security features are outstanding.',
+                  content: 'Using Document Sheet for all our property documents. The security features are outstanding.',
                   rating: 5,
                 },
                 {
                   name: 'Anita Desai',
                   role: 'Education Director',
                   image: '/assets/testimonials/user6.jpg',
-                  content:
-                    'Perfect for maintaining student records. The organization system is intuitive and efficient.',
+                  content: 'Perfect for maintaining student records. The organization system is intuitive and efficient.',
                   rating: 5,
                 },
                 {
                   name: 'Mohammed Khan',
                   role: 'Financial Advisor',
                   image: '/assets/testimonials/user7.jpg',
-                  content:
-                    'Highly recommend for financial document storage. The security measures are top-notch.',
+                  content: 'Highly recommend for financial document storage. The security measures are top-notch.',
                   rating: 5,
                 },
                 {
                   name: 'Lisa Chen',
                   role: 'Project Manager',
                   image: '/assets/testimonials/user8.jpg',
-                  content:
-                    'The collaboration features have made document sharing seamless. Great for team projects.',
+                  content: 'The collaboration features have made document sharing seamless. Great for team projects.',
                   rating: 5,
                 },
               ].map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white rounded-xl shadow-lg p-6 w-80 flex-shrink-0"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
+                <motion.div key={index} className="bg-white rounded-xl shadow-lg p-6 w-80 flex-shrink-0" initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
                       <img
@@ -109,9 +83,7 @@ const Testimonial = () => {
                         alt={testimonial.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          e.target.src =
-                            'https://ui-avatars.com/api/?name=' +
-                            testimonial.name.replace(' ', '+');
+                          e.target.src = 'https://ui-avatars.com/api/?name=' + testimonial.name.replace(' ', '+');
                         }}
                       />
                     </div>

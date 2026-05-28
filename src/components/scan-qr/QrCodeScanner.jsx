@@ -27,13 +27,7 @@ const QrCodeScanner = () => {
       {isScanning && (
         <div className="w-full max-w-md  p-1  rounded-lg  shadow-md">
           <div className="h-96">
-            <Scanner
-              onScan={handleScan}
-              onError={handleError}
-              scanDelay={300}
-              formats={['qr_code', 'ean_13', 'upc_a']}
-              paused={false}
-            />
+            <Scanner onScan={handleScan} onError={handleError} scanDelay={300} formats={['qr_code', 'ean_13', 'upc_a']} paused={false} />
           </div>
         </div>
       )}
@@ -41,21 +35,13 @@ const QrCodeScanner = () => {
       <div className="flex space-x-4">
         {isScanning ? (
           <>
-            <button
-              onClick={stopScanner}
-              disabled={!isScanning}
-              className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg disabled:bg-gray-400"
-            >
+            <button onClick={stopScanner} disabled={!isScanning} className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg disabled:bg-gray-400">
               Stop
             </button>
           </>
         ) : (
           <>
-            <button
-              onClick={startScanner}
-              disabled={isScanning}
-              className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg disabled:bg-gray-400"
-            >
+            <button onClick={startScanner} disabled={isScanning} className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg disabled:bg-gray-400">
               Scan
             </button>
           </>

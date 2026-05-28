@@ -34,33 +34,7 @@
   {
     "state": "Arunachal Pradesh",
     "count": 25,
-    "districts": [
-      "Anjaw",
-      "Changlang",
-      "Dibang Valley",
-      "East Kameng",
-      "East Siang",
-      "Kamle",
-      "Kra Daadi",
-      "Kurung Kumey",
-      "Leparada",
-      "Lohit",
-      "Longding",
-      "Lower Dibang Valley",
-      "Lower Siang",
-      "Lower Subansiri",
-      "Namsai",
-      "Pakke Kessang",
-      "Papum Pare",
-      "Shi Yomi",
-      "Siang",
-      "Tawang",
-      "Tirap",
-      "Upper Siang",
-      "Upper Subansiri",
-      "West Kameng",
-      "West Siang"
-    ]
+    "districts": ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kamle", "Kra Daadi", "Kurung Kumey", "Leparada", "Lohit", "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri", "Namsai", "Pakke Kessang", "Papum Pare", "Shi Yomi", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang"]
   },
   {
     "state": "Assam",
@@ -233,78 +207,17 @@
   {
     "state": "Haryana",
     "count": 22,
-    "districts": [
-      "Ambala",
-      "Bhiwani",
-      "Charkhi Dadri",
-      "Faridabad",
-      "Fatehabad",
-      "Gurugram",
-      "Hisar",
-      "Jhajjar",
-      "Jind",
-      "Kaithal",
-      "Karnal",
-      "Kurukshetra",
-      "Mahendragarh",
-      "Nuh",
-      "Palwal",
-      "Panchkula",
-      "Panipat",
-      "Rewari",
-      "Rohtak",
-      "Sirsa",
-      "Sonipat",
-      "Yamunanagar"
-    ]
+    "districts": ["Ambala", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gurugram", "Hisar", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Mahendragarh", "Nuh", "Palwal", "Panchkula", "Panipat", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar"]
   },
   {
     "state": "Himachal Pradesh",
     "count": 12,
-    "districts": [
-      "Bilaspur",
-      "Chamba",
-      "Hamirpur",
-      "Kangra",
-      "Kinnaur",
-      "Kullu",
-      "Lahaul and Spiti",
-      "Mandi",
-      "Shimla",
-      "Sirmaur",
-      "Solan",
-      "Una"
-    ]
+    "districts": ["Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur", "Kullu", "Lahaul and Spiti", "Mandi", "Shimla", "Sirmaur", "Solan", "Una"]
   },
   {
     "state": "Jharkhand",
     "count": 24,
-    "districts": [
-      "Bokaro",
-      "Chatra",
-      "Deoghar",
-      "Dhanbad",
-      "Dumka",
-      "East Singhbhum",
-      "Garhwa",
-      "Giridih",
-      "Godda",
-      "Gumla",
-      "Hazaribagh",
-      "Jamtara",
-      "Khunti",
-      "Koderma",
-      "Latehar",
-      "Lohardaga",
-      "Pakur",
-      "Palamu",
-      "Ramgarh",
-      "Ranchi",
-      "Sahebganj",
-      "Seraikela-Kharsawan",
-      "Simdega",
-      "West Singhbhum"
-    ]
+    "districts": ["Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla", "Hazaribagh", "Jamtara", "Khunti", "Koderma", "Latehar", "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi", "Sahebganj", "Seraikela-Kharsawan", "Simdega", "West Singhbhum"]
   },
   {
     "state": "Karnataka",
@@ -346,22 +259,7 @@
   {
     "state": "Kerala",
     "count": 14,
-    "districts": [
-      "Alappuzha",
-      "Ernakulam",
-      "Idukki",
-      "Kannur",
-      "Kasaragod",
-      "Kollam",
-      "Kottayam",
-      "Kozhikode",
-      "Malappuram",
-      "Palakkad",
-      "Pathanamthitta",
-      "Thiruvananthapuram",
-      "Thrissur",
-      "Wayanad"
-    ]
+    "districts": ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"]
   },
   {
     "state": "Madhya Pradesh",
@@ -469,81 +367,22 @@
   {
     "state": "Manipur",
     "count": 16,
-    "districts": [
-      "Bishnupur",
-      "Chandel",
-      "Churachandpur",
-      "Imphal East",
-      "Imphal West",
-      "Jiribam",
-      "Kakching",
-      "Kamjong",
-      "Kangpokpi",
-      "Noney",
-      "Pherzawl",
-      "Senapati",
-      "Tamenglong",
-      "Tengnoupal",
-      "Thoubal",
-      "Ukhrul"
-    ]
+    "districts": ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"]
   },
   {
     "state": "Meghalaya",
     "count": 12,
-    "districts": [
-      "East Garo Hills",
-      "East Jaintia Hills",
-      "East Khasi Hills",
-      "Eastern West Khasi Hills",
-      "North Garo Hills",
-      "Ri-Bhoi",
-      "South Garo Hills",
-      "South West Garo Hills",
-      "South West Khasi Hills",
-      "West Garo Hills",
-      "West Jaintia Hills",
-      "West Khasi Hills"
-    ]
+    "districts": ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "Eastern West Khasi Hills", "North Garo Hills", "Ri-Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"]
   },
   {
     "state": "Mizoram",
     "count": 11,
-    "districts": [
-      "Aizawl",
-      "Champhai",
-      "Hnahthial",
-      "Khawzawl",
-      "Kolasib",
-      "Lawngtlai",
-      "Lunglei",
-      "Mamit",
-      "Saitual",
-      "Serchhip",
-      "Siaha"
-    ]
+    "districts": ["Aizawl", "Champhai", "Hnahthial", "Khawzawl", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saitual", "Serchhip", "Siaha"]
   },
   {
     "state": "Nagaland",
     "count": 16,
-    "districts": [
-      "Ch\u00fcmoukedima",
-      "Dimapur",
-      "Kiphire",
-      "Kohima",
-      "Longleng",
-      "Mokokchung",
-      "Mon",
-      "Niuland",
-      "Noklak",
-      "Peren",
-      "Phek",
-      "Shamator",
-      "Tseminy\u00fc",
-      "Tuensang",
-      "Wokha",
-      "Zunheboto"
-    ]
+    "districts": ["Ch\u00fcmoukedima", "Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Niuland", "Noklak", "Peren", "Phek", "Shamator", "Tseminy\u00fc", "Tuensang", "Wokha", "Zunheboto"]
   },
   {
     "state": "Odisha",
@@ -584,31 +423,7 @@
   {
     "state": "Punjab",
     "count": 23,
-    "districts": [
-      "Amritsar",
-      "Barnala",
-      "Bathinda",
-      "Faridkot",
-      "Fatehgarh Sahib",
-      "Fazilka",
-      "Ferozepur",
-      "Gurdaspur",
-      "Hoshiarpur",
-      "Jalandhar",
-      "Kapurthala",
-      "Ludhiana",
-      "Malerkotla",
-      "Mansa",
-      "Moga",
-      "Pathankot",
-      "Patiala",
-      "Rupnagar",
-      "S.A.S Nagar",
-      "Sangrur",
-      "Shaheed Bhagat Singh Nagar",
-      "Sri Muktsar Sahib",
-      "Tarn Taran"
-    ]
+    "districts": ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Ferozepur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Malerkotla", "Mansa", "Moga", "Pathankot", "Patiala", "Rupnagar", "S.A.S Nagar", "Sangrur", "Shaheed Bhagat Singh Nagar", "Sri Muktsar Sahib", "Tarn Taran"]
   },
   {
     "state": "Rajasthan",
@@ -757,16 +572,7 @@
   {
     "state": "Tripura",
     "count": 8,
-    "districts": [
-      "Dhalai",
-      "Gomati",
-      "Khowai",
-      "North Tripura",
-      "Sepahijala",
-      "South Tripura",
-      "Unakoti",
-      "West Tripura"
-    ]
+    "districts": ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti", "West Tripura"]
   },
   {
     "state": "Uttar Pradesh",
@@ -852,21 +658,7 @@
   {
     "state": "Uttarakhand",
     "count": 13,
-    "districts": [
-      "Almora",
-      "Bageshwar",
-      "Chamoli",
-      "Champawat",
-      "Dehradun",
-      "Haridwar",
-      "Nainital",
-      "Pauri Garhwal",
-      "Pithoragarh",
-      "Rudraprayag",
-      "Tehri Garhwal",
-      "Udham Singh Nagar",
-      "Uttarkashi"
-    ]
+    "districts": ["Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Haridwar", "Nainital", "Pauri Garhwal", "Pithoragarh", "Rudraprayag", "Tehri Garhwal", "Udham Singh Nagar", "Uttarkashi"]
   },
   {
     "state": "West Bengal",
@@ -915,45 +707,12 @@
   {
     "state": "Delhi",
     "count": 11,
-    "districts": [
-      "Central Delhi",
-      "East Delhi",
-      "New Delhi",
-      "North Delhi",
-      "North East Delhi",
-      "North West Delhi",
-      "Shahdara",
-      "South Delhi",
-      "South East Delhi",
-      "South West Delhi",
-      "West Delhi"
-    ]
+    "districts": ["Central Delhi", "East Delhi", "New Delhi", "North Delhi", "North East Delhi", "North West Delhi", "Shahdara", "South Delhi", "South East Delhi", "South West Delhi", "West Delhi"]
   },
   {
     "state": "Jammu and Kashmir",
     "count": 20,
-    "districts": [
-      "Anantnag",
-      "Bandipora",
-      "Baramulla",
-      "Budgam",
-      "Doda",
-      "Ganderbal",
-      "Jammu",
-      "Kathua",
-      "Kishtwar",
-      "Kulgam",
-      "Kupwara",
-      "Poonch",
-      "Pulwama",
-      "Rajouri",
-      "Ramban",
-      "Reasi",
-      "Samba",
-      "Shopian",
-      "Srinagar",
-      "Udhampur"
-    ]
+    "districts": ["Anantnag", "Bandipora", "Baramulla", "Budgam", "Doda", "Ganderbal", "Jammu", "Kathua", "Kishtwar", "Kulgam", "Kupwara", "Poonch", "Pulwama", "Rajouri", "Ramban", "Reasi", "Samba", "Shopian", "Srinagar", "Udhampur"]
   },
   {
     "state": "Ladakh",
