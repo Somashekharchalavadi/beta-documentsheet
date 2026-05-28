@@ -10,8 +10,9 @@
     "preview": "vite preview",
     "docker:up": "docker compose up -d --build",
     "docker:down": "docker compose down",
-    "prepare": "husky install",
-    "format": "npx prettier --write ."
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.4",
@@ -50,15 +51,11 @@
     "vite": "^6.0.5"
   },
   "lint-staged": {
-    "**/*.{js,ts}": [
+    "**/*.{js,jsx}": [
       "prettier --write",
-      "eslint --fix",
-      "git add ."
+      "eslint --fix"
     ],
-    "**/*.json": [
-      "prettier --write"
-    ],
-    "**/*.md": [
+    "**/*.{json,md,css,html}": [
       "prettier --write"
     ]
   }
