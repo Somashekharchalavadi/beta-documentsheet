@@ -1,1 +1,2 @@
+# Auto-format staged files with Prettier, then ESLint --fix (staged files only).
 npx lint-staged
